@@ -220,6 +220,7 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\jquery-2.0.0.min.map" />
+    <Content Include="Views\Rooms\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -265,6 +266,10 @@
     <ProjectReference Include="..\PaymentService.WebInterface\PaymentService.WebInterface.csproj">
       <Project>{23a02ada-733e-4651-9143-ab9ee0c5498d}</Project>
       <Name>PaymentService.WebInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PricingService.WebInterface\PricingService.WebInterface.csproj">
+      <Project>{ee50af2a-eae2-4a95-ba10-17d1f7aed357}</Project>
+      <Name>PricingService.WebInterface</Name>
     </ProjectReference>
     <ProjectReference Include="..\ReservationService.Contracts\ReservationService.Contracts.csproj">
       <Project>{411bedb9-6b9c-4fda-b67d-01a5d205894b}</Project>

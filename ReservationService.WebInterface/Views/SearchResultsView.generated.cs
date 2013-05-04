@@ -39,21 +39,21 @@ WriteLiteral(" \r\n\r\n");
 WriteLiteral("\r\n\r\n");
 
 
-WriteLiteral("\r\n\r\n<div class=\"search_results\">\r\n<h3>Search results</h3>\r\nFound ");
+WriteLiteral("\r\n\r\n<div class=\"search_results\">\r\n<h3>Found ");
 
 
             
-            #line 11 "..\..\Views\SearchResultsView.cshtml"
- Write(Model.RoomTypeIds.Count);
+            #line 10 "..\..\Views\SearchResultsView.cshtml"
+     Write(Model.RoomTypeIds.Count);
 
             
             #line default
             #line hidden
-WriteLiteral(" rooms!\r\n\r\n<ul class=\"search_room_results\">\r\n");
+WriteLiteral(" rooms!</h3>\r\n\r\n<ul class=\"search_room_results\">\r\n");
 
 
             
-            #line 14 "..\..\Views\SearchResultsView.cshtml"
+            #line 13 "..\..\Views\SearchResultsView.cshtml"
  foreach(var roomTypeId in Model.RoomTypeIds) {
 
             
@@ -63,7 +63,7 @@ WriteLiteral("\t<li id=\"");
 
 
             
-            #line 15 "..\..\Views\SearchResultsView.cshtml"
+            #line 14 "..\..\Views\SearchResultsView.cshtml"
     Write(roomTypeId);
 
             
@@ -74,7 +74,7 @@ WriteLiteral("\">\r\n\t\t<form action=\"/Reservation/Start\" method=\"post\">\r\
 
 
             
-            #line 17 "..\..\Views\SearchResultsView.cshtml"
+            #line 16 "..\..\Views\SearchResultsView.cshtml"
                                             Write(roomTypeId);
 
             
@@ -84,7 +84,7 @@ WriteLiteral("\" />\r\n\t\t\t<input type=\"hidden\" name=\"from\" value=\"");
 
 
             
-            #line 18 "..\..\Views\SearchResultsView.cshtml"
+            #line 17 "..\..\Views\SearchResultsView.cshtml"
                                       Write(Model.From);
 
             
@@ -94,7 +94,7 @@ WriteLiteral("\" />\r\n\t\t\t<input type=\"hidden\" name=\"till\" value=\"");
 
 
             
-            #line 19 "..\..\Views\SearchResultsView.cshtml"
+            #line 18 "..\..\Views\SearchResultsView.cshtml"
                                       Write(Model.Till);
 
             
@@ -105,7 +105,7 @@ WriteLiteral("\" />\r\n\t\t\t<input class=\"book_room_btn\" type=\"submit\" valu
 
 
             
-            #line 23 "..\..\Views\SearchResultsView.cshtml"
+            #line 22 "..\..\Views\SearchResultsView.cshtml"
 }
 
             

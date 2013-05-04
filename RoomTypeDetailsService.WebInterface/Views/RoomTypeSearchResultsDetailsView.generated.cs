@@ -35,11 +35,11 @@ namespace RoomTypeDetailsService.WebInterface.Views
 WriteLiteral(" \r\n\r\n");
 
 
-WriteLiteral("\r\n\r\n<h3>");
+WriteLiteral("\r\n\r\n<div class=\"room_type_details\">\r\n<h3>");
 
 
             
-            #line 7 "..\..\Views\RoomTypeSearchResultsDetailsView.cshtml"
+            #line 8 "..\..\Views\RoomTypeSearchResultsDetailsView.cshtml"
 Write(Model.RoomTypeName);
 
             
@@ -49,7 +49,7 @@ WriteLiteral("</h3>\r\n<p>\r\n<img width=\"100\" height=\"150\" src=\"");
 
 
             
-            #line 9 "..\..\Views\RoomTypeSearchResultsDetailsView.cshtml"
+            #line 10 "..\..\Views\RoomTypeSearchResultsDetailsView.cshtml"
                               Write(Model.RoomTypeImageUrl);
 
             
@@ -59,13 +59,13 @@ WriteLiteral("\" alt=\"roomtype impression\" /> \r\n");
 
 
             
-            #line 10 "..\..\Views\RoomTypeSearchResultsDetailsView.cshtml"
+            #line 11 "..\..\Views\RoomTypeSearchResultsDetailsView.cshtml"
 Write(Model.RoomTypeDescription);
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n</p>\r\n<div class=\"fix\"></div>");
+WriteLiteral("\r\n</p>\r\n<div class=\"fix\"></div>\r\n</div>");
 
 
         }

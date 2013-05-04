@@ -10,7 +10,8 @@ namespace CustomerWebsite.WebInterface.Controllers {
 	public class RoomsController:ADSDControllerBase {
 		public ActionResult Search(DateTime search_from, DateTime search_till) {
 			ProcessingContext.Dispatch(new SearchingForRooms { From = search_from, Till = search_till });
-			return View("~/Views/Home/Index.cshtml");
+			ViewBag.BodyClasses = "Rooms_Search"; 
+			return View();
 		}
 	}
 }

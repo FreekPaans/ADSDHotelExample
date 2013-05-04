@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Search results";
+
+}
+
+
+@Html.Raw(ViewBag.HttpProcessingPipelineContext.RenderSection("Reservations_Searchbox"))
+@Html.Raw(ViewBag.HttpProcessingPipelineContext.RenderSection("Reservations_SearchResults"))
+
+
+@foreach(var sect in ViewBag.HttpProcessingPipelineContext.RenderSections()) {
+	Html.Raw(sect.Value);
+}

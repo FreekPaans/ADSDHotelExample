@@ -31,8 +31,18 @@ namespace Infrastructure.HTTP.ProcessingPipeline {
 			_views[sectionName] = view;
 		}
 
+		public string RenderSection(string name) {
+			var res= _views[name]();
+			_views.Remove(name);
+			return WrapInIdedDiv(name,res);
+		}
+
+		private string WrapInIdedDiv(string name,string output) {
+			return string.Format(@"<div id=""{0}"">{1}</div>", name,output);
+		}
+
 		public Dictionary<string,string> RenderSections() {
-			return _views.ToDictionary(v=>v.Key,v=>v.Value());
+			return _views.ToDictionary(v=>v.Key,v=>WrapInIdedDiv(v.Key,v.Value()));
 		}
 
 		public void Dispatch<T>(T @event)  where T: class{

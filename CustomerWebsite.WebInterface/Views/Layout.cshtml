@@ -9,8 +9,9 @@
 	<link rel="stylesheet" href="/Content/themes/base/jquery-ui.css" />
 	<link rel="stylesheet" href="/Content/Site.css" />
 </head>
-<body>
-    <div>
+<body class="@ViewBag.BodyClasses">
+    <div class="centerer">
+		<h2>Welcome to the ADSD hotel!</h2>
         @RenderBody()
     </div>
 </body>

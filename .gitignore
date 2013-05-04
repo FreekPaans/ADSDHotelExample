@@ -65,3 +65,5 @@
 /GuestService.Logic/bin
 /Infrastructure/bin
 /packages
+
+/PricingService.WebInterface/PricingService.WebInterface.csproj.user

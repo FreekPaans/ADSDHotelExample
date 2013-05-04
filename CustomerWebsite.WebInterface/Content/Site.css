@@ -1,5 +1,14 @@
 ﻿body {
+	font-family: Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
 }
+
+
+div.centerer {
+	width: 800px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
 
 .search_room_results, .search_room_results li {
 	margin: 0;
@@ -8,26 +17,68 @@
 }
 
 .search_room_results {
-	width: 400px;
-	border: 1px solid black;
+	width: 520px;
+	/*border: 1px solid black;*/
 }
 
 .search_room_results li img {
-	float:left;
+	float:right;
+}
+
+.search_room_results li h3 {
+	margin:0;
 }
 
 .search_room_results li  {
 	clear:both;
 	position: relative;
 	padding: 5px;
+	border-bottom: 1px dashed black;
 }
+
+.search_room_results li p {
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+.search_room_results li div.price_block div:first-child{
+	font-size: 80%;
+}
+.search_room_results li div.price {	
+	font-size: 130%;
+	float:left;
+	color: orange;
+	/*text-align:right;*/
+	/*padding-right: 5px;*/
+	width:80px;
+}
+
+.search_room_results li .room_type_details {
+	float:left;
+}
+
 
 .search_room_results .book_room_btn {
 	position: absolute;
-	top: 50%;
-	right: 0px;
+	bottom:0px;
+	left: 0px;
 }
 
 div.fix {
 	clear:both;
+}
+
+#Reservations_Searchbox {
+	width: 250px;
+	float:left;
+	position:relative;
+}
+
+#Reservations_Searchbox input[type=text] {
+	position: absolute;
+	left: 50px;
+}
+
+#Reservations_SearchResults {
+	float:left;
 }

@@ -46,6 +46,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{106FA6
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PricingService", "PricingService", "{4B329885-B547-4B27-9EC7-2EFA97163ECB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PricingService.WebInterface", "PricingService.WebInterface\PricingService.WebInterface.csproj", "{EE50AF2A-EAE2-4A95-BA10-17D1F7AED357}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,6 +108,10 @@ Global
 		{4C882B0D-ACD4-4B44-9C39-BF1D9B625178}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C882B0D-ACD4-4B44-9C39-BF1D9B625178}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C882B0D-ACD4-4B44-9C39-BF1D9B625178}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE50AF2A-EAE2-4A95-BA10-17D1F7AED357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE50AF2A-EAE2-4A95-BA10-17D1F7AED357}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE50AF2A-EAE2-4A95-BA10-17D1F7AED357}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE50AF2A-EAE2-4A95-BA10-17D1F7AED357}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -122,5 +130,6 @@ Global
 		{430A9F9A-BB54-42C3-8810-26EBDB3D5259} = {1BCA23D7-9D4C-498D-B432-A91BAC65CE71}
 		{4C882B0D-ACD4-4B44-9C39-BF1D9B625178} = {0504780C-A178-445F-9CCC-BDF79145AEF7}
 		{28D8C0BB-3A61-48F9-8CC5-BEC4052229C4} = {0504780C-A178-445F-9CCC-BDF79145AEF7}
+		{EE50AF2A-EAE2-4A95-BA10-17D1F7AED357} = {4B329885-B547-4B27-9EC7-2EFA97163ECB}
 	EndGlobalSection
 EndGlobal

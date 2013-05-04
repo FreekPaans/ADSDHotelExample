@@ -7,7 +7,24 @@
 
 <script src="/Scripts/ReservationService/SearchBox.js" type="text/javascript"></script>
 
+<div class="search_room_box">
 <form action="/Rooms/Search">
-From: <input type="text" name="search_from" value="@(Model!=null?Model.From.ToString("MM/dd/yyyy"):null)"/> Till <input value="@(Model!=null?Model.Till.ToString("MM/dd/yyyy"):null)" type="text" name="search_till" />
-<input type="submit" value="@(Model!=null?"Search again":"Search")" />
+<p>
+@if(Model==null) {
+	<text>Find a room now:</text>
+}
+else {
+	<text>Update your search</text>
+}
+</p>
+<p>
+From: <input type="text" name="search_from" value="@(Model!=null?Model.From.ToString("MM/dd/yyyy"):null)"/>
+</p>
+<p>
+Till: <input value="@(Model!=null?Model.Till.ToString("MM/dd/yyyy"):null)" type="text" name="search_till" /><br />
+</p>
+<input type="submit" value="@(Model!=null?"Update search":"Search")" />
+
 </form>
+
+</div>

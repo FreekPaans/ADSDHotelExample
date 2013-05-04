@@ -1,11 +1,10 @@
 ﻿@model Infrastructure.HTTP.ProcessingPipeline.HttpProcessingPipelineContext
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Welcome";
 }
 
-<h2>Welcome to the ADSD hotel!</h2>
 
 @foreach(var sect in ViewBag.HttpProcessingPipelineContext.RenderSections()) {
-	<div id="@sect.Key">@Html.Raw(sect.Value)</div>
+	@Html.Raw(sect.Value)
 }

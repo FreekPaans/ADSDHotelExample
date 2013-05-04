@@ -42,38 +42,77 @@ WriteLiteral("\r\n");
 
 
 WriteLiteral("\r\n\r\n<script src=\"/Scripts/ReservationService/SearchBox.js\" type=\"text/javascript\"" +
-"></script>\r\n\r\n<form action=\"/Rooms/Search\">\r\nFrom: <input type=\"text\" name=\"sear" +
-"ch_from\" value=\"");
+"></script>\r\n\r\n<div class=\"search_room_box\">\r\n<form action=\"/Rooms/Search\">\r\n<p>\r" +
+"\n");
 
 
             
-            #line 11 "..\..\Views\SearchRoomsBox.cshtml"
+            #line 13 "..\..\Views\SearchRoomsBox.cshtml"
+ if(Model==null) {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\t");
+
+WriteLiteral("Find a room now:");
+
+WriteLiteral("\r\n");
+
+
+            
+            #line 15 "..\..\Views\SearchRoomsBox.cshtml"
+}
+else {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\t");
+
+WriteLiteral("Update your search");
+
+WriteLiteral("\r\n");
+
+
+            
+            #line 18 "..\..\Views\SearchRoomsBox.cshtml"
+}
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</p>\r\n<p>\r\nFrom: <input type=\"text\" name=\"search_from\" value=\"");
+
+
+            
+            #line 21 "..\..\Views\SearchRoomsBox.cshtml"
                                                Write(Model!=null?Model.From.ToString("MM/dd/yyyy"):null);
 
             
             #line default
             #line hidden
-WriteLiteral("\"/> Till <input value=\"");
+WriteLiteral("\"/>\r\n</p>\r\n<p>\r\nTill: <input value=\"");
 
 
             
-            #line 11 "..\..\Views\SearchRoomsBox.cshtml"
-                                                                                                                           Write(Model!=null?Model.Till.ToString("MM/dd/yyyy"):null);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\" type=\"text\" name=\"search_till\" />\r\n<input type=\"submit\" value=\"");
-
-
-            
-            #line 12 "..\..\Views\SearchRoomsBox.cshtml"
-                        Write(Model!=null?"Search again":"Search");
+            #line 24 "..\..\Views\SearchRoomsBox.cshtml"
+                Write(Model!=null?Model.Till.ToString("MM/dd/yyyy"):null);
 
             
             #line default
             #line hidden
-WriteLiteral("\" />\r\n</form>");
+WriteLiteral("\" type=\"text\" name=\"search_till\" /><br />\r\n</p>\r\n<input type=\"submit\" value=\"");
+
+
+            
+            #line 26 "..\..\Views\SearchRoomsBox.cshtml"
+                        Write(Model!=null?"Update search":"Search");
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\" />\r\n\r\n</form>\r\n\r\n</div>");
 
 
         }

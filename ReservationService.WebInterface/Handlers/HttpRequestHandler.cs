@@ -33,7 +33,7 @@ namespace ReservationService.WebInterface.Handlers {
 		}
 	
 		private void ShowSearchBox(HttpProcessingPipelineContext context) {
-			context.WriteView("Reservations.Searchbox",()=>new SearchRoomsBox { 
+			context.WriteView("Reservations_Searchbox",()=>new SearchRoomsBox { 
 				Model =_searchParams
 			}.TransformText());
 		}
@@ -57,7 +57,7 @@ namespace ReservationService.WebInterface.Handlers {
 				CurrentView = view
 			} );
 
-			context.WriteView("Reservations.SearchResults", ()=>view.ToString());
+			context.WriteView("Reservations_SearchResults", ()=>view.ToString());
 		}
 
 		public void Handle(HttpProcessingPipelineContext context,StartingNewReservation @event) {
