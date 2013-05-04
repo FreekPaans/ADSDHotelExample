@@ -1,0 +1,13 @@
+﻿ @* Generator: Template *@ 
+
+@*@model object*@
+@functions  {
+    public ReservationService.WebInterface.Models.SearchParameters Model { get; set; }
+}
+
+<script src="/Scripts/ReservationService/SearchBox.js" type="text/javascript"></script>
+
+<form action="/Rooms/Search">
+From: <input type="text" name="search_from" value="@(Model!=null?Model.From.ToString("MM/dd/yyyy"):null)"/> Till <input value="@(Model!=null?Model.Till.ToString("MM/dd/yyyy"):null)" type="text" name="search_till" />
+<input type="submit" value="@(Model!=null?"Search again":"Search")" />
+</form>

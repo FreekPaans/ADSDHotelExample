@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CustomerWebsite.Events {
+	public class SearchingForRooms {
+		public DateTime From { get; set; }
+
+		public DateTime Till { get; set; }
+
+		//public Infrastructure.HTTP.ProcessingPipeline.HttpProcessingPipelineContext Context { get; set; }
+	}
+}

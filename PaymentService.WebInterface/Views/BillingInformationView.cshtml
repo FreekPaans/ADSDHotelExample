@@ -1,0 +1,11 @@
+﻿@* Generator:Template *@
+
+@functions {
+	public Guid ReservationId{get;set;}
+}
+
+<div class="obtain_billing_information">
+<script type="text/javascript" src="/Scripts/PaymentService/ObtainBillingInformation.js"></script>
+<input type="hidden" name="Payment.ReservationId" value="@ReservationId" />
+Credit card number: <input type="text" name="Payment.CreditCardNumber" />
+</div>

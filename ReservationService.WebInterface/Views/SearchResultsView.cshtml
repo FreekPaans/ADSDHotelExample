@@ -1,0 +1,25 @@
+﻿@* Generator: Template *@ 
+
+@*@model ReservationService.WebInterface.ViewModels.SearchResultsViewModel*@
+
+@functions {
+	public ReservationService.WebInterface.ViewModels.SearchResultsViewModel Model{get;set;}
+}
+
+<div class="search_results">
+<h3>Search results</h3>
+Found @Model.RoomTypeIds.Count rooms!
+
+<ul class="search_room_results">
+@foreach(var roomTypeId in Model.RoomTypeIds) {
+	<li id="@roomTypeId">
+		<form action="/Reservation/Start" method="post">
+			<input type="hidden" name="roomTypeId" value="@roomTypeId" />
+			<input type="hidden" name="from" value="@Model.From" />
+			<input type="hidden" name="till" value="@Model.Till" />
+			<input class="book_room_btn" type="submit" value="Book room!" />
+		</form>
+	</li>
+}
+</ul>
+</div>

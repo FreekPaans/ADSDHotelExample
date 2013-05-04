@@ -1,0 +1,17 @@
+﻿@* Generator: Template *@ 
+
+@*@model ReservationService.WebInterface.ViewModels.SearchResultsViewModel*@
+
+@functions {
+	public Guid Model{get;set;}
+}
+
+
+<div>
+<h2>Please enter your details</h2>
+<form action="/Rooms/Summary" class="reservation_details_form">
+<input type="hidden" name="Reservation.ReservationId" value="@Model" />
+<input type="submit" value="Go to confirm" />
+<script src="/Scripts/ReservationService/ReservationDetailsForm.js" type="text/javascript"></script>
+</form>
+</div>
