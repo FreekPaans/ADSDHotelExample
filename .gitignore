@@ -61,3 +61,7 @@
 /packages/NServiceBus.Interfaces.3.3.6
 /packages/RazorGenerator.Mvc.2.0.0
 /packages/RazorGenerator.Templating.2.0.0
+/GuestService.Logic/obj
+/GuestService.Logic/bin
+/Infrastructure/bin
+/packages
