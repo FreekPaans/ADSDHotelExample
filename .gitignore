@@ -67,3 +67,6 @@
 /packages
 
 /PricingService.WebInterface/PricingService.WebInterface.csproj.user
+
+/PricingService.WebInterface/obj
+/PricingService.WebInterface/bin
