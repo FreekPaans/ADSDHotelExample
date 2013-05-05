@@ -13,6 +13,7 @@
 
 	
 	var finishSubmit = function() {
+		
 		if(requestsToFinish==0) {
 			if(!hadError) {
 				window.location = $('form.reservation_details_form').attr('action');
@@ -38,19 +39,19 @@
 
 
 
-	$(document).bind('submit_reservation_form', function() {
-		$(document).trigger('handling_submit_reservation_form');
-		$.ajax({
-			url: '/ReservationService/Commit',
-			type:'post',
-			data: {
-				"Reservation.ReservationId": $('input[name="Reservation.ReservationId"]').val()
-			},
-			complete: function(xhr,status) {
-				$(document).trigger('handled_subit_reservation_form',status=="success");
-			}
-		});
-	});
+	//$(document).bind('submit_reservation_form', function() {
+	//	$(document).trigger('handling_submit_reservation_form');
+	//	$.ajax({
+	//		url: '/ReservationService/Commit',
+	//		type:'post',
+	//		data: {
+	//			"Reservation.ReservationId": $('input[name="Reservation.ReservationId"]').val()
+	//		},
+	//		complete: function(xhr,status) {
+	//			$(document).trigger('handled_submit_reservation_form',status=="success");
+	//		}
+	//	});
+	//});
 
 	var $reservationForm = $('.reservation_details_form');
 	$reservationForm.validate({onsubmit: false});
@@ -88,7 +89,7 @@
 				triggerSubmit();
 				return;
 			}
-			alert('Form validation failed, please correct');
+			//alert('Form validation failed, please correct');
 		}
 	}
 	$(document).bind('handled_validate_reservation_form', function(ev, success) {

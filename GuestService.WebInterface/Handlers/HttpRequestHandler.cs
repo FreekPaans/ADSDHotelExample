@@ -8,9 +8,12 @@ using System.Web;
 using System.Xml.Linq;
 using Infrastructure.HTTP.Helpers;
 using GuestService.Logic;
+using CustomerWebsite.Events;
 
 namespace GuestService.WebInterface.Handlers {
-	public class HttpRequestHandler : IHandleHttpRequests, IHandleHttpProcessingEvents<RenderingObtainReservationDetailsForm>{
+	public class HttpRequestHandler : IHandleHttpRequests, 
+		IHandleHttpProcessingEvents<RenderingObtainReservationDetailsForm>,
+		IHandleHttpProcessingEvents<ShowingReservationSummary>{
 		public void HandleHttpRequest(HttpProcessingPipelineContext httpContext) {
 			
 		}
@@ -19,6 +22,10 @@ namespace GuestService.WebInterface.Handlers {
 			@event.Form.AddFirst(XElement.Parse(new GuestDetailsForm  {
 				ReservationId = @event.ReservationId
 			}.TransformText()));
+		}
+
+		public void Handle(HttpProcessingPipelineContext context,ShowingReservationSummary @event) {
+			@event.GuestInformation = new ReservationSummaryGuestInformation {}.TransformText();
 		}
 	}
 }

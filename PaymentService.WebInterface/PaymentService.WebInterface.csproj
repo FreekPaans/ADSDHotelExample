@@ -127,6 +127,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BillingInformationView.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ReservationSummaryPaymentInformation.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReservationSummaryPaymentInformation.cshtml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -151,6 +156,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CustomerWebsite.Events\CustomerWebsite.Events.csproj">
+      <Project>{28d8c0bb-3a61-48f9-8cc5-bec4052229c4}</Project>
+      <Name>CustomerWebsite.Events</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{d1f66d87-0b1a-4992-afe4-0c2abbbe2676}</Project>
       <Name>Infrastructure %28Infrastructure\Infrastructure%29</Name>
@@ -168,6 +177,12 @@
     <Content Include="Views\BillingInformationView.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>BillingInformationView.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ReservationSummaryPaymentInformation.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>ReservationSummaryPaymentInformation.generated.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <PropertyGroup>

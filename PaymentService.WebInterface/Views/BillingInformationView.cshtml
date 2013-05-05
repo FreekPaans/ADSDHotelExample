@@ -7,7 +7,22 @@
 <div class="obtain_billing_information">
 <script type="text/javascript" src="/Scripts/Services/PaymentService/ObtainBillingInformation.js"></script>
 <input type="hidden" name="Payment.ReservationId" value="@ReservationId" />
+<h4>
+Billing address
+</h4>
+<p>
+	Street: <input type="text" name="Payment.Address.Street" />
+</p>
+<p>
+	Postal code: <input type="text" name="Payment.Address.PostalCode" />
+</p>
+
+<h4>Credit card</h4>
 <p>
 Credit card number: <input type="text" name="Payment.CreditCardNumber" />
+</p>
+
+<p>
+Expiration date (mm-yyyy): <input type="text" name="Payment.CreditCardExperiationDate" />
 </p>
 </div>

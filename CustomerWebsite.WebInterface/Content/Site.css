@@ -106,7 +106,7 @@ div.fix {
 
 .reservation_details_form p input[type=text] {
 	position: absolute;
-	left: 150px;
+	left: 200px;
 }
 
 label.error{
@@ -114,6 +114,24 @@ label.error{
 	color:red;
 	font-size:80%;
 	position:absolute;
-	left: 150px;
+	left: 200px;
 	top:20px;
+}
+
+
+h2 a {
+	color:black;
+}
+
+.reservation_summary table td {
+	vertical-align:top;
+}
+
+.reservation_summary table  td:first-child {
+	width: 200px;
+}
+
+div.summary_block {
+	float:left;
+	width: 400px;
 }

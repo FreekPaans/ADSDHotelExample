@@ -10,5 +10,13 @@ namespace PaymentService.Commands {
 		public Guid ReservationId { get; set; }
 
 		public string CreditCardNumber { get; set; }
+		public string CreditCardExperiationDate{get;set;}
+
+		public BillingAddress Address{get;set;}
+
+		public class BillingAddress {
+			public string Street{get;set;}
+			public string PostalCode{get;set;}
+		}
 	}
 }

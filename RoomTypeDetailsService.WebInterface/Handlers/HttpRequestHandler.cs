@@ -1,4 +1,5 @@
-﻿using Infrastructure.HTTP.ProcessingPipeline;
+﻿using CustomerWebsite.Events;
+using Infrastructure.HTTP.ProcessingPipeline;
 using ReservationService.Contracts.Events.UI;
 using RoomTypeDetailsService.WebInterface.Views;
 using System;
@@ -9,7 +10,9 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 
 namespace RoomTypeDetailsService.WebInterface.Handlers {
-	public class HttpRequestHandler : IHandleHttpRequests , IHandleHttpProcessingEvents<RoomTypeIDsAvailable>{
+	public class HttpRequestHandler : IHandleHttpRequests , 
+			IHandleHttpProcessingEvents<RoomTypeIDsAvailable>,
+			IHandleHttpProcessingEvents<ReservationSummaryRoomTypeIdAvailable>{
 		public void HandleHttpRequest(HttpProcessingPipelineContext httpContext) {
 			//throw new NotImplementedException();
 		}
@@ -36,6 +39,10 @@ namespace RoomTypeDetailsService.WebInterface.Handlers {
 
 			//@event.CurrentView.Clear();
 			//@event.CurrentView.Append(xml.ToString());
+		}
+
+		public void Handle(HttpProcessingPipelineContext context,ReservationSummaryRoomTypeIdAvailable @event) {
+			@event.Element.Add(@event.RoomTypeId.ToString());
 		}
 	}
 }

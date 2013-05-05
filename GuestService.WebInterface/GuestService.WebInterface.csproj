@@ -127,6 +127,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GuestDetailsForm.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ReservationSummaryGuestInformation.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReservationSummaryGuestInformation.cshtml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -151,6 +156,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CustomerWebsite.Events\CustomerWebsite.Events.csproj">
+      <Project>{28d8c0bb-3a61-48f9-8cc5-bec4052229c4}</Project>
+      <Name>CustomerWebsite.Events</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GuestService.Logic\GuestService.Logic.csproj">
       <Project>{318c44a2-9a2e-4a2a-b527-d43cb6c49c90}</Project>
       <Name>GuestService.Logic</Name>
@@ -168,6 +177,12 @@
     <Content Include="Views\GuestDetailsForm.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>GuestDetailsForm.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ReservationSummaryGuestInformation.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>ReservationSummaryGuestInformation.generated.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <PropertyGroup>

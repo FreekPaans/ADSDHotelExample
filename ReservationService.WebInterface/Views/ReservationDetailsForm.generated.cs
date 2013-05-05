@@ -23,7 +23,7 @@ namespace ReservationService.WebInterface.Views
 
         #line 5 "..\..\Views\ReservationDetailsForm.cshtml"
 
-	public Guid Model{get;set;}
+	public CustomerWebsite.Events.ObtainingReservationDetails Model{get;set;}
 
         #line default
         #line hidden
@@ -39,21 +39,30 @@ WriteLiteral(" \r\n\r\n");
 WriteLiteral("\r\n\r\n");
 
 
-WriteLiteral("\r\n\r\n\r\n<div>\r\n<h3>Please enter your details</h3>\r\n<form action=\"/Rooms/Summary\" cl" +
-"ass=\"reservation_details_form\">\r\n<input type=\"hidden\" name=\"Reservation.Reservat" +
-"ionId\" value=\"");
+WriteLiteral("\r\n\r\n\r\n<div>\r\n<h3>Please enter your details</h3>\r\n<form action=\"");
 
 
             
-            #line 13 "..\..\Views\ReservationDetailsForm.cshtml"
-                                                        Write(Model);
+            #line 12 "..\..\Views\ReservationDetailsForm.cshtml"
+         Write(Model.SubmitUrl);
 
             
             #line default
             #line hidden
-WriteLiteral("\" />\r\n<input type=\"submit\" value=\"Go to confirm\" />\r\n<script src=\"/Scripts/Servic" +
-"es/ReservationService/ReservationDetailsForm.js\" type=\"text/javascript\"></script" +
-">\r\n</form>\r\n</div>");
+WriteLiteral("\" class=\"reservation_details_form\">\r\n<input type=\"hidden\" name=\"Reservation.Reser" +
+"vationId\" value=\"");
+
+
+            
+            #line 13 "..\..\Views\ReservationDetailsForm.cshtml"
+                                                        Write(Model.ReservationId);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\" />\r\n<input type=\"submit\" value=\"Go to confirmation screen\" />\r\n<script src=\"/Sc" +
+"ripts/Services/ReservationService/ReservationDetailsForm.js\" type=\"text/javascri" +
+"pt\"></script>\r\n</form>\r\n</div>");
 
 
         }

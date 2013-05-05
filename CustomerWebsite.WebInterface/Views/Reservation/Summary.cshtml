@@ -1,0 +1,19 @@
+﻿@model CustomerWebsite.Events.ShowingReservationSummary
+@{
+    ViewBag.Title = "Summary";
+}
+<style type="text/css">
+	#Reservations_Searchbox { display: none; }
+</style>
+
+<h2>Your reservation summary</h2>
+<div class="reservation_summary">
+<form method="post">
+@Html.Raw(Model.ReservationInformation)
+@Html.Raw(Model.GuestInformation)
+<div class="fix"></div>
+@Html.Raw(Model.PaymentInformation)
+<div class="fix"></div>
+<input type="submit" value="Confirm reservation" />
+</form>
+</div>

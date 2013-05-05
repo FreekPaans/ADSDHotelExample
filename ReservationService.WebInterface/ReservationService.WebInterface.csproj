@@ -133,6 +133,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReservationDetailsForm.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ReservationSummaryInformationView.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReservationSummaryInformationView.cshtml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SearchResultsView.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -189,6 +194,10 @@
     <Content Include="Views\ReservationDetailsForm.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>ReservationDetailsForm.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\ReservationSummaryInformationView.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>ReservationSummaryInformationView.generated.cs</LastGenOutput>
     </Content>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>

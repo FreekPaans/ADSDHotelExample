@@ -14,8 +14,8 @@ namespace PaymentService.WebInterface.Controllers {
 		}
 
 		public ActionResult Index(StoreRervationBillingInformation  paymentService) {
-			_commandBus.Send(paymentService);
-			return View();
+			//_commandBus.Send(paymentService);
+			return Content("OK");
 		}
 
 	}

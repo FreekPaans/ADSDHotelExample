@@ -41,7 +41,9 @@
   <ItemGroup>
     <Compile Include="ObtainingReservationDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReservationSummaryRoomTypeIdAvailable.cs" />
     <Compile Include="SearchingForRooms.cs" />
+    <Compile Include="ShowingReservationSummary.cs" />
     <Compile Include="StartingNewReservation.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -20,7 +20,9 @@ namespace ReservationService.WebInterface.Handlers {
 	public class HttpRequestHandler  : IHandleHttpRequests, 
 			IHandleHttpProcessingEvents<SearchingForRooms>, 
 			IHandleHttpProcessingEvents<StartingNewReservation>,
-			IHandleHttpProcessingEvents<ObtainingReservationDetails>{
+			IHandleHttpProcessingEvents<ObtainingReservationDetails>,
+			IHandleHttpProcessingEvents<ShowingReservationSummary>
+			{
 		readonly ICommandBus _commandBus;
 		private SearchParameters _searchParams;
 		
@@ -65,9 +67,13 @@ namespace ReservationService.WebInterface.Handlers {
 		}
 
 		public void Handle(HttpProcessingPipelineContext context,ObtainingReservationDetails @event) {
-			var form= XElement.Parse(new ReservationDetailsForm { Model = @event.ReservationId }.TransformText());
+			var form= XElement.Parse(new ReservationDetailsForm { Model = @event}.TransformText());
 			context.Dispatch(new RenderingObtainReservationDetailsForm { Form = form.XPathSelectElement("//form"), ReservationId = @event.ReservationId});
 			context.WriteView("Reservations_DetailsForm",()=>form.ToString() );
+		}
+
+		public void Handle(HttpProcessingPipelineContext context,ShowingReservationSummary @event) {
+			@event.ReservationInformation = new ReservationSummaryInformationView {}.TransformText();
 		}
 	}
 }

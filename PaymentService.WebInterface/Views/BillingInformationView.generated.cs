@@ -47,8 +47,26 @@ WriteLiteral("\r\n\r\n<div class=\"obtain_billing_information\">\r\n<script type
             
             #line default
             #line hidden
-WriteLiteral("\" />\r\n<p>\r\nCredit card number: <input type=\"text\" name=\"Payment.CreditCardNumber\"" +
-" />\r\n</p>\r\n</div>");
+WriteLiteral(@""" />
+<h4>
+Billing address
+</h4>
+<p>
+	Street: <input type=""text"" name=""Payment.Address.Street"" />
+</p>
+<p>
+	Postal code: <input type=""text"" name=""Payment.Address.PostalCode"" />
+</p>
+
+<h4>Credit card</h4>
+<p>
+Credit card number: <input type=""text"" name=""Payment.CreditCardNumber"" />
+</p>
+
+<p>
+Expiration date (mm-yyyy): <input type=""text"" name=""Payment.CreditCardExperiationDate"" />
+</p>
+</div>");
 
 
         }
