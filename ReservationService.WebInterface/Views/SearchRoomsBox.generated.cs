@@ -41,9 +41,9 @@ WriteLiteral(" \r\n\r\n");
 WriteLiteral("\r\n");
 
 
-WriteLiteral("\r\n\r\n<script src=\"/Scripts/ReservationService/SearchBox.js\" type=\"text/javascript\"" +
-"></script>\r\n\r\n<div class=\"search_room_box\">\r\n<form action=\"/Rooms/Search\">\r\n<p>\r" +
-"\n");
+WriteLiteral("\r\n\r\n<script src=\"/Scripts/Services/ReservationService/SearchBox.js\" type=\"text/ja" +
+"vascript\"></script>\r\n\r\n<div class=\"search_room_box\">\r\n<form action=\"/Rooms/Searc" +
+"h\">\r\n<p>\r\n");
 
 
             

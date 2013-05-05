@@ -36,8 +36,8 @@ WriteLiteral("\r\n\r\n");
 
 
 WriteLiteral("\r\n\r\n<div class=\"obtain_billing_information\">\r\n<script type=\"text/javascript\" src=" +
-"\"/Scripts/PaymentService/ObtainBillingInformation.js\"></script>\r\n<input type=\"hi" +
-"dden\" name=\"Payment.ReservationId\" value=\"");
+"\"/Scripts/Services/PaymentService/ObtainBillingInformation.js\"></script>\r\n<input" +
+" type=\"hidden\" name=\"Payment.ReservationId\" value=\"");
 
 
             

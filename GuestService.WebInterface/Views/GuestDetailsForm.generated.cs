@@ -36,8 +36,8 @@ WriteLiteral("\r\n\r\n\r\n");
 
 
 WriteLiteral("\r\n\r\n<div class=\"reservation_obtain_guest_details\">\t\r\n<script type=\"text/javascrip" +
-"t\" src=\"/Scripts/GuestService/ObtainGuestDetails.js\"></script>\r\n<input type=\"hid" +
-"den\" name=\"GuestService.ReservationId\" value=\"");
+"t\" src=\"/Scripts/Services/GuestService/ObtainGuestDetails.js\"></script>\r\n<input " +
+"type=\"hidden\" name=\"GuestService.ReservationId\" value=\"");
 
 
             

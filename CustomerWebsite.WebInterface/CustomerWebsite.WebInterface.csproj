@@ -211,6 +211,7 @@
     <Content Include="Scripts\jquery-2.0.0.min.js" />
     <Content Include="Scripts\jquery-ui-1.10.2.js" />
     <Content Include="Scripts\jquery-ui-1.10.2.min.js" />
+    <Content Include="Scripts\Rooms\Search.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -225,6 +226,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -318,13 +320,11 @@
       <GuestServiceJSFiles Include="$(MSBuildProjectDirectory)\..\GuestService.WebInterface\Scripts\**\*.js" />
       <PaymentServiceJSFiles Include="$(MSBuildProjectDirectory)\..\PaymentService.WebInterface\Scripts\**\*.js" />
     </ItemGroup>
-    <Copy SourceFiles="@(ReservationJSFiles)" DestinationFiles="@(ReservationJSFiles->'$(MSBuildProjectDirectory)\Scripts\ReservationService\%(RecursiveDir)%(Filename)%(Extension)')" />
-    <Copy SourceFiles="@(GuestServiceJSFiles)" DestinationFiles="@(GuestServiceJSFiles->'$(MSBuildProjectDirectory)\Scripts\GuestService\%(RecursiveDir)%(Filename)%(Extension)')" />
-    <Copy SourceFiles="@(PaymentServiceJSFiles)" DestinationFiles="@(PaymentServiceJSFiles->'$(MSBuildProjectDirectory)\Scripts\PaymentService\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(ReservationJSFiles)" DestinationFiles="@(ReservationJSFiles->'$(MSBuildProjectDirectory)\Scripts\Services\ReservationService\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(GuestServiceJSFiles)" DestinationFiles="@(GuestServiceJSFiles->'$(MSBuildProjectDirectory)\Scripts\Services\GuestService\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(PaymentServiceJSFiles)" DestinationFiles="@(PaymentServiceJSFiles->'$(MSBuildProjectDirectory)\Scripts\Services\PaymentService\%(RecursiveDir)%(Filename)%(Extension)')" />
     <ItemGroup>
-      <Content Include="Scripts\ReservationService\**\*.js" />
-      <Content Include="Scripts\GuestService\**\*.js" />
-      <Content Include="Scripts\PaymentService\**\*.js" />
+      <Content Include="Scripts\Services\**\*.js" />
     </ItemGroup>
     <!--DestinationFolder="$(MSBuildProjectDirectory)\Scripts\ReservationService" />
 			DestinationFolder="$(MSBuildProjectDirectory)\Scripts\ReservationService" />-->

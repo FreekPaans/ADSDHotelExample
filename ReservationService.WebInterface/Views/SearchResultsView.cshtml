@@ -11,13 +11,18 @@
 
 <ul class="search_room_results">
 @foreach(var roomTypeId in Model.RoomTypeIds) {
-	<li id="@roomTypeId">
+	<li>
+		<div id="@roomTypeId" class="room_item">
+		<div class="reserve_room_form">
 		<form action="/Reservation/Start" method="post">
 			<input type="hidden" name="roomTypeId" value="@roomTypeId" />
 			<input type="hidden" name="from" value="@Model.From" />
 			<input type="hidden" name="till" value="@Model.Till" />
-			<input class="book_room_btn" type="submit" value="Book room!" />
+			<input class="book_room_btn" type="submit" value="Book now!" />
 		</form>
+		</div>
+		</div>
+		<div class="fix"></div>
 	</li>
 }
 </ul>

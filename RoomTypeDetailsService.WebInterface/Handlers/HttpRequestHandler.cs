@@ -25,7 +25,7 @@ namespace RoomTypeDetailsService.WebInterface.Handlers {
 
 				var roomXml = XDocument.Parse("<dummy>"+new RoomTypeSearchResultsDetailsView { 
 					Model = new ViewModels.RoomTypeDetailsViewModel {
-						RoomTypeDescription = "Lorem ipsum",
+						RoomTypeDescription = "Mauris imperdiet placerat magna, nec porta velit tempus nec. Aliquam posuere aliquam faucibus. Pellentesque euismod purus id velit aliquam fermentum. Nam ut blandit nisi.",
 						RoomTypeName ="Suite",
 						RoomTypeImageUrl = "http://images.wikia.com/twilightsaga/images/2/2f/Mila-Kunis-1.jpg",
 						RoomTypeId = roomTypeId 

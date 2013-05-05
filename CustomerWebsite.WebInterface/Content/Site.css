@@ -29,40 +29,53 @@ div.centerer {
 	margin:0;
 }
 
-.search_room_results li  {
-	clear:both;
+.search_room_results > li  {
+	/*clear:both;*/
 	position: relative;
-	padding: 5px;
+	/*margin: 5px;*/
 	border-bottom: 1px dashed black;
 }
 
-.search_room_results li p {
+.room_item > div {
+	margin-top: 5px;
+	margin-bottom:5px;
+}
+
+
+.room_item p {
 	margin-top:5px;
 	margin-bottom:5px;
 }
 
-.search_room_results li div.price_block div:first-child{
+.room_item div.price_block div:first-child{
 	font-size: 80%;
 }
-.search_room_results li div.price {	
-	font-size: 130%;
+
+.room_item div.price_block {
 	float:left;
+	width:100px;
+	
+}
+.room_item div.price {	
+	font-size: 130%;
+	/*float:left;*/
 	color: orange;
 	/*text-align:right;*/
 	/*padding-right: 5px;*/
-	width:80px;
+	
 }
 
-.search_room_results li .room_type_details {
+.room_item .room_type_details {
 	float:left;
+	width: 410px;
 }
 
 
-.search_room_results .book_room_btn {
+/*.search_room_results .book_room_btn {
 	position: absolute;
 	bottom:0px;
 	left: 0px;
-}
+}*/
 
 div.fix {
 	clear:both;

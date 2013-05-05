@@ -59,22 +59,22 @@ WriteLiteral(" rooms!</h3>\r\n\r\n<ul class=\"search_room_results\">\r\n");
             
             #line default
             #line hidden
-WriteLiteral("\t<li id=\"");
+WriteLiteral("\t<li>\r\n\t\t<div id=\"");
 
 
             
-            #line 14 "..\..\Views\SearchResultsView.cshtml"
-    Write(roomTypeId);
+            #line 15 "..\..\Views\SearchResultsView.cshtml"
+      Write(roomTypeId);
 
             
             #line default
             #line hidden
-WriteLiteral("\">\r\n\t\t<form action=\"/Reservation/Start\" method=\"post\">\r\n\t\t\t<input type=\"hidden\" n" +
-"ame=\"roomTypeId\" value=\"");
+WriteLiteral("\" class=\"room_item\">\r\n\t\t<div class=\"reserve_room_form\">\r\n\t\t<form action=\"/Reserva" +
+"tion/Start\" method=\"post\">\r\n\t\t\t<input type=\"hidden\" name=\"roomTypeId\" value=\"");
 
 
             
-            #line 16 "..\..\Views\SearchResultsView.cshtml"
+            #line 18 "..\..\Views\SearchResultsView.cshtml"
                                             Write(roomTypeId);
 
             
@@ -84,7 +84,7 @@ WriteLiteral("\" />\r\n\t\t\t<input type=\"hidden\" name=\"from\" value=\"");
 
 
             
-            #line 17 "..\..\Views\SearchResultsView.cshtml"
+            #line 19 "..\..\Views\SearchResultsView.cshtml"
                                       Write(Model.From);
 
             
@@ -94,18 +94,18 @@ WriteLiteral("\" />\r\n\t\t\t<input type=\"hidden\" name=\"till\" value=\"");
 
 
             
-            #line 18 "..\..\Views\SearchResultsView.cshtml"
+            #line 20 "..\..\Views\SearchResultsView.cshtml"
                                       Write(Model.Till);
 
             
             #line default
             #line hidden
-WriteLiteral("\" />\r\n\t\t\t<input class=\"book_room_btn\" type=\"submit\" value=\"Book room!\" />\r\n\t\t</fo" +
-"rm>\r\n\t</li>\r\n");
+WriteLiteral("\" />\r\n\t\t\t<input class=\"book_room_btn\" type=\"submit\" value=\"Book now!\" />\r\n\t\t</for" +
+"m>\r\n\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"fix\"></div>\r\n\t</li>\r\n");
 
 
             
-            #line 22 "..\..\Views\SearchResultsView.cshtml"
+            #line 27 "..\..\Views\SearchResultsView.cshtml"
 }
 
             

@@ -51,9 +51,9 @@ WriteLiteral("\r\n\r\n\r\n<div>\r\n<h2>Please enter your details</h2>\r\n<form a
             
             #line default
             #line hidden
-WriteLiteral("\" />\r\n<input type=\"submit\" value=\"Go to confirm\" />\r\n<script src=\"/Scripts/Reserv" +
-"ationService/ReservationDetailsForm.js\" type=\"text/javascript\"></script>\r\n</form" +
-">\r\n</div>");
+WriteLiteral("\" />\r\n<input type=\"submit\" value=\"Go to confirm\" />\r\n<script src=\"/Scripts/Servic" +
+"es/ReservationService/ReservationDetailsForm.js\" type=\"text/javascript\"></script" +
+">\r\n</form>\r\n</div>");
 
 
         }
