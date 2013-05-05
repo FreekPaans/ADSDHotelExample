@@ -48,10 +48,18 @@ WriteLiteral("\r\n\r\n<div class=\"reservation_obtain_guest_details\">\t\r\n<scr
             #line default
             #line hidden
 WriteLiteral(@""" />
-Firstname: <input type=""text"" name=""GuestService.Firstname"" /><br />
-Lastname: <input type=""text"" name=""GuestService.Lastname"" /><br />
-E-mail: <input type=""text"" name=""GuestService.Email"" /><br />
-Phonenumber: <input type=""text"" name=""GuestService.Phonenumber"" /><br />
+<p>
+Firstname: <input type=""text"" name=""GuestService.Firstname"" />
+</p>
+<p>
+Lastname: <input type=""text"" name=""GuestService.Lastname"" />
+</p>
+<p>
+E-mail: <input type=""text"" name=""GuestService.Email"" />
+</p>
+<p>
+Phonenumber: <input type=""text"" name=""GuestService.Phonenumber"" />
+</p>
 </div>");
 
 

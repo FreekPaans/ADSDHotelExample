@@ -39,7 +39,7 @@ WriteLiteral(" \r\n\r\n");
 WriteLiteral("\r\n\r\n");
 
 
-WriteLiteral("\r\n\r\n\r\n<div>\r\n<h2>Please enter your details</h2>\r\n<form action=\"/Rooms/Summary\" cl" +
+WriteLiteral("\r\n\r\n\r\n<div>\r\n<h3>Please enter your details</h3>\r\n<form action=\"/Rooms/Summary\" cl" +
 "ass=\"reservation_details_form\">\r\n<input type=\"hidden\" name=\"Reservation.Reservat" +
 "ionId\" value=\"");
 

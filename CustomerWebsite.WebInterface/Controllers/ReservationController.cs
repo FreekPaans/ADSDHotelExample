@@ -22,8 +22,9 @@ namespace CustomerWebsite.WebInterface.Controllers {
 		}
 
 		public ActionResult ObtainDetails(Guid reservationId) {
+		
 			ProcessingContext.Dispatch(new ObtainingReservationDetails { ReservationId = reservationId });
-			return View("~/Views/Home/Index.cshtml");
+			return View();
 		}
 	}
 }

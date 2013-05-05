@@ -67,7 +67,7 @@ namespace ReservationService.WebInterface.Handlers {
 		public void Handle(HttpProcessingPipelineContext context,ObtainingReservationDetails @event) {
 			var form= XElement.Parse(new ReservationDetailsForm { Model = @event.ReservationId }.TransformText());
 			context.Dispatch(new RenderingObtainReservationDetailsForm { Form = form.XPathSelectElement("//form"), ReservationId = @event.ReservationId});
-			context.WriteView("Reservations.DetailsForm",()=>form.ToString() );
+			context.WriteView("Reservations_DetailsForm",()=>form.ToString() );
 		}
 	}
 }

@@ -6,6 +6,7 @@
 		defaultDate: "+1w",
 		changeMonth: true,
 		numberOfMonths: 2,
+		minDate:"today",
 		onClose: function( selectedDate ) {
 			$tillInput.datepicker( "option", "minDate", selectedDate );
 		}
@@ -14,6 +15,7 @@
 		defaultDate: "+1w",
 		changeMonth: true,
 		numberOfMonths: 2,
+		mindate:"today",
 		onClose: function( selectedDate ) {
 			$fromInput.datepicker( "option", "maxDate", selectedDate );
 		}

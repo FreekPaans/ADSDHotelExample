@@ -47,8 +47,8 @@ WriteLiteral("\r\n\r\n<div class=\"obtain_billing_information\">\r\n<script type
             
             #line default
             #line hidden
-WriteLiteral("\" />\r\nCredit card number: <input type=\"text\" name=\"Payment.CreditCardNumber\" />\r\n" +
-"</div>");
+WriteLiteral("\" />\r\n<p>\r\nCredit card number: <input type=\"text\" name=\"Payment.CreditCardNumber\"" +
+" />\r\n</p>\r\n</div>");
 
 
         }

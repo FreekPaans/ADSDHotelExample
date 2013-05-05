@@ -95,3 +95,18 @@ div.fix {
 #Reservations_SearchResults {
 	float:left;
 }
+
+#Reservations_DetailsForm {
+	position:relative;
+}
+.reservation_details_form p input[type=text] {
+	position: absolute;
+	left: 150px;
+}
+
+.validation_error {
+	text-align:right;
+	color:red;
+	font-size:80%;
+	position:absolute;
+}
