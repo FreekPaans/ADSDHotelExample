@@ -32,8 +32,7 @@ namespace CustomerWebsite.WebInterface.Controllers {
 
 		public ActionResult ObtainDetails(Guid reservationId) {
 			ProcessingContext.Dispatch(new ObtainingReservationDetails { 
-				ReservationId = reservationId,
-				//SubmitUrl = string.Format("/Reservation/Summary?reservationId={0}",reservationId)
+				ReservationId = reservationId
 			});
 			return View(reservationId);
 		}
