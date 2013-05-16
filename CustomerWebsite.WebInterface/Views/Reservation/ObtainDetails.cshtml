@@ -1,7 +1,16 @@
-﻿@{
+﻿@model Guid
+@{
     ViewBag.Title = "ObtainDetails";
 }
 
+<div>
+<form action="/Reservation/Summary?reservationId=@Model" class="reservation_details_form">
 @ViewBag.RenderSection("Reservations_DetailsForm")
+@ViewBag.RenderSection("Guest_ObtainReservationDetails")
+@ViewBag.RenderSection("Payment_ObtainReservationDetails")
 
+<input type="submit" value="Go to confirmation screen" />
+
+</form>
+</div>
 <script type="text/javascript" src="/Scripts/Reservation/ObtainDetails.js"></script>

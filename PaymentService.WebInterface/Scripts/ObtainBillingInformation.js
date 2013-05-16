@@ -37,6 +37,17 @@
 			return $.trim($input.val()) != 0;
 		}, 'Please enter a valid postal code');
 	}
+	var validateFirstname = function () {
+		return validateElement("input[name=Payment\\.Address\\.Firstname]", function ($input) {
+			return $.trim($input.val()) != 0;
+		}, 'Please enter a valid firstname');
+	}
+	var validateLastname = function () {
+		return validateElement("input[name=Payment\\.Address\\.Lastname]", function ($input) {
+			return $.trim($input.val()) != 0;
+		}, 'Please enter a valid lastname');
+	}
+
 	var validate = function () {
 		var isValid = true;
 		
@@ -50,6 +61,13 @@
 			isValid = false;
 		}
 		if (!validateBillingPostcalCode()) {
+			isValid = false;
+		}
+
+		if (!validateFirstname()) {
+			isValid = false;
+		}
+		if (!validateLastname()) {
 			isValid = false;
 		}
 

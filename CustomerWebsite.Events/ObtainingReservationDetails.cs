@@ -8,6 +8,6 @@ namespace CustomerWebsite.Events {
 	public class ObtainingReservationDetails {
 		public Guid ReservationId{get;set;}
 
-		public string SubmitUrl { get; set; }
+		//public string SubmitUrl { get; set; }
 	}
 }

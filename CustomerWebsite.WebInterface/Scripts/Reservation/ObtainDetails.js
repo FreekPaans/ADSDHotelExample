@@ -2,7 +2,7 @@
 	var $guestDetails = $('#Guest_ObtainReservationDetails');
 	var $paymentDetails = $('#Payment_ObtainReservationDetails');
 	
-	$('#Reservations_DetailsForm form input[type=submit]').before($guestDetails.children().add($paymentDetails.children()));
+	$('form.reservation_details_form input[type=submit]').before($guestDetails.children().add($paymentDetails.children()));
 
 
 	var $cpy = $('<input type="button" value="Copy from guest details" />');
