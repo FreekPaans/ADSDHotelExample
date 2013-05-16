@@ -71,3 +71,5 @@
 /PricingService.WebInterface/obj
 /PricingService.WebInterface/bin
 /CustomerWebsite.WebInterface/Scripts/Services
+/CustomerWebsite.Contracts/obj
+/CustomerWebsite.Contracts/bin
