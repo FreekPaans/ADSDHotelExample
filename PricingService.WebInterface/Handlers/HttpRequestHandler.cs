@@ -10,8 +10,7 @@ using System.Xml.XPath;
 
 namespace PricingService.WebInterface.Handlers {
 	public class HttpRequestHandler  : IHandleHttpRequests, 
-			IHandleHttpProcessingEvents<RoomTypeIDsAvailable>
-			{
+			IHandleHttpProcessingEvents<RoomTypeIDsAvailable> {
 		readonly static Random Rnd = new Random();
 		public void Handle(HttpProcessingPipelineContext context,RoomTypeIDsAvailable @event) {
 			foreach(var roomType in @event.RoomTypeIds) {

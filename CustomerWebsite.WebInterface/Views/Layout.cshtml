@@ -16,5 +16,8 @@
 		<h2><a href="/">Welcome to the ADSD hotel!</a></h2>
         @RenderBody()
     </div>
+	@foreach(var sect in ViewBag.HttpProcessingPipelineContext.RenderSections()) {
+		@Html.Raw(sect.Value)
+	}
 </body>
 </html>

@@ -31,10 +31,16 @@ namespace Infrastructure.HTTP.ProcessingPipeline {
 			_views[sectionName] = view;
 		}
 
-		public string RenderSection(string name) {
+		public MvcHtmlString RenderSection(string name) {
+			if(!_views.ContainsKey(name)) {
+				foreach(var handler in _handlers.OfType<OnDemandViewRenderer>()) {
+					handler.DrawViewOnDemand(this, name);
+				}
+			}
+
 			var res= _views[name]();
 			_views.Remove(name);
-			return WrapInIdedDiv(name,res);
+			return new MvcHtmlString(WrapInIdedDiv(name,res));
 		}
 
 		private string WrapInIdedDiv(string name,string output) {

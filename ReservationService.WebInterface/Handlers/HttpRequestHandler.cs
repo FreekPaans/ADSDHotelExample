@@ -17,12 +17,10 @@ using CustomerWebsite.Events;
 using System.Xml.XPath;
 
 namespace ReservationService.WebInterface.Handlers {
-	public class HttpRequestHandler  : IHandleHttpRequests, 
+	public class HttpRequestHandler  : IHandleHttpRequests, OnDemandViewRenderer,
 			IHandleHttpProcessingEvents<SearchingForRooms>, 
 			IHandleHttpProcessingEvents<StartingNewReservation>,
-			IHandleHttpProcessingEvents<ObtainingReservationDetails>
-			//IHandleHttpProcessingEvents<ShowingReservationSummary>
-			{
+			IHandleHttpProcessingEvents<ObtainingReservationDetails> {
 		readonly ICommandBus _commandBus;
 		private SearchParameters _searchParams;
 		
@@ -31,11 +29,18 @@ namespace ReservationService.WebInterface.Handlers {
 		}
 
 		public void HandleHttpRequest(HttpProcessingPipelineContext context) {
-			ShowSearchBox(context);
 		}
-	
+
+		const string SearchBoxViewName = "Reservations_Searchbox";
+
+		public void DrawViewOnDemand(HttpProcessingPipelineContext context, string viewName) {
+			if(viewName == SearchBoxViewName) {
+				ShowSearchBox(context);
+			}
+		}
+
 		private void ShowSearchBox(HttpProcessingPipelineContext context) {
-			context.WriteView("Reservations_Searchbox",()=>new SearchRoomsBox { 
+			context.WriteView(SearchBoxViewName,()=>new SearchRoomsBox { 
 				Model =_searchParams
 			}.TransformText());
 		}
@@ -71,9 +76,5 @@ namespace ReservationService.WebInterface.Handlers {
 			context.Dispatch(new RenderingObtainReservationDetailsForm { Form = form.XPathSelectElement("//form"), ReservationId = @event.ReservationId});
 			context.WriteView("Reservations_DetailsForm",()=>form.ToString() );
 		}
-
-		//public void Handle(HttpProcessingPipelineContext context,ShowingReservationSummary @event) {
-		//	@event.ReservationInformation = new ReservationSummaryInformationView {}.TransformText();
-		//}
 	}
 }

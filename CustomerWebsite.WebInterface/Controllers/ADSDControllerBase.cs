@@ -7,7 +7,6 @@ using System.Web.Mvc;
 
 namespace CustomerWebsite.WebInterface.Controllers {
 	public abstract class ADSDControllerBase:Controller {
-		
 		public IHttpProcessingPipeline ProcessingPipeline{get;set;}
 
 		protected HttpProcessingPipelineContext ProcessingContext{get;set;}
@@ -21,6 +20,8 @@ namespace CustomerWebsite.WebInterface.Controllers {
 
 			ProcessingContext = ctx;
 			ViewBag.HttpProcessingPipelineContext = ctx;
+
+			ViewBag.RenderSection = new Func<string,MvcHtmlString>(s=>ctx.RenderSection(s));
 		}
 	}
 }

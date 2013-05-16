@@ -5,6 +5,4 @@
 }
 
 
-@foreach(var sect in ViewBag.HttpProcessingPipelineContext.RenderSections()) {
-	@Html.Raw(sect.Value)
-}
+@ViewBag.RenderSection("Reservations_Searchbox")
