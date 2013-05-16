@@ -85,7 +85,7 @@ WriteLiteral("\" />\r\n\t\t\t<input type=\"hidden\" name=\"from\" value=\"");
 
             
             #line 19 "..\..\Views\SearchResultsView.cshtml"
-                                      Write(Model.From);
+                                      Write(Model.From.ToString("o"));
 
             
             #line default
@@ -95,7 +95,7 @@ WriteLiteral("\" />\r\n\t\t\t<input type=\"hidden\" name=\"till\" value=\"");
 
             
             #line 20 "..\..\Views\SearchResultsView.cshtml"
-                                      Write(Model.Till);
+                                      Write(Model.Till.ToString("o"));
 
             
             #line default
