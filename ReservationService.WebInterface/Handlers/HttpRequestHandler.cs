@@ -71,8 +71,6 @@ namespace ReservationService.WebInterface.Handlers {
 		}
 
 		public void Handle(HttpProcessingPipelineContext context,ObtainingReservationDetails @event) {
-			context.Dispatch(new RenderingObtainReservationDetailsForm { ReservationId = @event.ReservationId});
-
 			context.WriteView("Reservations_DetailsForm",() => new ReservationDetailsForm { Model = @event }.TransformText());
 		}
 	}

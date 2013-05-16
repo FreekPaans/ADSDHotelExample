@@ -14,13 +14,13 @@ using CustomerWebsite.Events;
 
 namespace PaymentService.WebInterface.Handlers {
 	public class HttpRequestHandler : IHandleHttpRequests, 
-		IHandleHttpProcessingEvents<RenderingObtainReservationDetailsForm>{
+		IHandleHttpProcessingEvents<ObtainingReservationDetails>{
 		readonly ICommandBus _commandBus;
 		public HttpRequestHandler(ICommandBus commandBus) {
 			_commandBus = commandBus;
 		}
 
-		public void Handle(HttpProcessingPipelineContext context, RenderingObtainReservationDetailsForm @event) {
+		public void Handle(HttpProcessingPipelineContext context, ObtainingReservationDetails @event) {
 			context.WriteView("Payment_ObtainReservationDetails", ()=>
 				new BillingInformationView {
 					ReservationId = @event.ReservationId

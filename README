@@ -1,3 +1,8 @@
 An implementation of the ADSD hotel example.
 
 You need to have RazorGenerator VS extension installed
+
+To think about:
+- Obtain reservation details published by branding or reservation service
+- Who owns urls
+- If site owns urls, how to communicate with service (now done via events)

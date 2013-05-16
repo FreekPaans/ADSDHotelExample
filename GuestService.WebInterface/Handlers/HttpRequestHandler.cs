@@ -12,12 +12,12 @@ using CustomerWebsite.Events;
 
 namespace GuestService.WebInterface.Handlers {
 	public class HttpRequestHandler : IHandleHttpRequests, 
-		IHandleHttpProcessingEvents<RenderingObtainReservationDetailsForm> {
+		IHandleHttpProcessingEvents<ObtainingReservationDetails> {
 
 		public void HandleHttpRequest(HttpProcessingPipelineContext httpContext) {
 		}
 
-		public void Handle(HttpProcessingPipelineContext context, RenderingObtainReservationDetailsForm @event) {
+		public void Handle(HttpProcessingPipelineContext context, ObtainingReservationDetails @event) {
 			context.WriteView("Guest_ObtainReservationDetails", ()=>new GuestDetailsForm  {ReservationId = @event.ReservationId}.TransformText());
 		}
 	}
