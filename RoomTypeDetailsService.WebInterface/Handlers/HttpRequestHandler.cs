@@ -11,8 +11,8 @@ using System.Xml.XPath;
 
 namespace RoomTypeDetailsService.WebInterface.Handlers {
 	public class HttpRequestHandler : IHandleHttpRequests , 
-			IHandleHttpProcessingEvents<RoomTypeIDsAvailable>,
-			IHandleHttpProcessingEvents<ReservationSummaryRoomTypeIdAvailable>{
+			IHandleHttpProcessingEvents<RoomTypeIDsAvailable>{
+			//IHandleHttpProcessingEvents<ReservationSummaryRoomTypeIdAvailable>{
 		public void HandleHttpRequest(HttpProcessingPipelineContext httpContext) {
 			//throw new NotImplementedException();
 		}
@@ -41,8 +41,8 @@ namespace RoomTypeDetailsService.WebInterface.Handlers {
 			//@event.CurrentView.Append(xml.ToString());
 		}
 
-		public void Handle(HttpProcessingPipelineContext context,ReservationSummaryRoomTypeIdAvailable @event) {
-			@event.Element.Add(@event.RoomTypeId.ToString());
-		}
+		//public void Handle(HttpProcessingPipelineContext context,ReservationSummaryRoomTypeIdAvailable @event) {
+		//	@event.Element.Add(@event.RoomTypeId.ToString());
+		//}
 	}
 }

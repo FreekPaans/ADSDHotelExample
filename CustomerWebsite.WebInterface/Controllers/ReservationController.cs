@@ -1,4 +1,5 @@
 ﻿using CustomerWebsite.Events;
+using CustomerWebsite.WebInterface.ViewModels;
 using ReservationService.Contracts.Events.UI;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,12 @@ using System.Xml.XPath;
 
 namespace CustomerWebsite.WebInterface.Controllers {
 	public class ReservationController:ADSDControllerBase{
+		readonly ReservationSummaryViewModel.Provider _summaryProvider;
+
+		public ReservationController(ReservationSummaryViewModel.Provider summaryProvider) {
+			_summaryProvider = summaryProvider;
+		}
+
 		[HttpPost]
 		public ActionResult Start(Guid roomTypeId, DateTime from,DateTime till ) {
 			var id = Guid.NewGuid();
@@ -33,37 +40,37 @@ namespace CustomerWebsite.WebInterface.Controllers {
 		}
 
 		public ActionResult Summary(Guid reservationId) {
-			var reservationSummary = new ShowingReservationSummary {
-				ReservationId = reservationId
-			};
+			//var reservationSummary = new ShowingReservationSummary {
+			//	ReservationId = reservationId
+			//};
 
-			ProcessingContext.Dispatch(reservationSummary);
+			//ProcessingContext.Dispatch(reservationSummary);
 
-			EnrichReservationInformation(reservationSummary);
+			//EnrichReservationInformation(reservationSummary);
 
-			return View(reservationSummary);
+			return View(_summaryProvider.GetSummary(reservationId));
 		}
 
-		private void EnrichReservationInformation(ShowingReservationSummary reservationSummary) {
-			var reservationDetails = XDocument.Parse(reservationSummary.ReservationInformation);
+		//private void EnrichReservationInformation(ShowingReservationSummary reservationSummary) {
+		//	var reservationDetails = XDocument.Parse(reservationSummary.ReservationInformation);
 
-			GetRoomTypeName(reservationDetails);
+		//	GetRoomTypeName(reservationDetails);
 
-			AddPricingToTable(reservationSummary,reservationDetails);
+		//	AddPricingToTable(reservationSummary,reservationDetails);
 
-			reservationSummary.ReservationInformation = reservationDetails.ToString();
-		}
+		//	reservationSummary.ReservationInformation = reservationDetails.ToString();
+		//}
 
-		private static void AddPricingToTable(ShowingReservationSummary reservationSummary,XDocument reservationDetails) {
-			var reservationTable = reservationDetails.XPathSelectElement("//table");
-			reservationTable.Add(XElement.Parse(string.Format("<tr><td>Total Price</td><td>{0}</td></tr>",reservationSummary.PricingInformation)));
-		}
+		//private static void AddPricingToTable(ShowingReservationSummary reservationSummary,XDocument reservationDetails) {
+		//	var reservationTable = reservationDetails.XPathSelectElement("//table");
+		//	reservationTable.Add(XElement.Parse(string.Format("<tr><td>Total Price</td><td>{0}</td></tr>",reservationSummary.PricingInformation)));
+		//}
 
-		private void GetRoomTypeName(XDocument reservationDetails) {
-			var roomTypeEl = reservationDetails.XPathSelectElement("//*[@class='roomtype_id']");
-			var roomTypeId = Guid.Parse(roomTypeEl.Attribute("id").Value);
+		//private void GetRoomTypeName(XDocument reservationDetails) {
+		//	var roomTypeEl = reservationDetails.XPathSelectElement("//*[@class='roomtype_id']");
+		//	var roomTypeId = Guid.Parse(roomTypeEl.Attribute("id").Value);
 
-			ProcessingContext.Dispatch(new ReservationSummaryRoomTypeIdAvailable { RoomTypeId = roomTypeId,Element = roomTypeEl });
-		}
+		//	ProcessingContext.Dispatch(new ReservationSummaryRoomTypeIdAvailable { RoomTypeId = roomTypeId,Element = roomTypeEl });
+		//}
 	}
 }

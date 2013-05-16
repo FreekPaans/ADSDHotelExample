@@ -10,8 +10,7 @@ using System.Xml.XPath;
 
 namespace PricingService.WebInterface.Handlers {
 	public class HttpRequestHandler  : IHandleHttpRequests, 
-			IHandleHttpProcessingEvents<RoomTypeIDsAvailable>,
-			IHandleHttpProcessingEvents<ShowingReservationSummary>
+			IHandleHttpProcessingEvents<RoomTypeIDsAvailable>
 			{
 		readonly static Random Rnd = new Random();
 		public void Handle(HttpProcessingPipelineContext context,RoomTypeIDsAvailable @event) {
@@ -24,10 +23,6 @@ namespace PricingService.WebInterface.Handlers {
 
 		public void HandleHttpRequest(HttpProcessingPipelineContext httpContext) {
 			
-		}
-
-		public void Handle(HttpProcessingPipelineContext context,ShowingReservationSummary @event) {
-			@event.PricingInformation="$500";
 		}
 	}
 }

@@ -14,8 +14,8 @@ using CustomerWebsite.Events;
 
 namespace PaymentService.WebInterface.Handlers {
 	public class HttpRequestHandler : IHandleHttpRequests, 
-		IHandleHttpProcessingEvents<RenderingObtainReservationDetailsForm>,
-		IHandleHttpProcessingEvents<ShowingReservationSummary>
+		IHandleHttpProcessingEvents<RenderingObtainReservationDetailsForm>
+		//IHandleHttpProcessingEvents<ShowingReservationSummary>
 		{
 		readonly ICommandBus _commandBus;
 		public HttpRequestHandler(ICommandBus commandBus) {
@@ -33,8 +33,8 @@ namespace PaymentService.WebInterface.Handlers {
 		public void HandleHttpRequest(HttpProcessingPipelineContext httpContext) {
 		}
 
-		public void Handle(HttpProcessingPipelineContext context,ShowingReservationSummary @event) {
-			@event.PaymentInformation = new ReservationSummaryPaymentInformation { }.TransformText();
-		}
+		//public void Handle(HttpProcessingPipelineContext context,ShowingReservationSummary @event) {
+		//	@event.PaymentInformation = new ReservationSummaryPaymentInformation { }.TransformText();
+		//}
 	}
 }

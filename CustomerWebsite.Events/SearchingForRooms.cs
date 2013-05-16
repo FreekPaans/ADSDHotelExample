@@ -9,7 +9,5 @@ namespace CustomerWebsite.Events {
 		public DateTime From { get; set; }
 
 		public DateTime Till { get; set; }
-
-		//public Infrastructure.HTTP.ProcessingPipeline.HttpProcessingPipelineContext Context { get; set; }
 	}
 }

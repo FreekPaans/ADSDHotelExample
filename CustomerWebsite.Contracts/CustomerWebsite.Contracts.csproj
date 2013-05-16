@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{28D8C0BB-3A61-48F9-8CC5-BEC4052229C4}</ProjectGuid>
+    <ProjectGuid>{0559319B-C14E-4012-9F14-6CB351E31605}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CustomerWebsite.Events</RootNamespace>
-    <AssemblyName>CustomerWebsite.Events</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>CustomerWebsite.Contracts</RootNamespace>
+    <AssemblyName>CustomerWebsite.Contracts</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -39,11 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ObtainingReservationDetails.cs" />
+    <Compile Include="ReservationSummary\IProvidePaymentDetails.cs" />
+    <Compile Include="ReservationSummary\IProvideGuestDetails.cs" />
+    <Compile Include="ReservationSummary\IProvideRoomTypeDetails.cs" />
+    <Compile Include="ReservationSummary\IProvideReservationDetails.cs" />
+    <Compile Include="ReservationSummary\IProvidePricingDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchingForRooms.cs" />
-    <Compile Include="ShowingReservationSummary.cs" />
-    <Compile Include="StartingNewReservation.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

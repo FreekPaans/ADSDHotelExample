@@ -9,6 +9,7 @@ using System.Web.Routing;
 using Castle.MicroKernel.Registration;
 using Infrastructure.HTTP.ProcessingPipeline;
 using System.Reflection;
+using Infrastructure.Lifecycle;
 
 
 namespace CustomerWebsite.WebInterface {
@@ -27,7 +28,7 @@ namespace CustomerWebsite.WebInterface {
 			ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(Container));
 
 			//var handler = new ReservationService.WebInterface.Models.HttpRequestHandler();
-			LoadReferencedAssemblies();
+			LoadBinAssemblies();
 
 			var allLoadedTypes = Classes.
 				From(AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes()));
@@ -47,9 +48,25 @@ namespace CustomerWebsite.WebInterface {
 			GuestService.Logic.Configure.Configure.Setup(Container);
 
 			NServiceBusEndpoint.StartBus(Container);
+
+			SetupDependencies(Container);
+
+			CustomConfig(allLoadedTypes,Container);
 		}
 
-		private void LoadReferencedAssemblies() {
+		private void CustomConfig(FromTypesDescriptor allLoadedTypes,WindsorContainer Container) {
+			Container.Register(allLoadedTypes.BasedOn<INeedToRegisterComponents>().WithServiceBase());
+			foreach(var toRegister in Container.ResolveAll<INeedToRegisterComponents>()) {
+				toRegister.Register(Container);
+			}
+		}
+
+		
+		private void SetupDependencies(WindsorContainer Container) {
+			Container.Register(Component.For<CustomerWebsite.WebInterface.ViewModels.ReservationSummaryViewModel.Provider>().LifestyleTransient());
+		}
+
+		private void LoadBinAssemblies() {
 			var assemblies = new System.IO.DirectoryInfo(HttpRuntime.BinDirectory).GetFiles("*.dll", System.IO.SearchOption.AllDirectories);
 
 			foreach(var assembly in assemblies) {

@@ -1,4 +1,4 @@
-﻿@model CustomerWebsite.Events.ShowingReservationSummary
+﻿@model CustomerWebsite.WebInterface.ViewModels.ReservationSummaryViewModel
 @{
     ViewBag.Title = "Summary";
 }
@@ -9,10 +9,66 @@
 <h2>Your reservation summary</h2>
 <div class="reservation_summary">
 <form method="post">
-@Html.Raw(Model.ReservationInformation)
-@Html.Raw(Model.GuestInformation)
+<div class="summary_block">
+<h3>Reservation details</h3>
+<table>
+<tr>
+<td>Arrival date</td>
+<td>@Model.ReservationDetails.ArrivalDate.ToString("d MMM yyyy")</td>
+</tr>
+<tr>
+<td>Checkout date</td>
+<td>@Model.ReservationDetails.CheckoutDate.ToString("d MMM yyyy")</td>
+</tr>
+<tr>
+<td>Room type</td>
+<td class="roomtype_id" id="@Model.ReservationDetails.RoomTypeId">@Model.RoomTypeDetails.RoomType </td>
+</tr>
+<tr>
+<td>Total price</td>
+<td class="roomtype_id">@Model.PricingDetails.FormattedTotalPrice</td>
+</tr>
+</table>
+</div>
+<div class="summary_block">
+<h3>Guest information</h3>
+<table>
+<tr>
+<td>Name</td><td>@Model.GuestDetails.Name</td>
+</tr>
+<tr>
+<td>Email</td><td>@Model.GuestDetails.Email</td>
+</tr>
+<tr>
+<td>Phonenumber</td><td>@Model.GuestDetails.Phonenumber</td>
+</tr>
+</table>
+</div>
 <div class="fix"></div>
-@Html.Raw(Model.PaymentInformation)
+<div class="summary_block">
+<h3>Payment information</h3>
+<table class="payment_information_summary">
+<tr>
+<td>
+Billing name
+</td>
+<td>@Model.PaymentDetails.BillingName</td>
+</tr>
+<tr>
+<td>Billing address</td>
+<td>@Html.Raw(Model.PaymentDetails.BillingAddress.Replace("\n","<br/>"))
+</td>
+</tr>
+<tr>
+<td>
+Credit card number
+</td>
+<td>
+@Model.PaymentDetails.CreditCardNumber
+</td>
+</tr>
+</table>
+</div>
 <div class="fix"></div>
 <input type="submit" value="Confirm reservation" />
 </form>
