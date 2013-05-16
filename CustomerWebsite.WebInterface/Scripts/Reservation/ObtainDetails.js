@@ -2,7 +2,7 @@
 	var $guestDetails = $('#Guest_ObtainReservationDetails');
 	var $paymentDetails = $('#Payment_ObtainReservationDetails');
 	
-	$('form.reservation_details_form input[type=submit]').before($guestDetails.children().add($paymentDetails.children()));
+	$('form.reservation_details_form input[type=submit]').before($.merge($guestDetails.children().get(), $paymentDetails.children().get()));
 
 
 	var $cpy = $('<input type="button" value="Copy from guest details" />');
@@ -13,4 +13,6 @@
 
 	$('.obtain_billing_information h4').first().append($cpy);
 
+	$guestDetails.remove();
+	$paymentDetails.remove();
 });

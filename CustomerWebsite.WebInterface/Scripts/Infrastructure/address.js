@@ -21,6 +21,9 @@
 		GetOrSet: function (fieldName, args) {
 			var $input = this.$el.find('input[data-' + fieldName + ']');
 			if (args.length > 0) {
+				if (args[0] === undefined) {
+					return;
+				}
 				$input.val(args[0]);
 				return;
 			}
