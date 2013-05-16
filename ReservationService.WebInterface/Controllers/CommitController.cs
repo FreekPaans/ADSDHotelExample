@@ -14,8 +14,8 @@ namespace ReservationService.WebInterface.Controllers {
 			_commandBus = commandBus;
 		}
 		public ActionResult Index(CommitReservation reservation) {
-			_commandBus.Send(reservation);
-			return Content("OK");
+			//_commandBus.Send(reservation);
+			return Redirect("/Reservation/ThankYou?reservationId="+reservation.ReservationId.ToString());
 		}
 
 	}

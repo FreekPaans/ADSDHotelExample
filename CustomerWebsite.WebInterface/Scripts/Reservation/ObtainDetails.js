@@ -5,7 +5,7 @@
 	$('form.reservation_details_form input[type=submit]').before($.merge($guestDetails.children().get(), $paymentDetails.children().get()));
 
 
-	var $cpy = $('<input type="button" value="Copy from guest details" />');
+	var $cpy = $('<input type="button" name="CopyAddressBtn" value="Copy from guest details" />');
 
 	$cpy.bind('click', function () {
 		$('.reservation_obtain_guest_details').Address().CopyTo($('.obtain_billing_information'));

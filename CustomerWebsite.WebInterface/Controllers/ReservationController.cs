@@ -40,5 +40,9 @@ namespace CustomerWebsite.WebInterface.Controllers {
 		public ActionResult Summary(Guid reservationId) {
 			return View(_summaryProvider.GetSummary(reservationId));
 		}
+
+		public ActionResult ThankYou(Guid reservationId) {
+			return View(reservationId);
+		}
 	}
 }

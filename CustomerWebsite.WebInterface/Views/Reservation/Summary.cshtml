@@ -8,7 +8,7 @@
 
 <h2>Your reservation summary</h2>
 <div class="reservation_summary">
-<form method="post">
+<form method="post" action="/ReservationService/Commit">
 <div class="summary_block">
 <h3>Reservation details</h3>
 <table>
@@ -70,6 +70,7 @@ Credit card number
 </table>
 </div>
 <div class="fix"></div>
+<input type="hidden" name="ReservationId" value="@Model.ReservationId" />
 <input type="submit" value="Confirm reservation" />
 </form>
 </div>

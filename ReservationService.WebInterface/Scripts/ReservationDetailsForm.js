@@ -11,7 +11,6 @@
 		requestsToFinish++;
 	});
 
-	
 	var finishSubmit = function() {
 		
 		if(requestsToFinish==0) {
@@ -36,22 +35,6 @@
 		}
 		finishSubmit();
 	});
-
-
-
-	//$(document).bind('submit_reservation_form', function() {
-	//	$(document).trigger('handling_submit_reservation_form');
-	//	$.ajax({
-	//		url: '/ReservationService/Commit',
-	//		type:'post',
-	//		data: {
-	//			"Reservation.ReservationId": $('input[name="Reservation.ReservationId"]').val()
-	//		},
-	//		complete: function(xhr,status) {
-	//			$(document).trigger('handled_submit_reservation_form',status=="success");
-	//		}
-	//	});
-	//});
 
 	var $reservationForm = $('.reservation_details_form');
 	$reservationForm.validate({onsubmit: false});
