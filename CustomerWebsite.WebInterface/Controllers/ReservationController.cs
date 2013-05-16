@@ -1,4 +1,4 @@
-﻿using CustomerWebsite.Events;
+﻿using CustomerWebsite.Contracts.Events;
 using CustomerWebsite.WebInterface.ViewModels;
 using ReservationService.Contracts.Events.UI;
 using System;

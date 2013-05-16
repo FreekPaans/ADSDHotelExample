@@ -1,4 +1,4 @@
-﻿using CustomerWebsite.Events;
+﻿using CustomerWebsite.Contracts.Events;
 using Infrastructure.HTTP.ProcessingPipeline;
 using PricingService.WebInterface.Views;
 using ReservationService.Contracts.Events.UI;

@@ -1,5 +1,4 @@
-﻿using CustomerWebsite.Events;
-using Infrastructure.HTTP.ProcessingPipeline;
+﻿using Infrastructure.HTTP.ProcessingPipeline;
 using ReservationService.Contracts.Events.UI;
 using RoomTypeDetailsService.WebInterface.Views;
 using System;

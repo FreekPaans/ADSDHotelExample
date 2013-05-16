@@ -23,7 +23,7 @@ namespace ReservationService.WebInterface.Views
 
         #line 5 "..\..\Views\ReservationDetailsForm.cshtml"
 
-	public CustomerWebsite.Events.ObtainingReservationDetails Model{get;set;}
+	public Guid ReservationId{get;set;}
 
         #line default
         #line hidden
@@ -45,7 +45,7 @@ WriteLiteral("\r\n\r\n\r\n<h3>Please enter your details</h3>\r\n<input type=\"hi
 
             
             #line 11 "..\..\Views\ReservationDetailsForm.cshtml"
-                                                        Write(Model.ReservationId);
+                                                        Write(ReservationId);
 
             
             #line default

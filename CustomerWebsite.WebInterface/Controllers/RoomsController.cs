@@ -1,4 +1,4 @@
-﻿using CustomerWebsite.Events;
+﻿using CustomerWebsite.Contracts.Events;
 using ReservationService.Contracts.Events.UI;
 using System;
 using System.Collections.Generic;

@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomerWebsite.Events {
-	public class ObtainingReservationDetails {
-		public Guid ReservationId{get;set;}
+namespace CustomerWebsite.Contracts.Events {
+	public class ShowingReservationSummary {
+		public Guid ReservationId { get; set; }
 	}
 }

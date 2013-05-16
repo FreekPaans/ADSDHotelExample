@@ -39,6 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\ObtainingReservationDetails.cs" />
+    <Compile Include="Events\SearchingForRooms.cs" />
+    <Compile Include="Events\ShowingReservationSummary.cs" />
+    <Compile Include="Events\StartingNewReservation.cs" />
     <Compile Include="ReservationSummary\IProvidePaymentDetails.cs" />
     <Compile Include="ReservationSummary\IProvideGuestDetails.cs" />
     <Compile Include="ReservationSummary\IProvideRoomTypeDetails.cs" />

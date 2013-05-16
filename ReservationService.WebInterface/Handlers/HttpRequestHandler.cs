@@ -13,8 +13,8 @@ using System.Xml.Linq;
 using Infrastructure.HTTP.Helpers;
 using Infrastructure.Messaging;
 using ReservationService.Commands;
-using CustomerWebsite.Events;
 using System.Xml.XPath;
+using CustomerWebsite.Contracts.Events;
 
 namespace ReservationService.WebInterface.Handlers {
 	public class HttpRequestHandler  : IHandleHttpRequests, OnDemandViewRenderer,
@@ -71,7 +71,7 @@ namespace ReservationService.WebInterface.Handlers {
 		}
 
 		public void Handle(HttpProcessingPipelineContext context,ObtainingReservationDetails @event) {
-			context.WriteView("Reservations_DetailsForm",() => new ReservationDetailsForm { Model = @event }.TransformText());
+			context.WriteView("Reservations_DetailsForm",() => new ReservationDetailsForm { ReservationId = @event.ReservationId }.TransformText());
 		}
 	}
 }

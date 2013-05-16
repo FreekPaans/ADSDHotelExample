@@ -10,7 +10,7 @@ using PaymentService.WebInterface.Views;
 using Infrastructure.HTTP.Helpers;
 using Infrastructure.Messaging;
 using PaymentService.Commands;
-using CustomerWebsite.Events;
+using CustomerWebsite.Contracts.Events;
 
 namespace PaymentService.WebInterface.Handlers {
 	public class HttpRequestHandler : IHandleHttpRequests, 

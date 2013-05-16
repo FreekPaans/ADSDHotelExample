@@ -8,7 +8,7 @@ using System.Web;
 using System.Xml.Linq;
 using Infrastructure.HTTP.Helpers;
 using GuestService.Logic;
-using CustomerWebsite.Events;
+using CustomerWebsite.Contracts.Events;
 
 namespace GuestService.WebInterface.Handlers {
 	public class HttpRequestHandler : IHandleHttpRequests, 

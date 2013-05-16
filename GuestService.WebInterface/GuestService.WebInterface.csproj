@@ -165,10 +165,6 @@
       <Project>{0559319b-c14e-4012-9f14-6cb351e31605}</Project>
       <Name>CustomerWebsite.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CustomerWebsite.Events\CustomerWebsite.Events.csproj">
-      <Project>{28d8c0bb-3a61-48f9-8cc5-bec4052229c4}</Project>
-      <Name>CustomerWebsite.Events</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GuestService.Logic\GuestService.Logic.csproj">
       <Project>{318c44a2-9a2e-4a2a-b527-d43cb6c49c90}</Project>
       <Name>GuestService.Logic</Name>
