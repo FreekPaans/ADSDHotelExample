@@ -31,6 +31,10 @@ namespace Infrastructure.HTTP.ProcessingPipeline {
 			_views[sectionName] = view;
 		}
 
+		public void WriteView(string sectionName,string view) {
+			WriteView(sectionName,()=>view);
+		}
+
 		public MvcHtmlString RenderSection(string name) {
 			if(!_views.ContainsKey(name)) {
 				foreach(var handler in _handlers.OfType<OnDemandViewRenderer>()) {

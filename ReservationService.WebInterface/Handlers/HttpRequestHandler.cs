@@ -50,18 +50,17 @@ namespace ReservationService.WebInterface.Handlers {
 			
 			var roomTypeIds = new [] { Guid.NewGuid(), Guid.NewGuid()};
 
-			var view = XDocument.Parse(new SearchResultsView { 
+			var view = new SearchResultsView { 
 				Model = new SearchResultsViewModel { 
 					RoomTypeIds = roomTypeIds,
 					From = @event.From,
 					Till = @event.Till
 				}
-			}.TransformText()).Root;
+			}.TransformText();
 			
 			
 			context.Dispatch(new RoomTypeIDsAvailable { 
-				RoomTypeIds = roomTypeIds,
-				CurrentView = view
+				RoomTypeIds = roomTypeIds
 			} );
 
 			context.WriteView("Reservations_SearchResults", ()=>view.ToString());
@@ -72,9 +71,9 @@ namespace ReservationService.WebInterface.Handlers {
 		}
 
 		public void Handle(HttpProcessingPipelineContext context,ObtainingReservationDetails @event) {
-			var form= XElement.Parse(new ReservationDetailsForm { Model = @event}.TransformText());
-			context.Dispatch(new RenderingObtainReservationDetailsForm { Form = form.XPathSelectElement("//form"), ReservationId = @event.ReservationId});
-			context.WriteView("Reservations_DetailsForm",()=>form.ToString() );
+			context.Dispatch(new RenderingObtainReservationDetailsForm { ReservationId = @event.ReservationId});
+
+			context.WriteView("Reservations_DetailsForm",() => new ReservationDetailsForm { Model = @event }.TransformText());
 		}
 	}
 }

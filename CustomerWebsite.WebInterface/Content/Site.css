@@ -135,3 +135,7 @@ div.summary_block {
 	float:left;
 	width: 400px;
 }
+
+#Pricing_RoomTypeIDsAvailable_RoomPrices,#RoomTypeDetails_RoomTypeIDsAvailable_RoomTypeDetails,#Guest_ObtainReservationDetails,#Payment_ObtainReservationDetails {
+	display:none;
+}

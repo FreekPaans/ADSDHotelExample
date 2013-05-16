@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RoomTypeDetailsService.WebInterface.Views
+namespace PricingService.WebInterface.Views
 {
     using System;
     using System.Collections.Generic;
@@ -17,13 +17,13 @@ namespace RoomTypeDetailsService.WebInterface.Views
     using System.Text;
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "1.5.4.0")]
-    public partial class RoomTypeSearchResultsDetailsView : RazorGenerator.Templating.RazorTemplateBase
+    public partial class RoomPricing : RazorGenerator.Templating.RazorTemplateBase
     {
 #line hidden
 
-        #line 3 "..\..\Views\RoomTypeSearchResultsDetailsView.cshtml"
+        #line 3 "..\..\Views\RoomPricing.cshtml"
 
-	public RoomTypeDetailsService.WebInterface.ViewModels.RoomTypeDetailsViewModel Model{get;set;}
+	public ICollection<Tuple<Guid,decimal>> PricesForRoom{get;set;}
 
         #line default
         #line hidden
@@ -32,41 +32,48 @@ namespace RoomTypeDetailsService.WebInterface.Views
         {
 
 
-WriteLiteral(" \r\n\r\n");
+WriteLiteral("\r\n\r\n");
 
 
-WriteLiteral("\r\n\r\n<div class=\"room_type_details\">\r\n<h3>");
-
-
-            
-            #line 8 "..\..\Views\RoomTypeSearchResultsDetailsView.cshtml"
-Write(Model.RoomTypeName);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</h3>\r\n<p>\r\n<img width=\"100\" height=\"150\" src=\"");
+WriteLiteral("\r\n\r\n");
 
 
             
-            #line 10 "..\..\Views\RoomTypeSearchResultsDetailsView.cshtml"
-                              Write(Model.RoomTypeImageUrl);
+            #line 7 "..\..\Views\RoomPricing.cshtml"
+ foreach(var price in PricesForRoom) {
 
             
             #line default
             #line hidden
-WriteLiteral("\" alt=\"roomtype impression\" /> \r\n");
+WriteLiteral("\t<div class=\"price_block\" roomtypeid=\"");
 
 
             
-            #line 11 "..\..\Views\RoomTypeSearchResultsDetailsView.cshtml"
-Write(Model.RoomTypeDescription);
+            #line 8 "..\..\Views\RoomPricing.cshtml"
+                                 Write(price.Item1);
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n</p>\r\n<div class=\"fix\"></div>\r\n</div>");
+WriteLiteral("\">\r\n\t\t<div>Starting at</div>\r\n\t\t<div class=\"price\">$");
 
+
+            
+            #line 10 "..\..\Views\RoomPricing.cshtml"
+                 Write(price.Item2);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</div>\r\n\t</div>\r\n");
+
+
+            
+            #line 12 "..\..\Views\RoomPricing.cshtml"
+}
+            
+            #line default
+            #line hidden
 
         }
     }

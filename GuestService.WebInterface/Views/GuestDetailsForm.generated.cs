@@ -49,10 +49,10 @@ WriteLiteral("\r\n\r\n<div class=\"reservation_obtain_guest_details\">\t\r\n<scr
             #line hidden
 WriteLiteral(@""" />
 <p>
-Firstname: <input type=""text"" name=""GuestService.Firstname"" class=""required"" title=""Please enter your first name"" />
+Firstname: <input type=""text"" data-firstname name=""GuestService.Firstname"" class=""required"" title=""Please enter your first name"" />
 </p>
 <p>
-Lastname: <input type=""text"" name=""GuestService.Lastname""  title=""Please enter your last name"" class=""required"" />
+Lastname: <input type=""text"" data-lastname name=""GuestService.Lastname""  title=""Please enter your last name"" class=""required"" />
 </p>
 <p>
 E-mail: <input type=""text"" name=""GuestService.Email"" title=""Please enter your email address"" class=""required email""/>

@@ -21,18 +21,16 @@ namespace PaymentService.WebInterface.Handlers {
 		}
 
 		public void Handle(HttpProcessingPipelineContext context, RenderingObtainReservationDetailsForm @event) {
-			@event.Form.XPathSelectElement("//input[@type='submit']").AddBeforeSelf(XElement.Parse(
+			context.WriteView("Payment_ObtainReservationDetails", ()=>
 				new BillingInformationView {
 					ReservationId = @event.ReservationId
 				}.TransformText()
-			));
+			);
 		}
 
 		public void HandleHttpRequest(HttpProcessingPipelineContext httpContext) {
 		}
 
-		//public void Handle(HttpProcessingPipelineContext context,ShowingReservationSummary @event) {
-		//	@event.PaymentInformation = new ReservationSummaryPaymentInformation { }.TransformText();
-		//}
+		
 	}
 }

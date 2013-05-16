@@ -18,9 +18,7 @@ namespace GuestService.WebInterface.Handlers {
 		}
 
 		public void Handle(HttpProcessingPipelineContext context, RenderingObtainReservationDetailsForm @event) {
-			@event.Form.AddFirst(XElement.Parse(new GuestDetailsForm  {
-				ReservationId = @event.ReservationId
-			}.TransformText()));
+			context.WriteView("Guest_ObtainReservationDetails", ()=>new GuestDetailsForm  {ReservationId = @event.ReservationId}.TransformText());
 		}
 	}
 }

@@ -7,7 +7,6 @@ using System.Xml.Linq;
 
 namespace ReservationService.Contracts.Events.UI {
 	public class RoomTypeIDsAvailable {
-		public XElement CurrentView{get;set;}
 		public Guid[] RoomTypeIds { get; set; }
 	}
 }

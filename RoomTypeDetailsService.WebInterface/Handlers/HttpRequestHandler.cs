@@ -22,27 +22,17 @@ namespace RoomTypeDetailsService.WebInterface.Handlers {
 			
 			//var xml = XDocument.Parse(currentView);
 
-			foreach(var roomTypeId in @event.RoomTypeIds) {
-				var room = @event.CurrentView.XPathSelectElement(string.Format("//*[@id='{0}']",roomTypeId));
+			var details=  @event.RoomTypeIds.Select(rt=>new ViewModels.RoomTypeDetailsViewModel {
+				RoomTypeDescription = "Mauris imperdiet placerat magna, nec porta velit tempus nec. Aliquam posuere aliquam faucibus. Pellentesque euismod purus id velit aliquam fermentum. Nam ut blandit nisi.",
+				RoomTypeName ="Suite",
+				RoomTypeImageUrl = "http://images.wikia.com/twilightsaga/images/2/2f/Mila-Kunis-1.jpg",
+				RoomTypeId = rt
+			}).ToArray();
 
 
-				var roomXml = XDocument.Parse("<dummy>"+new RoomTypeSearchResultsDetailsView { 
-					Model = new ViewModels.RoomTypeDetailsViewModel {
-						RoomTypeDescription = "Mauris imperdiet placerat magna, nec porta velit tempus nec. Aliquam posuere aliquam faucibus. Pellentesque euismod purus id velit aliquam fermentum. Nam ut blandit nisi.",
-						RoomTypeName ="Suite",
-						RoomTypeImageUrl = "http://images.wikia.com/twilightsaga/images/2/2f/Mila-Kunis-1.jpg",
-						RoomTypeId = roomTypeId 
-					}
-				}.TransformText()+"</dummy>").Root.Elements();
-				room.Add(roomXml);
-			}
-
-			//@event.CurrentView.Clear();
-			//@event.CurrentView.Append(xml.ToString());
+			context.WriteView("RoomTypeDetails_RoomTypeIDsAvailable_RoomTypeDetails", ()=>new RoomTypeIDsAvailableView {
+				Details = details
+			}.TransformText());
 		}
-
-		//public void Handle(HttpProcessingPipelineContext context,ReservationSummaryRoomTypeIdAvailable @event) {
-		//	@event.Element.Add(@event.RoomTypeId.ToString());
-		//}
 	}
 }

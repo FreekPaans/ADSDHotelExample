@@ -52,10 +52,16 @@ WriteLiteral(@""" />
 Billing address
 </h4>
 <p>
-	Street: <input type=""text"" name=""Payment.Address.Street"" />
+	Firstname: <input data-firstname type=""text"" name=""Payment.Address.Firstname"" />
 </p>
 <p>
-	Postal code: <input type=""text"" name=""Payment.Address.PostalCode"" />
+	Lastname: <input data-lastname type=""text"" name=""Payment.Address.Lastname"" />
+</p>
+<p>
+	Street: <input data-streetname type=""text"" name=""Payment.Address.Street"" />
+</p>
+<p>
+	Postal code: <input data-postalcode type=""text"" name=""Payment.Address.PostalCode"" />
 </p>
 
 <h4>Credit card</h4>

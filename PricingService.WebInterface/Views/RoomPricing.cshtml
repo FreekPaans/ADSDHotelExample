@@ -1,0 +1,12 @@
+﻿@*Generator:Template*@
+
+@functions {
+	public ICollection<Tuple<Guid,decimal>> PricesForRoom{get;set;}
+}
+
+@foreach(var price in PricesForRoom) {
+	<div class="price_block" roomtypeid="@price.Item1">
+		<div>Starting at</div>
+		<div class="price">$@price.Item2</div>
+	</div>
+}

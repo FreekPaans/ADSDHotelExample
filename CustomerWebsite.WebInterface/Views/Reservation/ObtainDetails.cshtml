@@ -2,4 +2,6 @@
     ViewBag.Title = "ObtainDetails";
 }
 
-@Html.Raw(ViewBag.HttpProcessingPipelineContext.RenderSection("Reservations_DetailsForm"))
+@ViewBag.RenderSection("Reservations_DetailsForm")
+
+<script type="text/javascript" src="/Scripts/Reservation/ObtainDetails.js"></script>
