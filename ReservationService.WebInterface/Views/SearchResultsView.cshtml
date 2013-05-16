@@ -16,8 +16,8 @@
 		<div class="reserve_room_form">
 		<form action="/Reservation/Start" method="post">
 			<input type="hidden" name="roomTypeId" value="@roomTypeId" />
-			<input type="hidden" name="from" value="@Model.From.ToString("o")" />
-			<input type="hidden" name="till" value="@Model.Till.ToString("o")" />
+			<input type="hidden" name="from" value="@Model.From" />
+			<input type="hidden" name="till" value="@Model.Till" />
 			<input class="book_room_btn" type="submit" value="Book now!" />
 		</form>
 		</div>
