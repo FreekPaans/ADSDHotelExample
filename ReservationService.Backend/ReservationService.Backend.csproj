@@ -7,8 +7,8 @@
     <ProjectGuid>{C866A299-7017-411D-B3C1-E9D847E78A41}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ReservationService.Commands</RootNamespace>
-    <AssemblyName>ReservationService.Commands</AssemblyName>
+    <RootNamespace>ReservationService.Backend</RootNamespace>
+    <AssemblyName>ReservationService.Backend</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommitReservation.cs" />
+    <Compile Include="Commands\CommitReservation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

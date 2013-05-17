@@ -175,9 +175,9 @@
       <Project>{d1f66d87-0b1a-4992-afe4-0c2abbbe2676}</Project>
       <Name>Infrastructure %28Infrastructure\Infrastructure%29</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ReservationService.Commands\ReservationService.Commands.csproj">
+    <ProjectReference Include="..\ReservationService.Commands\ReservationService.Backend.csproj">
       <Project>{c866a299-7017-411d-b3c1-e9d847e78a41}</Project>
-      <Name>ReservationService.Commands</Name>
+      <Name>ReservationService.Backend</Name>
     </ProjectReference>
     <ProjectReference Include="..\ReservationService.Contracts\ReservationService.Contracts.csproj">
       <Project>{411bedb9-6b9c-4fda-b67d-01a5d205894b}</Project>

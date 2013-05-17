@@ -1,5 +1,5 @@
 ﻿using Infrastructure.Messaging;
-using ReservationService.Commands;
+using ReservationService.Backend.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;

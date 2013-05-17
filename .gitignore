@@ -77,3 +77,5 @@
 /GuestService.Backend/obj
 /PaymentService.Backend/bin
 /PaymentService.Backend/obj
+/ReservationService.Backend/bin
+/ReservationService.Backend/obj

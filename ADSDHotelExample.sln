@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Messaging.NS
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{D9B2BAFB-6050-4F1B-9877-48C215731F28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationService.Commands", "ReservationService.Commands\ReservationService.Commands.csproj", "{C866A299-7017-411D-B3C1-E9D847E78A41}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationService.Backend", "ReservationService.Commands\ReservationService.Backend.csproj", "{C866A299-7017-411D-B3C1-E9D847E78A41}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerWebsite.WebInterface", "CustomerWebsite.WebInterface\CustomerWebsite.WebInterface.csproj", "{4C882B0D-ACD4-4B44-9C39-BF1D9B625178}"
 EndProject

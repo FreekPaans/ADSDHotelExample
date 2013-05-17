@@ -12,8 +12,6 @@ using System.Web.Mvc;
 using System.Xml.Linq;
 using Infrastructure.HTTP.Helpers;
 using Infrastructure.Messaging;
-using ReservationService.Commands;
-using System.Xml.XPath;
 using CustomerWebsite.Contracts.Events;
 
 namespace ReservationService.WebInterface.Handlers {
