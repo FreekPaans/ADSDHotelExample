@@ -16,6 +16,7 @@ namespace CustomerWebsite.WebInterface {
 	// Note: For instructions on enabling IIS6 or IIS7 classic mode, 
 	// visit http://go.microsoft.com/?LinkId=9394801
 	public class MvcApplication:System.Web.HttpApplication {
+		static private FromTypesDescriptor AllLoadedTypes;
 		protected void Application_Start() {
 			AreaRegistration.RegisterAllAreas();
 
@@ -27,46 +28,43 @@ namespace CustomerWebsite.WebInterface {
 
 			ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(Container));
 
-			//var handler = new ReservationService.WebInterface.Models.HttpRequestHandler();
-			LoadBinAssemblies();
+			LoadAssembliesInBinFolder();
 
-			var allLoadedTypes = Classes.
-				From(AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes()));
+			AllLoadedTypes= Classes.
+				From(AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes()));;
+				
 
-			Container.Register(allLoadedTypes.BasedOn<IController>().LifestyleTransient());
-			
-			var handlers = allLoadedTypes.
-				BasedOn<IHandleHttpRequests>().LifestyleTransient();
-			
-			Container.Register(handlers.WithServiceBase());
-
-			var pipeline = new WindsorHttpProcessingPipeline(Container);
-			Container.Register(Component.For<IHttpProcessingPipeline>().Instance(pipeline));
-
-			Infrastructure.Messaging.NServiceBus.Configure.Configure.Setup(Container);
-
-			GuestService.Logic.Configure.Configure.Setup(Container);
+			RegisterControllers();
+			RegisterHttpHandlers();
+			SetupPipeline();
 
 			NServiceBusEndpoint.StartBus(Container);
-
-			SetupDependencies(Container);
-
-			CustomConfig(allLoadedTypes,Container);
+			
+			RunServiceConfiguration();
 		}
 
-		private void CustomConfig(FromTypesDescriptor allLoadedTypes,WindsorContainer Container) {
-			Container.Register(allLoadedTypes.BasedOn<INeedToRegisterComponents>().WithServiceBase());
+		private static void SetupPipeline() {
+			var pipeline = new WindsorHttpProcessingPipeline(Container);
+			Container.Register(Component.For<IHttpProcessingPipeline>().Instance(pipeline));
+		}
+
+		private void RegisterHttpHandlers() {
+			Container.Register(AllLoadedTypes.BasedOn<IHandleHttpRequests>().LifestyleTransient().WithServiceBase());
+		}
+
+		private void RegisterControllers() {
+			Container.Register(AllLoadedTypes.BasedOn<IController>().LifestyleTransient());
+		}
+
+		private void RunServiceConfiguration() {
+			Container.Register(AllLoadedTypes.BasedOn<INeedToRegisterComponents>().WithServiceBase());
+
 			foreach(var toRegister in Container.ResolveAll<INeedToRegisterComponents>()) {
 				toRegister.Register(Container);
 			}
 		}
 
-		
-		private void SetupDependencies(WindsorContainer Container) {
-			Container.Register(Component.For<CustomerWebsite.WebInterface.ViewModels.ReservationSummaryViewModel.Provider>().LifestyleTransient());
-		}
-
-		private void LoadBinAssemblies() {
+		private void LoadAssembliesInBinFolder() {
 			var assemblies = new System.IO.DirectoryInfo(HttpRuntime.BinDirectory).GetFiles("*.dll", System.IO.SearchOption.AllDirectories);
 
 			foreach(var assembly in assemblies) {
