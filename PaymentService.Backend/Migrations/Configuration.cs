@@ -1,19 +1,19 @@
-namespace GuestService.Backend.Migrations
+namespace PaymentService.Backend.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<GuestService.Backend.DAL.GuestDataContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<PaymentService.Backend.DAL.PaymentDataContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-			ContextKey = "GuestService";
+			ContextKey = "PaymentService";
         }
 
-        protected override void Seed(GuestService.Backend.DAL.GuestDataContext context)
+        protected override void Seed(PaymentService.Backend.DAL.PaymentDataContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -8,12 +8,11 @@ using System.Threading.Tasks;
 
 namespace GuestService.Backend.DAL {
 	public class GuestDataContext : DbContext{
-		public GuestDataContext() : base("name=GuestDataContext") { }
+		public GuestDataContext() : base("name=ADSDData") { }
 		public DbSet<Guest> Guests{get;set;}
 		protected override void OnModelCreating(DbModelBuilder modelBuilder) {
 			base.OnModelCreating(modelBuilder);
 			modelBuilder.Entity<Guest>().ToTable("Guests", "GuestService");
-			//modelBuilder.Entity<Guest>().has(g=>g.Lastname);
 		}
 	}
 }

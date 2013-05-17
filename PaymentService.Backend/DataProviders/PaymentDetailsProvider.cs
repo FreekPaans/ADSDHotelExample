@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PaymentService.WebInterface.Configuration {
+namespace PaymentService.Backend.DataProviders {
 	class PaymentDetailsProvider:IProvidePaymentDetails {
 		public PaymentDetails GetPaymentDetails(Guid reservationId) {
 			return new PaymentDetails { BillingAddress = "Torenallee 34\n5134 EV Eindhvoen", BillingName = "Frek Paans", CreditCardNumber = "**** **** **** 1234" };

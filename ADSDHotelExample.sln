@@ -21,13 +21,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PaymentService", "PaymentSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentService.WebInterface", "PaymentService.WebInterface\PaymentService.WebInterface.csproj", "{23A02ADA-733E-4651-9143-AB9EE0C5498D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentService.BusinessLogic", "PaymentService.BusinessLogic\PaymentService.BusinessLogic.csproj", "{CF87E2D8-E751-471B-A1A5-F0FFCF3EF4D5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Messaging.NServiceBus", "Infrastructure.Messaging.NServiceBus\Infrastructure.Messaging.NServiceBus.csproj", "{9D075CA7-2EFE-4D02-9CB1-218B76DD99D2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{D9B2BAFB-6050-4F1B-9877-48C215731F28}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentService.Commands", "PaymentService.Commands\PaymentService.Commands.csproj", "{430A9F9A-BB54-42C3-8810-26EBDB3D5259}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationService.Commands", "ReservationService.Commands\ReservationService.Commands.csproj", "{C866A299-7017-411D-B3C1-E9D847E78A41}"
 EndProject
@@ -49,6 +45,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerWebsite.Contracts", "CustomerWebsite.Contracts\CustomerWebsite.Contracts.csproj", "{0559319B-C14E-4012-9F14-6CB351E31605}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuestService.Backend", "GuestService.Backend\GuestService.Backend.csproj", "{318C44A2-9A2E-4A2A-B527-D43CB6C49C90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentService.Backend", "PaymentService.Backend\PaymentService.Backend.csproj", "{CF87E2D8-E751-471B-A1A5-F0FFCF3EF4D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,18 +78,10 @@ Global
 		{23A02ADA-733E-4651-9143-AB9EE0C5498D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23A02ADA-733E-4651-9143-AB9EE0C5498D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23A02ADA-733E-4651-9143-AB9EE0C5498D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CF87E2D8-E751-471B-A1A5-F0FFCF3EF4D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF87E2D8-E751-471B-A1A5-F0FFCF3EF4D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF87E2D8-E751-471B-A1A5-F0FFCF3EF4D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF87E2D8-E751-471B-A1A5-F0FFCF3EF4D5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9D075CA7-2EFE-4D02-9CB1-218B76DD99D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9D075CA7-2EFE-4D02-9CB1-218B76DD99D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D075CA7-2EFE-4D02-9CB1-218B76DD99D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D075CA7-2EFE-4D02-9CB1-218B76DD99D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{430A9F9A-BB54-42C3-8810-26EBDB3D5259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{430A9F9A-BB54-42C3-8810-26EBDB3D5259}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{430A9F9A-BB54-42C3-8810-26EBDB3D5259}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{430A9F9A-BB54-42C3-8810-26EBDB3D5259}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C866A299-7017-411D-B3C1-E9D847E78A41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C866A299-7017-411D-B3C1-E9D847E78A41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C866A299-7017-411D-B3C1-E9D847E78A41}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -112,6 +102,10 @@ Global
 		{318C44A2-9A2E-4A2A-B527-D43CB6C49C90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{318C44A2-9A2E-4A2A-B527-D43CB6C49C90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{318C44A2-9A2E-4A2A-B527-D43CB6C49C90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF87E2D8-E751-471B-A1A5-F0FFCF3EF4D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF87E2D8-E751-471B-A1A5-F0FFCF3EF4D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF87E2D8-E751-471B-A1A5-F0FFCF3EF4D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF87E2D8-E751-471B-A1A5-F0FFCF3EF4D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -127,7 +121,6 @@ Global
 		{318C44A2-9A2E-4A2A-B527-D43CB6C49C90} = {FAAC313B-8E4C-4913-BB4B-612BB7DF877B}
 		{23A02ADA-733E-4651-9143-AB9EE0C5498D} = {1BCA23D7-9D4C-498D-B432-A91BAC65CE71}
 		{CF87E2D8-E751-471B-A1A5-F0FFCF3EF4D5} = {1BCA23D7-9D4C-498D-B432-A91BAC65CE71}
-		{430A9F9A-BB54-42C3-8810-26EBDB3D5259} = {1BCA23D7-9D4C-498D-B432-A91BAC65CE71}
 		{4C882B0D-ACD4-4B44-9C39-BF1D9B625178} = {0504780C-A178-445F-9CCC-BDF79145AEF7}
 		{0559319B-C14E-4012-9F14-6CB351E31605} = {0504780C-A178-445F-9CCC-BDF79145AEF7}
 		{EE50AF2A-EAE2-4A95-BA10-17D1F7AED357} = {4B329885-B547-4B27-9EC7-2EFA97163ECB}

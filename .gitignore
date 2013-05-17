@@ -75,3 +75,5 @@
 /CustomerWebsite.Contracts/bin
 /GuestService.Backend/bin
 /GuestService.Backend/obj
+/PaymentService.Backend/bin
+/PaymentService.Backend/obj
