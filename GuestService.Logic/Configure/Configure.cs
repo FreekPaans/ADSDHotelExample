@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuestService.Logic.Configure {
+namespace GuestService.Backend.Configure {
 	public class Configure : INeedToRegisterComponents{
 		public void Register(IWindsorContainer container) {
 			container.Register(Component.For<GuestDatabase>().LifestyleTransient());

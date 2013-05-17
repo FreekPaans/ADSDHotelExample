@@ -29,7 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentService.Commands", "PaymentService.Commands\PaymentService.Commands.csproj", "{430A9F9A-BB54-42C3-8810-26EBDB3D5259}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuestService.Logic", "GuestService.Logic\GuestService.Logic.csproj", "{318C44A2-9A2E-4A2A-B527-D43CB6C49C90}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuestService.Backend", "GuestService.Logic\GuestService.Backend.csproj", "{318C44A2-9A2E-4A2A-B527-D43CB6C49C90}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationService.Commands", "ReservationService.Commands\ReservationService.Commands.csproj", "{C866A299-7017-411D-B3C1-E9D847E78A41}"
 EndProject

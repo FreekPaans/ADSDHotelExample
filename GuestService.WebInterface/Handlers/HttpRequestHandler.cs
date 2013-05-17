@@ -7,7 +7,6 @@ using System.Linq;
 using System.Web;
 using System.Xml.Linq;
 using Infrastructure.HTTP.Helpers;
-using GuestService.Logic;
 using CustomerWebsite.Contracts.Events;
 
 namespace GuestService.WebInterface.Handlers {

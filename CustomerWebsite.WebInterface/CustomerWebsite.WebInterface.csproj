@@ -267,9 +267,9 @@
       <Project>{0559319b-c14e-4012-9f14-6cb351e31605}</Project>
       <Name>CustomerWebsite.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GuestService.Logic\GuestService.Logic.csproj">
+    <ProjectReference Include="..\GuestService.Logic\GuestService.Backend.csproj">
       <Project>{318c44a2-9a2e-4a2a-b527-d43cb6c49c90}</Project>
-      <Name>GuestService.Logic</Name>
+      <Name>GuestService.Backend</Name>
     </ProjectReference>
     <ProjectReference Include="..\GuestService.WebInterface\GuestService.WebInterface.csproj">
       <Project>{f6c71fb3-5f27-49a9-b763-e8b17c664f53}</Project>
