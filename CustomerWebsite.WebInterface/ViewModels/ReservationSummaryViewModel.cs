@@ -40,7 +40,7 @@ namespace CustomerWebsite.WebInterface.ViewModels {
 					ReservationId = reservationId,
 					ReservationDetails = resDetails,
 					RoomTypeDetails = _roomTypeDetailsProvider.GetRoomTypeDetails(resDetails.RoomTypeId),
-					PricingDetails = _pricingDetailsProvider.GetPricingDetails(reservationId),
+					PricingDetails = _pricingDetailsProvider.GetPricingDetails(reservationId,resDetails.DateBooked),
 					PaymentDetails = _paymentDetailsProvider.GetPaymentDetails(reservationId),
 					GuestDetails = _guestDetailsProvider.GetGuestDetails(reservationId)
 				};

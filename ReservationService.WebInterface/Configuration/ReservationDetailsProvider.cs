@@ -1,6 +1,7 @@
 ﻿using CustomerWebsite.Contracts.Events;
 using CustomerWebsite.Contracts.ReservationSummary;
 using Infrastructure.HTTP.Session;
+using ReservationService.Backend.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,14 @@ namespace ReservationService.WebInterface.Configuration {
 
 
 		public ReservationDetails GetReservationDetails(Guid reservationId) {
-			var originalEvent = (StartingNewReservation)_sessionStorage[reservationId];
+			var originalCommand = (StartReservation)_sessionStorage[reservationId];
 
-			return new ReservationDetails { ArrivalDate = originalEvent.From, CheckoutDate = originalEvent.Till, RoomTypeId = originalEvent.RoomTypeId };
+			return new ReservationDetails {
+				ArrivalDate = originalCommand.From,
+				CheckoutDate = originalCommand.Till,
+				RoomTypeId = originalCommand.RoomTypeId ,
+				DateBooked = originalCommand.DateBooked
+			};
 		}
 	}
 }

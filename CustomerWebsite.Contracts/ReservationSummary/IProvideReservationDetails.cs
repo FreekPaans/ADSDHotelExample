@@ -12,5 +12,7 @@ namespace CustomerWebsite.Contracts.ReservationSummary {
 		public DateTime ArrivalDate{get;set;}
 		public DateTime CheckoutDate{get;set;}
 		public Guid RoomTypeId{get;set;}
+
+		public DateTime DateBooked { get; set; }
 	}
 }

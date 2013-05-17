@@ -69,13 +69,15 @@ namespace ReservationService.WebInterface.Handlers {
 		}
 
 		public void Handle(HttpProcessingPipelineContext context,StartingNewReservation @event) {
-			_sessionStorage[@event.ReservationId] = @event;
-			_commandBus.Send(new StartReservation { 
+			var cmd = new StartReservation { 
 				ReservationId = @event.ReservationId,
 				From = @event.From,
 				Till = @event.Till,
-				RoomTypeId =@event.RoomTypeId
-			});
+				RoomTypeId =@event.RoomTypeId,
+				DateBooked = DateTime.Now
+			};
+			_sessionStorage[@event.ReservationId] = cmd;
+			_commandBus.Send(cmd);
 		}
 
 		public void Handle(HttpProcessingPipelineContext context,ObtainingReservationDetails @event) {

@@ -14,5 +14,7 @@ namespace ReservationService.Backend.Commands {
 		public Guid RoomTypeId { get; set; }
 
 		public DateTime From { get; set; }
+
+		public DateTime DateBooked{ get; set; }
 	}
 }
