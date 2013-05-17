@@ -238,7 +238,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\Reservation\ObtainDetails.js" />
     <Content Include="Scripts\Rooms\Search.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -277,6 +279,10 @@
     <ProjectReference Include="..\GuestService.WebInterface\GuestService.WebInterface.csproj">
       <Project>{f6c71fb3-5f27-49a9-b763-e8b17c664f53}</Project>
       <Name>GuestService.WebInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.HTTP.Session.AspNet\Infrastructure.HTTP.Session.AspNet.csproj">
+      <Project>{ff856df7-1bdd-49a6-934f-9ac18a7b4e12}</Project>
+      <Name>Infrastructure.HTTP.Session.AspNet</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrastructure.Messaging.NServiceBus\Infrastructure.Messaging.NServiceBus.csproj">
       <Project>{9d075ca7-2efe-4d02-9cb1-218b76dd99d2}</Project>

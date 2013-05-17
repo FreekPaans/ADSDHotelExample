@@ -79,3 +79,5 @@
 /PaymentService.Backend/obj
 /ReservationService.Backend/bin
 /ReservationService.Backend/obj
+/Infrastructure.HTTP.Session.AspNet/obj
+/Infrastructure.HTTP.Session.AspNet/bin

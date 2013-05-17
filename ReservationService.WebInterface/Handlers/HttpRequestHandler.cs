@@ -13,6 +13,8 @@ using System.Xml.Linq;
 using Infrastructure.HTTP.Helpers;
 using Infrastructure.Messaging;
 using CustomerWebsite.Contracts.Events;
+using Infrastructure.HTTP.Session;
+using ReservationService.Backend.Commands;
 
 namespace ReservationService.WebInterface.Handlers {
 	public class HttpRequestHandler  : IHandleHttpRequests, OnDemandViewRenderer,
@@ -22,14 +24,16 @@ namespace ReservationService.WebInterface.Handlers {
 		readonly ICommandBus _commandBus;
 		private SearchParameters _searchParams;
 		
-		public HttpRequestHandler(ICommandBus commandBus ) {
+		public HttpRequestHandler(ICommandBus commandBus, ISessionStorage sessionStorage) {
 			_commandBus = commandBus;
+			_sessionStorage = sessionStorage;
 		}
 
 		public void HandleHttpRequest(HttpProcessingPipelineContext context) {
 		}
 
 		const string SearchBoxViewName = "Reservations_Searchbox";
+		readonly ISessionStorage _sessionStorage;
 
 		public void DrawViewOnDemand(HttpProcessingPipelineContext context, string viewName) {
 			if(viewName == SearchBoxViewName) {
@@ -65,7 +69,13 @@ namespace ReservationService.WebInterface.Handlers {
 		}
 
 		public void Handle(HttpProcessingPipelineContext context,StartingNewReservation @event) {
-			
+			_sessionStorage[@event.ReservationId] = @event;
+			_commandBus.Send(new StartReservation { 
+				ReservationId = @event.ReservationId,
+				From = @event.From,
+				Till = @event.Till,
+				RoomTypeId =@event.RoomTypeId
+			});
 		}
 
 		public void Handle(HttpProcessingPipelineContext context,ObtainingReservationDetails @event) {
