@@ -8,5 +8,7 @@ using System.Web;
 namespace Infrastructure.HTTP.ProcessingPipeline {
 	public interface IHttpProcessingPipeline {
 		void HandleRequest(HttpProcessingPipelineContext httpContext);
+
+		
 	}
 }

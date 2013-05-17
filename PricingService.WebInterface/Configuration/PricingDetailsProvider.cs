@@ -6,7 +6,7 @@ using System.Text;
 
 namespace PricingService.WebInterface.Configuration {
 	class PricingDetailsProvider:IProvidePricingDetails {
-		public PricingDetails GetPricingDetails(Guid reservationId, DateTime atTime) {
+		public PricingDetails GetPricingDetails(Guid roomTypeId, DateTime from, DateTime to, DateTime atTime) {
 			return new PricingDetails { FormattedTotalPrice = "$100" };
 		}
 	}

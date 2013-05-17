@@ -6,21 +6,30 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Infrastructure.HTTP.ProcessingPipeline {
-	public class WindsorHttpProcessingPipeline  : IHttpProcessingPipeline{
+	public class WindsorHttpProcessingPipeline  : IHttpProcessingPipeline, IDisposable{
 		readonly IWindsorContainer _container;
+		private IHandleHttpRequests[] _handlers;
+
 		public WindsorHttpProcessingPipeline(IWindsorContainer container) {
 			_container = container;
 		}
 		public void HandleRequest(HttpProcessingPipelineContext processingContext) {
-			var handlers = _container.ResolveAll<IHandleHttpRequests>();
+			_handlers = _container.ResolveAll<IHandleHttpRequests>();
 			try {
-				processingContext.Run(handlers);	
+				processingContext.Run(_handlers);	
 			} 
-			finally {
-				foreach(var handler in handlers) {
-					_container.Release(handler);
-				}
+			catch {
 			}
+		}
+
+		public void Dispose() {
+			if(_handlers==null) {	
+				return;
+			}
+			foreach(var handler in _handlers) {
+				_container.Release(handler);
+			}
+			
 		}
 	}
 }

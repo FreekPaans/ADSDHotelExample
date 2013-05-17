@@ -15,6 +15,7 @@ using Infrastructure.Messaging;
 using CustomerWebsite.Contracts.Events;
 using Infrastructure.HTTP.Session;
 using ReservationService.Backend.Commands;
+using ReservationService.Backend;
 
 namespace ReservationService.WebInterface.Handlers {
 	public class HttpRequestHandler  : IHandleHttpRequests, OnDemandViewRenderer,
@@ -22,18 +23,22 @@ namespace ReservationService.WebInterface.Handlers {
 			IHandleHttpProcessingEvents<StartingNewReservation>,
 			IHandleHttpProcessingEvents<ObtainingReservationDetails> {
 		readonly ICommandBus _commandBus;
+		readonly ISessionStorage _sessionStorage;
+		readonly ReservationFacade _facade;
+
 		private SearchParameters _searchParams;
 		
-		public HttpRequestHandler(ICommandBus commandBus, ISessionStorage sessionStorage) {
+		public HttpRequestHandler(ICommandBus commandBus, ISessionStorage sessionStorage, ReservationFacade facade) {
 			_commandBus = commandBus;
 			_sessionStorage = sessionStorage;
+			_facade = facade;
 		}
 
 		public void HandleHttpRequest(HttpProcessingPipelineContext context) {
 		}
 
 		const string SearchBoxViewName = "Reservations_Searchbox";
-		readonly ISessionStorage _sessionStorage;
+		
 
 		public void DrawViewOnDemand(HttpProcessingPipelineContext context, string viewName) {
 			if(viewName == SearchBoxViewName) {
@@ -50,22 +55,24 @@ namespace ReservationService.WebInterface.Handlers {
 		public void Handle(HttpProcessingPipelineContext context, SearchingForRooms @event) {
 			_searchParams= new SearchParameters { From = @event.From, Till = @event.Till};
 			
-			var roomTypeIds = new [] { Guid.NewGuid(), Guid.NewGuid()};
+			//var roomTypeIds = new [] { Guid.NewGuid(), Guid.NewGuid()};
 
-			var view = new SearchResultsView { 
-				Model = new SearchResultsViewModel { 
-					RoomTypeIds = roomTypeIds,
-					From = @event.From,
-					Till = @event.Till
-				}
-			}.TransformText();
+			//var view = ;
 			
+
+			var roomTypeIds = _facade.GetAvailableRoomTypes(@event.From,@event.Till);
 			
 			context.Dispatch(new RoomTypeIDsAvailable { 
 				RoomTypeIds = roomTypeIds
 			} );
 
-			context.WriteView("Reservations_SearchResults", ()=>view.ToString());
+			context.WriteView("Reservations_SearchResults", new SearchResultsView { 
+				Model = new SearchResultsViewModel { 
+					RoomTypeIds = roomTypeIds,
+					From = @event.From,
+					Till = @event.Till
+				}
+			}.TransformText());
 		}
 
 		public void Handle(HttpProcessingPipelineContext context,StartingNewReservation @event) {

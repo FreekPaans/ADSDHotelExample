@@ -23,5 +23,13 @@ namespace CustomerWebsite.WebInterface.Controllers {
 
 			ViewBag.RenderSection = new Func<string,MvcHtmlString>(s=>ctx.RenderSection(s));
 		}
+
+		protected override void OnResultExecuted(ResultExecutedContext filterContext) {
+			base.OnResultExecuted(filterContext);
+
+			if(ProcessingPipeline is IDisposable) {
+				((IDisposable)ProcessingPipeline).Dispose();
+			}
+		}
 	}
 }

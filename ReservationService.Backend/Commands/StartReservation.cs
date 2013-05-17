@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ReservationService.Backend.Commands {
+	[Serializable]
 	public class StartReservation : ICommand{
 		public Guid ReservationId { get; set; }
 

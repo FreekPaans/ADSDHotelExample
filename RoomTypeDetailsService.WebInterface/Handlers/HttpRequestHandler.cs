@@ -11,19 +11,15 @@ using System.Xml.XPath;
 namespace RoomTypeDetailsService.WebInterface.Handlers {
 	public class HttpRequestHandler : IHandleHttpRequests , 
 			IHandleHttpProcessingEvents<RoomTypeIDsAvailable>{
-			//IHandleHttpProcessingEvents<ReservationSummaryRoomTypeIdAvailable>{
 		public void HandleHttpRequest(HttpProcessingPipelineContext httpContext) {
 			//throw new NotImplementedException();
 		}
 
 		public void Handle(HttpProcessingPipelineContext context, RoomTypeIDsAvailable @event) {
-			//var currentView=  @event.CurrentView.ToString();
 			
-			//var xml = XDocument.Parse(currentView);
-
 			var details=  @event.RoomTypeIds.Select(rt=>new ViewModels.RoomTypeDetailsViewModel {
 				RoomTypeDescription = "Mauris imperdiet placerat magna, nec porta velit tempus nec. Aliquam posuere aliquam faucibus. Pellentesque euismod purus id velit aliquam fermentum. Nam ut blandit nisi.",
-				RoomTypeName ="Suite",
+				RoomTypeName = rt == Guid.Parse("D9156B38-843E-43C3-BC82-7E4558BD1328")?"Penthouse": "Suite",
 				RoomTypeImageUrl = "http://images.wikia.com/twilightsaga/images/2/2f/Mila-Kunis-1.jpg",
 				RoomTypeId = rt
 			}).ToArray();

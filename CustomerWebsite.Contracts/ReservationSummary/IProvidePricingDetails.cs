@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CustomerWebsite.Contracts.ReservationSummary {
 	public interface IProvidePricingDetails {
-		PricingDetails GetPricingDetails(Guid reservationId, DateTime atTime);
+		PricingDetails GetPricingDetails(Guid roomTypeId,DateTime from,DateTime to,DateTime atTime);
 	}
 
 	public class PricingDetails {
