@@ -38,8 +38,13 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\packages\Castle.Windsor.3.2.0\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,18 +52,65 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configure\Configure.cs" />
-    <Compile Include="GuestDatabase.cs" />
+    <Compile Include="Configuration\Configure.cs" />
+    <Compile Include="DataProviders\GuestDetailsProvider.cs" />
+    <Compile Include="DAL\GuestDataContext.cs" />
+    <Compile Include="DAL\Models\Guest.cs" />
+    <Compile Include="Commands\StoreGuestInfo.cs" />
+    <Compile Include="GuestServiceFacade.cs" />
+    <Compile Include="Migrations\201305170833586_Initial.cs" />
+    <Compile Include="Migrations\201305170833586_Initial.Designer.cs">
+      <DependentUpon>201305170833586_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305170843169_Index on reservationid.cs" />
+    <Compile Include="Migrations\201305170843169_Index on reservationid.Designer.cs">
+      <DependentUpon>201305170843169_Index on reservationid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305170850318_delete guest id.cs" />
+    <Compile Include="Migrations\201305170850318_delete guest id.Designer.cs">
+      <DependentUpon>201305170850318_delete guest id.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305170851500_delete non pk index on reservationid.cs" />
+    <Compile Include="Migrations\201305170851500_delete non pk index on reservationid.Designer.cs">
+      <DependentUpon>201305170851500_delete non pk index on reservationid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305171136413_guest schema.cs" />
+    <Compile Include="Migrations\201305171136413_guest schema.Designer.cs">
+      <DependentUpon>201305171136413_guest schema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CustomerWebsite.Contracts\CustomerWebsite.Contracts.csproj">
+      <Project>{0559319b-c14e-4012-9f14-6cb351e31605}</Project>
+      <Name>CustomerWebsite.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{d1f66d87-0b1a-4992-afe4-0c2abbbe2676}</Project>
       <Name>Infrastructure %28Infrastructure\Infrastructure%29</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201305170833586_Initial.resx">
+      <DependentUpon>201305170833586_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305170843169_Index on reservationid.resx">
+      <DependentUpon>201305170843169_Index on reservationid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305170850318_delete guest id.resx">
+      <DependentUpon>201305170850318_delete guest id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305170851500_delete non pk index on reservationid.resx">
+      <DependentUpon>201305170851500_delete non pk index on reservationid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305171136413_guest schema.resx">
+      <DependentUpon>201305171136413_guest schema.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

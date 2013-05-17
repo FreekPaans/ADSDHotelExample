@@ -1,4 +1,6 @@
 ﻿using GuestService.Backend;
+using GuestService.Backend.Commands;
+using GuestService.Backend.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,20 +9,21 @@ using System.Web.Mvc;
 
 namespace GuestService.WebInterface.Controllers {
 	public class StoreReservationInformationController:Controller {
-		readonly GuestDatabase _database;
-		public StoreReservationInformationController(GuestDatabase database) {
-			_database = database;
+		readonly GuestServiceFacade _facade;
+		
+		public StoreReservationInformationController(GuestServiceFacade facade) {
+			_facade = facade;
 		}
 
-		public class StoreGuestInfo {
-			public Guid ReservationId{get;set;}
-			public string Firstname{get;set;}
-			public string Lastname{get;set;}
-			public string Phonenumber{get;set;}
-			public string Email{get;set;}
-		}
+		
+
+
+		[HttpPost]
 		public ActionResult Index(StoreGuestInfo guestService) {
-			_database.StoreGuestInfo(guestService.ReservationId,guestService.Firstname,guestService.Lastname,guestService.Phonenumber,guestService.Email);
+			_facade.Handle(guestService);
+
+			
+
 			return Content("OK");
 		}
 
