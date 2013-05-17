@@ -1,6 +1,7 @@
 ﻿using Castle.MicroKernel.Registration;
 using Infrastructure.Lifecycle;
 using ReservationService.Backend.DAL;
+using ReservationService.Backend.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace ReservationService.Backend.Configuration {
 		public void Register(Castle.Windsor.IWindsorContainer container) {
 			container.Register(Component.For<ReservationFacade>().LifestyleTransient());
 			container.Register(Component.For<ReservationDataContext>().LifestyleTransient());
+			container.Register(Component.For<RoomReserver>().LifestyleTransient());
 		}
 	}
 }

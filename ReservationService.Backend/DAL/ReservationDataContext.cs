@@ -13,9 +13,10 @@ namespace ReservationService.Backend.DAL {
 		protected override void OnModelCreating(DbModelBuilder modelBuilder) {
 			base.OnModelCreating(modelBuilder);
 			modelBuilder.Entity<DayReservations>().Property(d=>d.Version).IsRowVersion();
-		
 			modelBuilder.Entity<DayReservations>().ToTable("DayReservations", "ReservationService");
+
 			modelBuilder.Entity<Reservation>().ToTable("Reservation","ReservationService");
+			modelBuilder.Entity<Reservation>().Property(p=>p.Status).IsRequired();
 		}
 
 		public DbSet<Reservation> Reservations{get;set;}

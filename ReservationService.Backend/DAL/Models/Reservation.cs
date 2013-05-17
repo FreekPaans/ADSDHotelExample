@@ -12,5 +12,12 @@ namespace ReservationService.Backend.DAL.Models {
 		public Guid RoomTypeId{get;set;}
 		public DateTime From{get;set;}
 		public DateTime To{get;set;}
+		public string Status { get; set; }
+		
+		public const string Pending = "Pending";
+		public const string Committed = "Committed";
+
+
+		
 	}
 }
