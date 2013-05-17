@@ -73,3 +73,5 @@
 /CustomerWebsite.WebInterface/Scripts/Services
 /CustomerWebsite.Contracts/obj
 /CustomerWebsite.Contracts/bin
+/GuestService.Backend/bin
+/GuestService.Backend/obj
