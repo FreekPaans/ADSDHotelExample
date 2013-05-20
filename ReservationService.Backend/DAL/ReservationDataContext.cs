@@ -16,14 +16,8 @@ namespace ReservationService.Backend.DAL {
 			modelBuilder.Entity<DayReservations>().Property(d=>d.Version).IsRowVersion();
 			modelBuilder.Entity<DayReservations>().ToTable("DayReservations", "ReservationService");
 			modelBuilder.Entity<DayReservations>().HasKey(dr=>new  { dr.Day, dr.RoomTypeId });
-			modelBuilder.Entity<DayReservations>().Property(dr=>dr.Day).HasColumnType("datetime2");
-			
-
 			modelBuilder.Entity<Reservation>().ToTable("Reservation","ReservationService");
 			modelBuilder.Entity<Reservation>().Property(p=>p.Status).IsRequired();
-			modelBuilder.Entity<Reservation>().Property(r=>r.From).HasColumnType("datetime2");
-			modelBuilder.Entity<Reservation>().Property(r=>r.To).HasColumnType("datetime2");
-			modelBuilder.Entity<Reservation>().Property(r=>r.ReservedAt).HasColumnType("datetime2");
 
 		}
 
