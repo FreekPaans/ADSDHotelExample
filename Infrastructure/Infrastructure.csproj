@@ -61,6 +61,8 @@
     <Compile Include="Lifecycle\INeedToRegisterComponents.cs" />
     <Compile Include="Messaging\ICommand.cs" />
     <Compile Include="Messaging\ICommandBus.cs" />
+    <Compile Include="Messaging\IEvent.cs" />
+    <Compile Include="Messaging\IEventBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

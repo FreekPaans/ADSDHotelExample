@@ -90,3 +90,18 @@
 
 /ReservationService.Backend.Tests/ReservationService.Backend.Tests.csproj.user
 /TestResults
+
+/ITOps.PaymentProvider/obj
+/ITOps.PaymentProvider/bin
+/ITOps.PaymentProvider.Commands/obj
+/ITOps.PaymentProvider.Commands/bin
+
+/ITOps.PaymentProvider.Contracts/obj
+/ITOps.PaymentProvider.Contracts/bin
+
+/PricingService.Backend/obj
+/PricingService.Backend/bin
+
+/PaymentService.MessageHandlers/bin
+/PaymentService.MessageHandlers/obj
+/PaymentService.Backend/PaymentService.Backend.csproj.user

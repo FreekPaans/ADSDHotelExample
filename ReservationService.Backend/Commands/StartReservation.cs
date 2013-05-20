@@ -16,6 +16,6 @@ namespace ReservationService.Backend.Commands {
 
 		public DateTime From { get; set; }
 
-		public DateTime DateBooked{ get; set; }
+		public DateTime DateReserved{ get; set; }
 	}
 }

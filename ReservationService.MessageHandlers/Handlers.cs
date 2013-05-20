@@ -1,8 +1,10 @@
-﻿using NServiceBus;
+﻿using Infrastructure.Messaging;
+using NServiceBus;
 using ReservationService.Backend.Commands;
 using ReservationService.Backend.DAL;
 using ReservationService.Backend.DAL.Models;
 using ReservationService.Backend.Logic;
+using ReservationService.Contracts.Events.Business;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +15,12 @@ namespace ReservationService.MessageHandlers {
 	public class Handlers : IHandleMessages<StartReservation>, IHandleMessages<CommitReservation>{
 		readonly ReservationDataContext _context;
 		readonly RoomReserver _roomReserver;
+		readonly IEventBus _eventBus;
 		
-		public Handlers(ReservationDataContext context, RoomReserver roomReserver) {
+		public Handlers(ReservationDataContext context, RoomReserver roomReserver, IEventBus eventBus) {
 			_context = context;
 			_roomReserver = roomReserver;
+			_eventBus = eventBus;
 		}
 		public void Handle(StartReservation message) {
 			if(_context.Reservations.Find(message.ReservationId)!=null) {
@@ -28,7 +32,8 @@ namespace ReservationService.MessageHandlers {
 				From = message.From,
 				To  = message.Till,
 				RoomTypeId = message.RoomTypeId,
-				Status = Reservation.Pending
+				Status = Reservation.Pending,
+				ReservedAt = message.DateReserved
 			});
 			
 			_context.SaveChanges();
@@ -43,6 +48,8 @@ namespace ReservationService.MessageHandlers {
 
 
 			_roomReserver.ReserveRoom(reservation.RoomTypeId,reservation.From,reservation.To);
+
+			_eventBus.Publish(new ReservationPlaced {  ReservationId = message.ReservationId });
 		}
 	}
 }

@@ -81,7 +81,7 @@ namespace ReservationService.WebInterface.Handlers {
 				From = @event.From,
 				Till = @event.Till,
 				RoomTypeId =@event.RoomTypeId,
-				DateBooked = DateTime.Now
+				DateReserved = DateTime.Now
 			};
 			_sessionStorage[@event.ReservationId] = cmd;
 			_commandBus.Send(cmd);

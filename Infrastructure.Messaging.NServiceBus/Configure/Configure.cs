@@ -11,7 +11,7 @@ namespace Infrastructure.Messaging.NServiceBus.Configure {
 	public class Configure : INeedToRegisterComponents{
 		public void Register(IWindsorContainer container) {
 			container.Register(Component.For<ICommandBus>().ImplementedBy<NServiceBusCommandBus>());
-			
+			container.Register(Component.For<IEventBus>().ImplementedBy<NServiceBusEventBus>());
 		}
 	}
 }

@@ -84,9 +84,33 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Infrastructure.Messaging.NServiceBus\Infrastructure.Messaging.NServiceBus.csproj">
+      <Project>{9d075ca7-2efe-4d02-9cb1-218b76dd99d2}</Project>
+      <Name>Infrastructure.Messaging.NServiceBus</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{d1f66d87-0b1a-4992-afe4-0c2abbbe2676}</Project>
       <Name>Infrastructure %28Infrastructure\Infrastructure%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ITOps.PaymentProvider\ITOps.PaymentProvider.csproj">
+      <Project>{44077702-6fd0-4dab-b8f3-b4fef339e52a}</Project>
+      <Name>ITOps.PaymentProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PaymentService.Backend\PaymentService.Backend.csproj">
+      <Project>{cf87e2d8-e751-471b-a1a5-f0ffcf3ef4d5}</Project>
+      <Name>PaymentService.Backend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PaymentService.MessageHandlers\PaymentService.MessageHandlers.csproj">
+      <Project>{6b4795ba-1e4d-4745-9953-e8e4877e549e}</Project>
+      <Name>PaymentService.MessageHandlers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PricingService.Backend\PricingService.Backend.csproj">
+      <Project>{0de5d053-e413-46b9-b3fa-58057a1d8bda}</Project>
+      <Name>PricingService.Backend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReservationService.Backend\ReservationService.Backend.csproj">
+      <Project>{c866a299-7017-411d-b3c1-e9d847e78a41}</Project>
+      <Name>ReservationService.Backend</Name>
     </ProjectReference>
     <ProjectReference Include="..\ReservationService.MessageHandlers\ReservationService.MessageHandlers.csproj">
       <Project>{a55b0f18-3fe2-4d51-878f-8a99ee93477e}</Project>

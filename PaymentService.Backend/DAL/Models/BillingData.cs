@@ -16,5 +16,7 @@ namespace PaymentService.Backend.DAL.Models {
 		public string City{get;set;}
 		public string CreditCardNumber{get;set;}
 		public DateTime CreditCardExpiration{get;set;}
+		
+		public bool CancellationFeeHoldAcquired{get;set;}
 	}
 }

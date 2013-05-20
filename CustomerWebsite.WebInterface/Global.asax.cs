@@ -30,7 +30,7 @@ namespace CustomerWebsite.WebInterface {
 
 			LoadAssembliesInBinFolder();
 
-			AllLoadedTypes= ConfigureComponents.GetAllTypes();
+			AllLoadedTypes= Classes.From(ConfigureComponents.GetAllTypes());
 				
 
 			RegisterControllers();

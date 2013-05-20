@@ -62,6 +62,7 @@
     <Compile Include="Configuration\Configure.cs" />
     <Compile Include="DAL\Models\BillingData.cs" />
     <Compile Include="DAL\PaymentDataContext.cs" />
+    <Compile Include="DataProviders\AcquireHoldBillingDataProvider.cs" />
     <Compile Include="DataProviders\PaymentDetailsProvider.cs" />
     <Compile Include="Migrations\201305171224523_initial.cs" />
     <Compile Include="Migrations\201305171224523_initial.Designer.cs">
@@ -70,6 +71,10 @@
     <Compile Include="Migrations\201305171232020_billing data set.cs" />
     <Compile Include="Migrations\201305171232020_billing data set.Designer.cs">
       <DependentUpon>201305171232020_billing data set.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305201812268_cancellation fee column.cs" />
+    <Compile Include="Migrations\201305201812268_cancellation fee column.Designer.cs">
+      <DependentUpon>201305201812268_cancellation fee column.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PaymentFacade.cs" />
@@ -84,6 +89,10 @@
       <Project>{d1f66d87-0b1a-4992-afe4-0c2abbbe2676}</Project>
       <Name>Infrastructure %28Infrastructure\Infrastructure%29</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ITOps.PaymentProvider.Contracts\ITOps.PaymentProvider.Contracts.csproj">
+      <Project>{ccc8c80d-7df4-4246-bbc4-5e82a662a5e9}</Project>
+      <Name>ITOps.PaymentProvider.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201305171224523_initial.resx">
@@ -91,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201305171232020_billing data set.resx">
       <DependentUpon>201305171232020_billing data set.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305201812268_cancellation fee column.resx">
+      <DependentUpon>201305201812268_cancellation fee column.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

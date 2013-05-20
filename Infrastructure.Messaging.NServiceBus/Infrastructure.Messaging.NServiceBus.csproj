@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Configure\Configure.cs" />
     <Compile Include="NServiceBusCommandBus.cs" />
+    <Compile Include="NServiceBusEventBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

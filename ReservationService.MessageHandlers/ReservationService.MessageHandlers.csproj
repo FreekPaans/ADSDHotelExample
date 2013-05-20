@@ -66,6 +66,10 @@
       <Project>{c866a299-7017-411d-b3c1-e9d847e78a41}</Project>
       <Name>ReservationService.Backend</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ReservationService.Contracts\ReservationService.Contracts.csproj">
+      <Project>{411bedb9-6b9c-4fda-b67d-01a5d205894b}</Project>
+      <Name>ReservationService.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

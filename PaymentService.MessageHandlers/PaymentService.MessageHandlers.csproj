@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6B4795BA-1E4D-4745-9953-E8E4877E549E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PaymentService.MessageHandlers</RootNamespace>
+    <AssemblyName>PaymentService.MessageHandlers</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NServiceBus">
+      <HintPath>..\packages\NServiceBus.Interfaces.3.3.7\lib\net40\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Handlers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+      <Project>{d1f66d87-0b1a-4992-afe4-0c2abbbe2676}</Project>
+      <Name>Infrastructure %28Infrastructure\Infrastructure%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ITOps.PaymentProvider.Commands\ITOps.PaymentProvider.Commands.csproj">
+      <Project>{1a0a4992-a1ad-42f0-bedf-1643c25f1563}</Project>
+      <Name>ITOps.PaymentProvider.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ITOps.PaymentProvider.Contracts\ITOps.PaymentProvider.Contracts.csproj">
+      <Project>{ccc8c80d-7df4-4246-bbc4-5e82a662a5e9}</Project>
+      <Name>ITOps.PaymentProvider.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PaymentService.Backend\PaymentService.Backend.csproj">
+      <Project>{cf87e2d8-e751-471b-a1a5-f0ffcf3ef4d5}</Project>
+      <Name>PaymentService.Backend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReservationService.Contracts\ReservationService.Contracts.csproj">
+      <Project>{411bedb9-6b9c-4fda-b67d-01a5d205894b}</Project>
+      <Name>ReservationService.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

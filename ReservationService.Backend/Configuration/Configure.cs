@@ -1,7 +1,9 @@
 ﻿using Castle.MicroKernel.Registration;
 using Infrastructure.Lifecycle;
+using ITOps.PaymentProvider.Contracts.AcquireHoldForReservationCancellationFeeContracts;
 using ReservationService.Backend.DAL;
 using ReservationService.Backend.Logic;
+using ReservationService.Backend.Providers;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -21,7 +23,7 @@ namespace ReservationService.Backend.Configuration {
 					{ Guid.Parse("D9156B38-843E-43C3-BC82-7E4558BD1328"), 1 },
 				})
 			));
-
+			container.Register(Component.For<IProvideReservationData>().ImplementedBy<AcquireHoldDataProvider>().LifestyleTransient());
 
 			UpdateDBSchema();
 			//Database.SetInitializer(new MigrateDatabaseToLatestVersion<ReservationDataContext, Migrations.Configuration>());

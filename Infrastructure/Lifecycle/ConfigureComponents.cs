@@ -10,16 +10,15 @@ namespace Infrastructure.Lifecycle {
 	public static class ConfigureComponents {
 		
 		public static void RunServiceConfiguration(IWindsorContainer container) {
-			container.Register(GetAllTypes().BasedOn<INeedToRegisterComponents>().WithServiceBase());
+			container.Register(Classes.From(GetAllTypes()).BasedOn<INeedToRegisterComponents>().WithServiceBase());
 
 			foreach(var toRegister in container.ResolveAll<INeedToRegisterComponents>()) {
 				toRegister.Register(container);
 			}
 		}
 
-		public static Castle.MicroKernel.Registration.FromTypesDescriptor GetAllTypes() {
-			 return Classes.
-				From(AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes()));;
+		public static ICollection<Type> GetAllTypes() {
+			 return AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes()).ToArray();
 		}
 	}
 }

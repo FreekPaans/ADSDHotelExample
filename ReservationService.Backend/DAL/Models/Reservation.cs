@@ -17,7 +17,6 @@ namespace ReservationService.Backend.DAL.Models {
 		public const string Pending = "Pending";
 		public const string Committed = "Committed";
 
-
-		
+		public DateTime ReservedAt { get; set; }
 	}
 }

@@ -22,7 +22,7 @@ namespace ReservationService.WebInterface.Configuration {
 				ArrivalDate = originalCommand.From,
 				CheckoutDate = originalCommand.Till,
 				RoomTypeId = originalCommand.RoomTypeId ,
-				DateBooked = originalCommand.DateBooked
+				DateBooked = originalCommand.DateReserved
 			};
 		}
 	}
