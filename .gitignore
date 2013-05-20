@@ -85,3 +85,8 @@
 /MessageProcessorHost/bin
 /ReservationService.MessageHandlers/bin
 /ReservationService.MessageHandlers/obj
+/ReservationService.Backend.Tests/bin
+/ReservationService.Backend.Tests/obj
+
+/ReservationService.Backend.Tests/ReservationService.Backend.Tests.csproj.user
+/TestResults

@@ -30,8 +30,7 @@ namespace CustomerWebsite.WebInterface {
 
 			LoadAssembliesInBinFolder();
 
-			AllLoadedTypes= Classes.
-				From(AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes()));;
+			AllLoadedTypes= ConfigureComponents.GetAllTypes();
 				
 
 			RegisterControllers();
@@ -40,7 +39,7 @@ namespace CustomerWebsite.WebInterface {
 
 			NServiceBusEndpoint.StartBus(Container);
 			
-			RunServiceConfiguration();
+			ConfigureComponents.RunServiceConfiguration(Container);
 		}
 
 		private static void SetupPipeline() {
@@ -56,13 +55,6 @@ namespace CustomerWebsite.WebInterface {
 			Container.Register(AllLoadedTypes.BasedOn<IController>().LifestyleTransient());
 		}
 
-		private void RunServiceConfiguration() {
-			Container.Register(AllLoadedTypes.BasedOn<INeedToRegisterComponents>().WithServiceBase());
-
-			foreach(var toRegister in Container.ResolveAll<INeedToRegisterComponents>()) {
-				toRegister.Register(Container);
-			}
-		}
 
 		private void LoadAssembliesInBinFolder() {
 			var assemblies = new System.IO.DirectoryInfo(HttpRuntime.BinDirectory).GetFiles("*.dll", System.IO.SearchOption.AllDirectories);

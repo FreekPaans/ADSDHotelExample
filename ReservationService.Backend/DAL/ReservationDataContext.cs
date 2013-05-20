@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace ReservationService.Backend.DAL {
 	public class ReservationDataContext : DbContext{
 		public ReservationDataContext() : base("name=ADSDData") { }
+		public ReservationDataContext(string connectionString) : base(connectionString) { }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder) {
 			base.OnModelCreating(modelBuilder);

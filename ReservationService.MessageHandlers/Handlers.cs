@@ -27,15 +27,20 @@ namespace ReservationService.MessageHandlers {
 				ReservationId = message.ReservationId,
 				From = message.From,
 				To  = message.Till,
-				RoomTypeId = message.RoomTypeId		
+				RoomTypeId = message.RoomTypeId,
+				Status = Reservation.Pending
 			});
+			
 			_context.SaveChanges();
+			
 		}
 
 		public void Handle(CommitReservation message) {
 			var reservation = _context.Reservations.Find(message.ReservationId);
 			
 			reservation.Status = Reservation.Committed;
+			_context.SaveChanges();
+
 
 			_roomReserver.ReserveRoom(reservation.RoomTypeId,reservation.From,reservation.To);
 		}

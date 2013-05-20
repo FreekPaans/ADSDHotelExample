@@ -57,6 +57,7 @@
     <Compile Include="HTTP\ProcessingPipeline\WindsorHttpProcessingPipeline.cs" />
     <Compile Include="HTTP\ProcessingPipeline\IHttpProcessingPipeline.cs" />
     <Compile Include="HTTP\Session\ISessionStorage.cs" />
+    <Compile Include="Lifecycle\ConfigureComponents.cs" />
     <Compile Include="Lifecycle\INeedToRegisterComponents.cs" />
     <Compile Include="Messaging\ICommand.cs" />
     <Compile Include="Messaging\ICommandBus.cs" />

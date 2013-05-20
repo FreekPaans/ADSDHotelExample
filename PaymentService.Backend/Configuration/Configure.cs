@@ -5,6 +5,7 @@ using PaymentService.Backend.DAL;
 using PaymentService.Backend.DataProviders;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -14,6 +15,8 @@ namespace PaymentService.Backend.Configuration {
 			container.Register(Component.For<IProvidePaymentDetails>().ImplementedBy<PaymentDetailsProvider>().LifestyleTransient());
 			container.Register(Component.For<PaymentFacade>().LifestyleTransient());
 			container.Register(Component.For<PaymentDataContext>().LifestyleTransient());
+
+			Database.SetInitializer(new MigrateDatabaseToLatestVersion<PaymentDataContext, Migrations.Configuration>());
 		}
 	}
 }
