@@ -83,6 +83,10 @@
     <Compile Include="Migrations\201305202053226_reserved at.Designer.cs">
       <DependentUpon>201305202053226_reserved at.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201305202119135_datetime2.cs" />
+    <Compile Include="Migrations\201305202119135_datetime2.Designer.cs">
+      <DependentUpon>201305202119135_datetime2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\AcquireHoldDataProvider.cs" />
@@ -114,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201305202053226_reserved at.resx">
       <DependentUpon>201305202053226_reserved at.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305202119135_datetime2.resx">
+      <DependentUpon>201305202119135_datetime2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
