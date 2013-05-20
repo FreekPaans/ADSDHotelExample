@@ -114,8 +114,10 @@ namespace ReservationService.Backend.Tests {
 		}
 
 		private void reserve_rooms_with_isolation_level(IsolationLevel isolationLevel) {
-			var config = new Dictionary<Guid,int> { { RoomTypeId,100 } };
-			LoopATaskInParallel(20,5,() => {
+			const int availableRooms= 100;
+			const int iterations = 20;
+			var config = new Dictionary<Guid,int> { { RoomTypeId,availableRooms } };
+			LoopATaskInParallel(iterations,availableRooms/iterations,() => {
 				var success=false;
 				while(!success) {
 					try {

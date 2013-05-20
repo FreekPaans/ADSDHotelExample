@@ -25,44 +25,35 @@ namespace ReservationService.Backend.Logic {
 		Dictionary<DateTime,Dictionary<Guid,int>> GetAvailableRoomsPerDay(DateTime from,DateTime checkout) {
 			var days = Enumerable.Range(0,(int)(checkout-from).TotalDays+1).Select(i => from.Date.AddDays(i)).ToDictionary(d => d,d => new Dictionary<Guid,int>(_roomConfiguration));
 
-			var currentReservations = _context.DayReservations.Where(d => d.Day>=from && d.Day<checkout).ToArray().
-				ToDictionary(r => r.Day,r => JsonConvert.DeserializeObject<Dictionary<Guid,int>>(r.ReservationData));
-
-			foreach(var day in currentReservations.Keys) {
-				days[day] = currentReservations[day];
+			var roomOccupancy = _context.DayReservations.Where(d => d.Day>=from && d.Day<checkout).ToArray();
+				//ToDictionary(r => r.Day,r => JsonConvert.DeserializeObject<Dictionary<Guid,int>>(r.ReservationData));
+				
+			foreach(var roomTypeDayOccupancy in roomOccupancy) {
+				//days[day] = currentReservations[day];
+				days[roomTypeDayOccupancy.Day][roomTypeDayOccupancy.RoomTypeId] = roomTypeDayOccupancy.AvailableRooms;
 			}
 			return days;
 		}
 
-		public void ReserveRoom(Guid roomType, DateTime from, DateTime checkout) {
-			var rooms = _context.DayReservations.Where(d=>d.Day>=from && d.Day<=checkout).ToArray().ToDictionary(d=>d.Day,d=>d);
+		public void ReserveRoom(Guid roomTypeId, DateTime from, DateTime checkout) {
+			var rooms = _context.DayReservations.Where(d=>d.Day>=from && d.Day<=checkout && d.RoomTypeId==roomTypeId).ToArray().ToDictionary(d=>d.Day,d=>d);
 			
 			for(var iterator = from.Date;iterator<checkout;iterator = iterator.AddDays(1)) {
 				if(!rooms.ContainsKey(iterator)) {
-					rooms[iterator] = new DAL.Models.DayReservations { Day = iterator };
+					rooms[iterator] = new DAL.Models.DayReservations { Day = iterator, RoomTypeId = roomTypeId, AvailableRooms = _roomConfiguration[roomTypeId] };
 					_context.DayReservations.Add(rooms[iterator]);
 				}
-				ReserveRoom(rooms[iterator], roomType);
+				ReserveRoom(rooms[iterator], roomTypeId);
 			}
 			_context.SaveChanges();
 		}
 
 		private void ReserveRoom(DAL.Models.DayReservations dayReservations,Guid roomType) {
-			Dictionary<Guid, int> reservedRooms;
-
-			if(dayReservations.ReservationData==null) {
-				reservedRooms = new Dictionary<Guid,int>(_roomConfiguration);
-			}
-			else {
-				reservedRooms = JsonConvert.DeserializeObject<Dictionary<Guid,int>>(dayReservations.ReservationData);
-			}
-
-			if(reservedRooms[roomType]==0) {
+			
+			if(dayReservations.AvailableRooms==0) {
 				throw new RoomTypeNotAvailableException();
 			}
-			reservedRooms[roomType]--;
-
-			dayReservations.ReservationData = JsonConvert.SerializeObject(reservedRooms);
+			dayReservations.AvailableRooms--;
 		}
 	}
 }
