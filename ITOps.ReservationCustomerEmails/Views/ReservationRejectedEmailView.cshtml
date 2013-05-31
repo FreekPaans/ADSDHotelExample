@@ -1,0 +1,26 @@
+﻿@*Generator:Template*@
+@functions {
+	public string Name{get;set;}
+	public DateTime ArrivalDate{get;set;}
+	public DateTime CheckoutDate{get;set;}
+	public Guid ReservationId{get;set;}	
+	public string RejectReason{get;set;}
+}
+@*TODO: interpret rejectreason and give human readable explanation*@
+
+<p>
+Dear @Name,
+</p>
+<p>
+Thank you for your reservation at the ADSD Hotel.
+</p>
+<p>
+Unfortunately, we were not able to fulfill your request to reserve a room with us from @ArrivalDate.ToString("d MMMM yyyy") to @CheckoutDate.ToString("d MMMM yyyy") because of @RejectReason.
+</p>
+<p>
+If you have any questions, don't hesitate to contact us. Your reservation number is @ReservationId.
+</p>
+<p>
+Regards,<br />
+The ADSD Hotel Staff
+</p>

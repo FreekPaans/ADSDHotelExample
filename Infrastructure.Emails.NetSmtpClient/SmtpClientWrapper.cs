@@ -10,7 +10,7 @@ namespace Infrastructure.Emails.NetSmtpClient {
 		public void Send(System.Net.Mail.MailMessage message) {
 			var client = new SmtpClient();
 			
-			//todo: config via configuration
+			//todo: config via configuration file
 			client.Host = "localhost";
 
 			client.Send(message);

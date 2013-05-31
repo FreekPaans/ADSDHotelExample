@@ -46,8 +46,26 @@ namespace ITOps.ReservationCustomerEmails {
 			_smtpClient.Send(mailMessage);
 		}
 
-		public void Handle(SendReservationRejectedEmail message) {
-			throw new NotImplementedException();
+		public void Handle(SendReservationRejectedEmail command) {
+			var recipientDetails = _recipientsDetailsProvider.GetDetails(command.ReservationId);
+			var reservationDetails = _reservationDetailsProvider.GetDetails(command.ReservationId);
+
+			var mailMessage= new MailMessage(Sender,recipientDetails.MailAddress);
+
+			var htmlContent = new ReservationRejectedEmailView{
+				ReservationId = command.ReservationId,
+				Name = recipientDetails.Name,
+				ArrivalDate = reservationDetails.ArrivalDate,
+				CheckoutDate = reservationDetails.CheckoutDate,
+				RejectReason = command.Reason
+			}.TransformText();
+
+			mailMessage.Subject = "Your reservation has was rejected";
+
+			mailMessage.IsBodyHtml = true;
+			mailMessage.Body = htmlContent;
+
+			_smtpClient.Send(mailMessage);
 		}
 	}
 }

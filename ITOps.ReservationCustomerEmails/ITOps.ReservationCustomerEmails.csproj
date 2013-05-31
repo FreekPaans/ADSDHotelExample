@@ -131,6 +131,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReservationAcceptedEmailView.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ReservationRejectedEmailView.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReservationRejectedEmailView.cshtml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
@@ -169,6 +174,12 @@
     <Content Include="Views\ReservationAcceptedEmailView.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>ReservationAcceptedEmailView.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ReservationRejectedEmailView.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>ReservationRejectedEmailView.generated.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <PropertyGroup>
