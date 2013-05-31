@@ -84,6 +84,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GuestService.Backend\GuestService.Backend.csproj">
+      <Project>{318c44a2-9a2e-4a2a-b527-d43cb6c49c90}</Project>
+      <Name>GuestService.Backend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.Emails.NetSmtpClient\Infrastructure.Emails.NetSmtpClient.csproj">
+      <Project>{0f30f1b3-4cfd-40ab-af26-be4d483f25e4}</Project>
+      <Name>Infrastructure.Emails.NetSmtpClient</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrastructure.Messaging.NServiceBus\Infrastructure.Messaging.NServiceBus.csproj">
       <Project>{9d075ca7-2efe-4d02-9cb1-218b76dd99d2}</Project>
       <Name>Infrastructure.Messaging.NServiceBus</Name>
@@ -95,6 +103,10 @@
     <ProjectReference Include="..\ITOps.PaymentProvider\ITOps.PaymentProvider.csproj">
       <Project>{44077702-6fd0-4dab-b8f3-b4fef339e52a}</Project>
       <Name>ITOps.PaymentProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ITOps.ReservationCustomerEmails\ITOps.ReservationCustomerEmails.csproj">
+      <Project>{4a381a30-2bcc-473a-9a40-1304842c7783}</Project>
+      <Name>ITOps.ReservationCustomerEmails</Name>
     </ProjectReference>
     <ProjectReference Include="..\PaymentService.Backend\PaymentService.Backend.csproj">
       <Project>{cf87e2d8-e751-471b-a1a5-f0ffcf3ef4d5}</Project>

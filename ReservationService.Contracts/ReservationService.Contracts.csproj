@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\Business\ReservationAccepted.cs" />
     <Compile Include="Events\Business\ReservationPlaced.cs" />
+    <Compile Include="Events\Business\ReservationRejected.cs" />
     <Compile Include="Events\UI\RoomTypeIDsAvailable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

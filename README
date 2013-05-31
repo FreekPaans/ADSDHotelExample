@@ -4,6 +4,7 @@ You need to have RazorGenerator VS extension installed
 You need to run VS as admin in order to have access to migrations cmdlets
 Uses localdb by default
 You'll need the dependencies for NServiceBus (MSMQ,RavenDB,DTC)
+It'll send e-mails via localhost, I use papercut to intercept them
 
 To think about:
 - Obtain reservation details published by branding or reservation service

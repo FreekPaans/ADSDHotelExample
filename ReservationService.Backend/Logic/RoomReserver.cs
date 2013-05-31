@@ -55,5 +55,12 @@ namespace ReservationService.Backend.Logic {
 			}
 			dayReservations.AvailableRooms--;
 		}
+
+		public void ReleaseRooms(Guid roomTypeId,DateTime from,DateTime to) {
+			foreach(var dayRoomHold in _context.DayReservations.Where(dr => dr.Day>=from && dr.Day<to && dr.RoomTypeId == roomTypeId)) {
+				dayRoomHold.AvailableRooms++;
+			}
+			_context.SaveChanges();
+		}
 	}
 }

@@ -98,6 +98,10 @@
       <Project>{d1f66d87-0b1a-4992-afe4-0c2abbbe2676}</Project>
       <Name>Infrastructure %28Infrastructure\Infrastructure%29</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ITOps.ReservationCustomerEmails.Contracts\ITOps.ReservationCustomerEmails.Contracts.csproj">
+      <Project>{2128b689-7447-4667-831e-64000db63a3f}</Project>
+      <Name>ITOps.ReservationCustomerEmails.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201305170833586_Initial.resx">

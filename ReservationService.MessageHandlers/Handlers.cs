@@ -1,4 +1,5 @@
 ﻿using Infrastructure.Messaging;
+using ITOps.ReservationCustomerEmails.Commands;
 using NServiceBus;
 using PaymentService.Contracts.Events;
 using ReservationService.Backend.Commands;
@@ -13,15 +14,24 @@ using System.Text;
 
 namespace ReservationService.MessageHandlers {
 	//TODO: remove dependency on NSB (or maybe add in other parts)
-	public class Handlers:IHandleMessages<StartReservation>,IHandleMessages<CommitReservation>,IHandleMessages<CancellationFeeHoldAcquired>,IHandleMessages<CancellationFeeHoldDenied> {
+	public class Handlers:
+		IHandleMessages<StartReservation>,
+		IHandleMessages<CommitReservation>,
+		IHandleMessages<CancellationFeeHoldAcquired>,
+		IHandleMessages<CancellationFeeHoldDenied>,
+		IHandleMessages<ReservationAccepted>,
+		IHandleMessages<ReservationRejected>
+	{
 		readonly ReservationDataContext _context;
 		readonly RoomReserver _roomReserver;
 		readonly IEventBus _eventBus;
+		readonly ICommandBus _commandBus;
 		
-		public Handlers(ReservationDataContext context, RoomReserver roomReserver, IEventBus eventBus) {
+		public Handlers(ReservationDataContext context, RoomReserver roomReserver, IEventBus eventBus, ICommandBus commandBus ) {
 			_context = context;
 			_roomReserver = roomReserver;
 			_eventBus = eventBus;
+			_commandBus = commandBus;
 		}
 		public void Handle(StartReservation message) {
 			if(_context.Reservations.Find(message.ReservationId)!=null) {
@@ -63,19 +73,28 @@ namespace ReservationService.MessageHandlers {
 		public void Handle(CancellationFeeHoldDenied @event) {
 			var reservation = _context.Reservations.Find(@event.ReservationId);
 			reservation.CancellationFeeStatus = ReservationCancellationFeeStatus.Denied;
-
 			
-			foreach(var dayRoomHold in _context.DayReservations.Where(dr=>dr.Day>=reservation.From && dr.Day<reservation.To && dr.RoomTypeId == reservation.RoomTypeId)) {
-				dayRoomHold.AvailableRooms++;
-			}
-
+			_roomReserver.ReleaseRooms(reservation.RoomTypeId,reservation.From,reservation.To);
+			
 			_context.SaveChanges();
+
+			_eventBus.Publish(new ReservationRejected { ReservationId = @event.ReservationId, Reason = ReservationRejected.BecauseCancellationFeeHoldDenied });
 		}
 
 		public void Handle(CancellationFeeHoldAcquired @event) {
 			var reservation = _context.Reservations.Find(@event.ReservationId);
 			reservation.CancellationFeeStatus = ReservationCancellationFeeStatus.Acquired;
 			_context.SaveChanges();
+
+			_eventBus.Publish(new ReservationAccepted { ReservationId = @event.ReservationId });
+		}
+
+		public void Handle(ReservationAccepted @event) {
+			_commandBus.Send(new SendReservationAcceptedEmail { ReservationId = @event.ReservationId });
+		}
+
+		public void Handle(ReservationRejected @event) {
+			_commandBus.Send(new SendReservationRejectedEmail { ReservationId = @event.ReservationId, Reason = @event.Reason });
 		}
 	}
 }

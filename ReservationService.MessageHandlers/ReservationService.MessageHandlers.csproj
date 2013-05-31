@@ -62,6 +62,10 @@
       <Project>{d1f66d87-0b1a-4992-afe4-0c2abbbe2676}</Project>
       <Name>Infrastructure %28Infrastructure\Infrastructure%29</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ITOps.ReservationCustomerEmails.Commands\ITOps.ReservationCustomerEmails.Commands.csproj">
+      <Project>{0811f2b2-df62-4a9a-8785-feac54ca30bc}</Project>
+      <Name>ITOps.ReservationCustomerEmails.Commands</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PaymentService.Contracts\PaymentService.Contracts.csproj">
       <Project>{0b26a4a8-d668-4cd6-bdc7-32931397d984}</Project>
       <Name>PaymentService.Contracts</Name>
@@ -77,7 +81,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

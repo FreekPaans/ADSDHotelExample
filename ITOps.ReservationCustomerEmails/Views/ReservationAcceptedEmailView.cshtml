@@ -1,0 +1,25 @@
+﻿@*Generator:Template*@
+
+@functions {
+	public string Name{get;set;}
+	public DateTime ArrivalDate{get;set;}
+	public DateTime CheckoutDate{get;set;}
+	public Guid ReservationId{get;set;}	
+}
+
+<p>
+Dear @Name,
+</p>
+<p>
+Thank you for your reservation at the ADSD Hotel.
+</p>
+<p>
+We look forward to welcoming you at our hotel from @ArrivalDate.ToString("d MMMM yyyy") to @CheckoutDate.ToString("d MMMM yyyy")
+</p>
+<p>
+If you have any questions, don't hesitate to contact us. Your reservation number is @ReservationId.
+</p>
+<p>
+Regards,<br />
+The ADSD Hotel Staff
+</p>

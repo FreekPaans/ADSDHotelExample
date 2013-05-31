@@ -107,3 +107,12 @@
 /PaymentService.Backend/PaymentService.Backend.csproj.user
 /PaymentService.Contracts/bin
 /PaymentService.Contracts/obj
+/ITOps.ReservationCustomerEmails/ITOps.ReservationCustomerEmails.csproj.user
+/ITOps.ReservationCustomerEmails.Commands/obj
+/ITOps.ReservationCustomerEmails.Commands/bin
+/ITOps.ReservationCustomerEmails.Contracts/bin
+/ITOps.ReservationCustomerEmails.Contracts/obj
+/ITOps.ReservationCustomerEmails/obj
+/ITOps.ReservationCustomerEmails/bin
+/Infrastructure.Emails.NetSmtpClient/obj
+/Infrastructure.Emails.NetSmtpClient/bin

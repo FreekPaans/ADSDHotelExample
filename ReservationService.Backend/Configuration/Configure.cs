@@ -24,6 +24,7 @@ namespace ReservationService.Backend.Configuration {
 				})
 			));
 			container.Register(Component.For<IProvideReservationData>().ImplementedBy<AcquireHoldDataProvider>().LifestyleTransient());
+			container.Register(Component.For<ITOps.ReservationCustomerEmails.Contracts.IProvideReservationDetails>().ImplementedBy<CustomerEmailDetailsProvider>().LifestyleTransient());
 
 			UpdateDBSchema();
 			//Database.SetInitializer(new MigrateDatabaseToLatestVersion<ReservationDataContext, Migrations.Configuration>());
@@ -34,3 +35,4 @@ namespace ReservationService.Backend.Configuration {
 		}
 	}
 }
+
