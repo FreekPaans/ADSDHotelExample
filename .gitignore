@@ -105,3 +105,5 @@
 /PaymentService.MessageHandlers/bin
 /PaymentService.MessageHandlers/obj
 /PaymentService.Backend/PaymentService.Backend.csproj.user
+/PaymentService.Contracts/bin
+/PaymentService.Contracts/obj

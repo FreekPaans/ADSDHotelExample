@@ -168,6 +168,10 @@
       <Project>{d1f66d87-0b1a-4992-afe4-0c2abbbe2676}</Project>
       <Name>Infrastructure %28Infrastructure\Infrastructure%29</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ITOps.PaymentProvider.Contracts\ITOps.PaymentProvider.Contracts.csproj">
+      <Project>{ccc8c80d-7df4-4246-bbc4-5e82a662a5e9}</Project>
+      <Name>ITOps.PaymentProvider.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PaymentService.Backend\PaymentService.Backend.csproj">
       <Project>{cf87e2d8-e751-471b-a1a5-f0ffcf3ef4d5}</Project>
       <Name>PaymentService.Backend</Name>

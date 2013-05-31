@@ -2,6 +2,7 @@
 using ITOps.PaymentProvider.Commands;
 using ITOps.PaymentProvider.Contracts.Events;
 using NServiceBus;
+using PaymentService.Backend;
 using ReservationService.Contracts.Events.Business;
 using System;
 using System.Collections.Generic;
@@ -10,21 +11,23 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PaymentService.MessageHandlers {
-	public class Handlers : IHandleMessages<ReservationPlaced>,IHandleMessages<CancellationFeeHoldAcquired>, IHandleMessages<CancellationFeeHoldDenied> {
-		readonly ICommandBus _commandBus;
-		public Handlers(ICommandBus commandBus) {
-			_commandBus = commandBus;
+	public class Handlers : IHandleMessages<ReservationPlaced>,IHandleMessages<CancellationFeeHoldAcquiredFromCreditCard>, IHandleMessages<CancellationFeeHoldDeniedFromCreditCard> {
+		readonly PaymentFacade _facade;
+		//readonly PaymentFacade _facade;
+
+		public Handlers(PaymentFacade facade) {
+			_facade = facade;
 		}
 		public void Handle(ReservationPlaced @event) {
-			_commandBus.Send(new AcquireHoldForReservationCancellationFee { ReservationId = @event.ReservationId });
+			_facade.Handle(@event);
 		}
 
-		public void Handle(CancellationFeeHoldDenied message) {
-			throw new NotImplementedException();
+		public void Handle(CancellationFeeHoldAcquiredFromCreditCard @event) {
+			_facade.Handle(@event);
 		}
 
-		public void Handle(CancellationFeeHoldAcquired message) {
-			throw new NotImplementedException();
+		public void Handle(CancellationFeeHoldDeniedFromCreditCard @event) {
+			_facade.Handle(@event);
 		}
 	}
 }

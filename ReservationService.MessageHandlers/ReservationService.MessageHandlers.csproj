@@ -62,6 +62,10 @@
       <Project>{d1f66d87-0b1a-4992-afe4-0c2abbbe2676}</Project>
       <Name>Infrastructure %28Infrastructure\Infrastructure%29</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PaymentService.Contracts\PaymentService.Contracts.csproj">
+      <Project>{0b26a4a8-d668-4cd6-bdc7-32931397d984}</Project>
+      <Name>PaymentService.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ReservationService.Backend\ReservationService.Backend.csproj">
       <Project>{c866a299-7017-411d-b3c1-e9d847e78a41}</Project>
       <Name>ReservationService.Backend</Name>

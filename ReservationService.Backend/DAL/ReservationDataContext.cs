@@ -18,7 +18,7 @@ namespace ReservationService.Backend.DAL {
 			modelBuilder.Entity<DayReservations>().HasKey(dr=>new  { dr.Day, dr.RoomTypeId });
 			modelBuilder.Entity<Reservation>().ToTable("Reservation","ReservationService");
 			modelBuilder.Entity<Reservation>().Property(p=>p.Status).IsRequired();
-
+			modelBuilder.Entity<Reservation>().Property(p => p.CancellationFeeStatus).IsRequired();
 		}
 
 		public DbSet<Reservation> Reservations{get;set;}

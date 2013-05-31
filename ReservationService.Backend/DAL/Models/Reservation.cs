@@ -18,5 +18,14 @@ namespace ReservationService.Backend.DAL.Models {
 		public const string Committed = "Committed";
 
 		public DateTime ReservedAt { get; set; }
+
+		public string CancellationFeeStatus {get;set;}
 	}
+
+	public class ReservationCancellationFeeStatus {
+		public const string Pending = "Pending";
+		public const string Acquired = "Acquired";
+		public const string Denied = "Denied";
+
+	} 
 }

@@ -1,5 +1,6 @@
 ﻿using PaymentService.Backend.DAL;
 using PaymentService.Backend.DAL.Models;
+using PaymentService.Contracts.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,12 @@ using System.Threading.Tasks;
 namespace PaymentService.Backend {
 	public class PaymentFacade {
 		readonly PaymentDataContext _context;
-		public PaymentFacade(PaymentDataContext context) {
+		readonly Infrastructure.Messaging.ICommandBus _commandBus;
+		readonly Infrastructure.Messaging.IEventBus _eventBus;
+		public PaymentFacade(PaymentDataContext context, Infrastructure.Messaging.ICommandBus commandBus, Infrastructure.Messaging.IEventBus eventBus) {
 			_context = context;
+			_commandBus = commandBus;
+			_eventBus = eventBus;
 		}
 		public void Handle(Commands.StoreRervationBillingInformation command) {
 			if(_context.BillingData.Find(command.ReservationId)!=null) {
@@ -34,6 +39,21 @@ namespace PaymentService.Backend {
 		private static DateTime GetMonth(string mmYYYY) {
 			var split = mmYYYY.Split('-');
 			return new DateTime(int.Parse(split[1]),int.Parse(split[0])+1,1);
+		}
+
+
+		public void Handle(ReservationService.Contracts.Events.Business.ReservationPlaced @event) {
+			_commandBus.Send(new ITOps.PaymentProvider.Commands.AcquireHoldForReservationCancellationFee { ReservationId = @event.ReservationId });
+		}
+
+		public void Handle(ITOps.PaymentProvider.Contracts.Events.CancellationFeeHoldAcquiredFromCreditCard @event) {
+			//TODO: maybe mark this in payment service
+			_eventBus.Publish(new CancellationFeeHoldAcquired { ReservationId = @event.ReservationId });
+		}
+
+		public void Handle(ITOps.PaymentProvider.Contracts.Events.CancellationFeeHoldDeniedFromCreditCard @event) {
+			//TODO: maybe mark this in payment service	
+			_eventBus.Publish(new CancellationFeeHoldDenied { ReservationId = @event.ReservationId });
 		}
 	}
 }

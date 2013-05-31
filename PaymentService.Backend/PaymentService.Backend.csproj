@@ -76,6 +76,10 @@
     <Compile Include="Migrations\201305201812268_cancellation fee column.Designer.cs">
       <DependentUpon>201305201812268_cancellation fee column.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201305311221298_remove acquire fee fied.cs" />
+    <Compile Include="Migrations\201305311221298_remove acquire fee fied.Designer.cs">
+      <DependentUpon>201305311221298_remove acquire fee fied.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PaymentFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,9 +93,21 @@
       <Project>{d1f66d87-0b1a-4992-afe4-0c2abbbe2676}</Project>
       <Name>Infrastructure %28Infrastructure\Infrastructure%29</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ITOps.PaymentProvider.Commands\ITOps.PaymentProvider.Commands.csproj">
+      <Project>{1a0a4992-a1ad-42f0-bedf-1643c25f1563}</Project>
+      <Name>ITOps.PaymentProvider.Commands</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ITOps.PaymentProvider.Contracts\ITOps.PaymentProvider.Contracts.csproj">
       <Project>{ccc8c80d-7df4-4246-bbc4-5e82a662a5e9}</Project>
       <Name>ITOps.PaymentProvider.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PaymentService.Contracts\PaymentService.Contracts.csproj">
+      <Project>{0b26a4a8-d668-4cd6-bdc7-32931397d984}</Project>
+      <Name>PaymentService.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReservationService.Contracts\ReservationService.Contracts.csproj">
+      <Project>{411bedb9-6b9c-4fda-b67d-01a5d205894b}</Project>
+      <Name>ReservationService.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201305201812268_cancellation fee column.resx">
       <DependentUpon>201305201812268_cancellation fee column.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305311221298_remove acquire fee fied.resx">
+      <DependentUpon>201305311221298_remove acquire fee fied.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

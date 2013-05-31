@@ -24,6 +24,7 @@ namespace ITOps.PaymentProvider {
 			_eventBus = eventBus;
 		}
 		public void Handle(AcquireHoldForReservationCancellationFee cmd) {
+			//TODO: audit interactions with payment provider 
 			var reservationData = _reservationDataProvider.GetReservationData(cmd.ReservationId);
 			var pricingInfo = _pricingDataProvider.GetPricingData(reservationData.RoomTypeId,reservationData.ReservedAt, reservationData.Arrival,reservationData.Checkout);
 			var billingData= _billingDataProvider.GetBillingData(cmd.ReservationId);
@@ -31,10 +32,10 @@ namespace ITOps.PaymentProvider {
 			var result = MessageBox.Show(FormatDetails(pricingInfo,billingData), "Acquire hold?", MessageBoxButtons.YesNo);
 
 			if(result == DialogResult.Yes) {
-				_eventBus.Publish(new CancellationFeeHoldAcquired { ReservationId = cmd.ReservationId });
+				_eventBus.Publish(new CancellationFeeHoldAcquiredFromCreditCard { ReservationId = cmd.ReservationId });
 			}
 			else {
-				_eventBus.Publish(new CancellationFeeHoldDenied { ReservationId = cmd.ReservationId });
+				_eventBus.Publish(new CancellationFeeHoldDeniedFromCreditCard { ReservationId = cmd.ReservationId });
 			}
 		}
 

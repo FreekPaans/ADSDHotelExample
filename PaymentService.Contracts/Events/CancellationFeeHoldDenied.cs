@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ITOps.PaymentProvider.Contracts.Events {
+namespace PaymentService.Contracts.Events {
 	public class CancellationFeeHoldDenied : IEvent{
 		public Guid ReservationId { get; set; }
 	}
