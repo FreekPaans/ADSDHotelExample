@@ -9,7 +9,17 @@
 	});
 
 	var showReservationDetails = function (reservationId) {
-		console.log('showing %s', reservationId);
+		$.ajax({
+			type: 'get',
+			url: '/Home/RenderReservation',
+			data: {
+				reservationId: reservationId
+			},
+			success: function (result) {
+				$('.reservation_details').html(result).show();
+
+			}
+		});
 	}
 
 	$('.search_by_reservation_number').submit(function (ev) {

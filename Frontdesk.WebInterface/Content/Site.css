@@ -28,3 +28,10 @@
 .find_reservation input.search_input {
 	left: 200px;
 }
+
+.hidden {
+	display:none;
+}
+
+.reservation_details {
+}

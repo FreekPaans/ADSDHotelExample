@@ -1,31 +1,29 @@
-namespace PaymentService.Backend.Migrations
+namespace GuestService.Backend.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initial : DbMigration
+    public partial class ef600 : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "PaymentService.BillingData",
+                "GuestService.Guests",
                 c => new
                     {
                         ReservationId = c.Guid(nullable: false),
                         Firstname = c.String(),
                         Lastname = c.String(),
-                        StreetName = c.String(),
-                        PostalCode = c.String(),
-                        City = c.String(),
-                        CreditCardNumber = c.String(),
-                        CreditCardExpiration = c.DateTime(nullable: false),
+                        Email = c.String(),
+                        Phonenumber = c.String(),
                     })
                 .PrimaryKey(t => t.ReservationId);
+            
         }
         
         public override void Down()
         {
-            DropTable("PaymentService.BillingData");
+            DropTable("GuestService.Guests");
         }
     }
 }

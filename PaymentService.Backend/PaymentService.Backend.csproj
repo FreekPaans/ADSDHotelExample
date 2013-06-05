@@ -64,21 +64,9 @@
     <Compile Include="DAL\PaymentDataContext.cs" />
     <Compile Include="DataProviders\AcquireHoldBillingDataProvider.cs" />
     <Compile Include="DataProviders\PaymentDetailsProvider.cs" />
-    <Compile Include="Migrations\201305171224523_initial.cs" />
-    <Compile Include="Migrations\201305171224523_initial.Designer.cs">
-      <DependentUpon>201305171224523_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305171232020_billing data set.cs" />
-    <Compile Include="Migrations\201305171232020_billing data set.Designer.cs">
-      <DependentUpon>201305171232020_billing data set.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305201812268_cancellation fee column.cs" />
-    <Compile Include="Migrations\201305201812268_cancellation fee column.Designer.cs">
-      <DependentUpon>201305201812268_cancellation fee column.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305311221298_remove acquire fee fied.cs" />
-    <Compile Include="Migrations\201305311221298_remove acquire fee fied.Designer.cs">
-      <DependentUpon>201305311221298_remove acquire fee fied.cs</DependentUpon>
+    <Compile Include="Migrations\201306051344308_ef6.0.0.cs" />
+    <Compile Include="Migrations\201306051344308_ef6.0.0.Designer.cs">
+      <DependentUpon>201306051344308_ef6.0.0.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PaymentFacade.cs" />
@@ -111,22 +99,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201305171224523_initial.resx">
-      <DependentUpon>201305171224523_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305171232020_billing data set.resx">
-      <DependentUpon>201305171232020_billing data set.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305201812268_cancellation fee column.resx">
-      <DependentUpon>201305201812268_cancellation fee column.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305311221298_remove acquire fee fied.resx">
-      <DependentUpon>201305311221298_remove acquire fee fied.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201306051344308_ef6.0.0.resx">
+      <DependentUpon>201306051344308_ef6.0.0.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

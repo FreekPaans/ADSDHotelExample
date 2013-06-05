@@ -3,7 +3,7 @@ namespace ReservationService.Backend.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initial : DbMigration
+    public partial class ef600 : DbMigration
     {
         public override void Up()
         {
@@ -15,6 +15,9 @@ namespace ReservationService.Backend.Migrations
                         RoomTypeId = c.Guid(nullable: false),
                         From = c.DateTime(nullable: false),
                         To = c.DateTime(nullable: false),
+                        Status = c.String(nullable: false),
+                        ReservedAt = c.DateTime(nullable: false),
+                        CancellationFeeStatus = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.ReservationId);
             
@@ -23,10 +26,11 @@ namespace ReservationService.Backend.Migrations
                 c => new
                     {
                         Day = c.DateTime(nullable: false),
-                        ReservationData = c.String(),
+                        RoomTypeId = c.Guid(nullable: false),
+                        AvailableRooms = c.Int(nullable: false),
                         Version = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
                     })
-                .PrimaryKey(t => t.Day);
+                .PrimaryKey(t => new { t.Day, t.RoomTypeId });
             
         }
         

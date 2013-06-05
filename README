@@ -19,3 +19,4 @@ TODO:
 * distinguish between services' webinterface per endpoint (frontdesk/customer)
 * find way to inject javascript without wrapping div
 * be able to run services' webinterface standalone
+* manage room types

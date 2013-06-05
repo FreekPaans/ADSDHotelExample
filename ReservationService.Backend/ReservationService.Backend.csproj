@@ -69,25 +69,9 @@
     <Compile Include="DAL\ReservationDataContext.cs" />
     <Compile Include="Logic\RoomReserver.cs" />
     <Compile Include="Logic\RoomNotAvailableException.cs" />
-    <Compile Include="Migrations\201305171445046_initial.cs" />
-    <Compile Include="Migrations\201305171445046_initial.Designer.cs">
-      <DependentUpon>201305171445046_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305171519007_reservation status.cs" />
-    <Compile Include="Migrations\201305171519007_reservation status.Designer.cs">
-      <DependentUpon>201305171519007_reservation status.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305201703534_migrate json to columns.cs" />
-    <Compile Include="Migrations\201305201703534_migrate json to columns.Designer.cs">
-      <DependentUpon>201305201703534_migrate json to columns.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305202053226_reserved at.cs" />
-    <Compile Include="Migrations\201305202053226_reserved at.Designer.cs">
-      <DependentUpon>201305202053226_reserved at.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305311250135_cancellation fee status.cs" />
-    <Compile Include="Migrations\201305311250135_cancellation fee status.Designer.cs">
-      <DependentUpon>201305311250135_cancellation fee status.cs</DependentUpon>
+    <Compile Include="Migrations\201306051342215_ef 6.0.0.cs" />
+    <Compile Include="Migrations\201306051342215_ef 6.0.0.Designer.cs">
+      <DependentUpon>201306051342215_ef 6.0.0.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,20 +102,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201305171445046_initial.resx">
-      <DependentUpon>201305171445046_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305171519007_reservation status.resx">
-      <DependentUpon>201305171519007_reservation status.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305201703534_migrate json to columns.resx">
-      <DependentUpon>201305201703534_migrate json to columns.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305202053226_reserved at.resx">
-      <DependentUpon>201305202053226_reserved at.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305311250135_cancellation fee status.resx">
-      <DependentUpon>201305311250135_cancellation fee status.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201306051342215_ef 6.0.0.resx">
+      <DependentUpon>201306051342215_ef 6.0.0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

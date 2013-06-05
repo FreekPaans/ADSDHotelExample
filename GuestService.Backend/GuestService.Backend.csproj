@@ -62,25 +62,9 @@
     <Compile Include="DAL\Models\Guest.cs" />
     <Compile Include="Commands\StoreGuestInfo.cs" />
     <Compile Include="GuestServiceFacade.cs" />
-    <Compile Include="Migrations\201305170833586_Initial.cs" />
-    <Compile Include="Migrations\201305170833586_Initial.Designer.cs">
-      <DependentUpon>201305170833586_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305170843169_Index on reservationid.cs" />
-    <Compile Include="Migrations\201305170843169_Index on reservationid.Designer.cs">
-      <DependentUpon>201305170843169_Index on reservationid.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305170850318_delete guest id.cs" />
-    <Compile Include="Migrations\201305170850318_delete guest id.Designer.cs">
-      <DependentUpon>201305170850318_delete guest id.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305170851500_delete non pk index on reservationid.cs" />
-    <Compile Include="Migrations\201305170851500_delete non pk index on reservationid.Designer.cs">
-      <DependentUpon>201305170851500_delete non pk index on reservationid.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305171136413_guest schema.cs" />
-    <Compile Include="Migrations\201305171136413_guest schema.Designer.cs">
-      <DependentUpon>201305171136413_guest schema.cs</DependentUpon>
+    <Compile Include="Migrations\201306051343276_ef6.0.0.cs" />
+    <Compile Include="Migrations\201306051343276_ef6.0.0.Designer.cs">
+      <DependentUpon>201306051343276_ef6.0.0.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,20 +88,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201305170833586_Initial.resx">
-      <DependentUpon>201305170833586_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305170843169_Index on reservationid.resx">
-      <DependentUpon>201305170843169_Index on reservationid.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305170850318_delete guest id.resx">
-      <DependentUpon>201305170850318_delete guest id.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305170851500_delete non pk index on reservationid.resx">
-      <DependentUpon>201305170851500_delete non pk index on reservationid.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305171136413_guest schema.resx">
-      <DependentUpon>201305171136413_guest schema.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201306051343276_ef6.0.0.resx">
+      <DependentUpon>201306051343276_ef6.0.0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
