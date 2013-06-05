@@ -1,0 +1,30 @@
+﻿body {
+	margin: 0;
+	padding: 0;
+	font-family: "Segoe UI",Arial;
+}
+
+.select_active_date {
+	position: absolute;
+	right:0;
+	top:0;
+}
+
+.centerer {
+	margin-top:30px;
+	margin-left:auto;
+	margin-right:auto;
+	width: 800px;
+}
+
+
+.find_reservation .row {
+	position:relative;
+}
+.find_reservation input {
+	position:absolute;
+}
+
+.find_reservation input.search_input {
+	left: 200px;
+}

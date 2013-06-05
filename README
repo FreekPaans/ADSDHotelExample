@@ -10,3 +10,12 @@ To think about:
 - Obtain reservation details published by branding or reservation service
 - Who owns urls
 - If site owns urls, how to communicate with service (now done via events)
+
+TODO:
+* move all to/till date fields to checkout date
+* interpret denied reason in e-mails
+* implement pricing service
+* implement room details service
+* distinguish between services' webinterface per endpoint (frontdesk/customer)
+* find way to inject javascript without wrapping div
+* be able to run services' webinterface standalone

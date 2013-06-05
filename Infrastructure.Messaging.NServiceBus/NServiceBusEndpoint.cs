@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace CustomerWebsite.WebInterface {
+namespace Infrastructure.Messaging.NServiceBus{
 	public static class NServiceBusEndpoint {
 		public static void StartBus(IWindsorContainer container) {
-			Configure.With().CastleWindsorBuilder(container).
+			global::NServiceBus.Configure.With().CastleWindsorBuilder(container).
 				DefiningCommandsAs(c=>typeof(Infrastructure.Messaging.ICommand).IsAssignableFrom(c)).
 				XmlSerializer().MsmqTransport().UnicastBus().
 				

@@ -51,6 +51,8 @@
   <ItemGroup>
     <Compile Include="Emails\ISmtpClient.cs" />
     <Compile Include="HTTP\Helpers\HttpProcessingPipelineContextHelpers.cs" />
+    <Compile Include="HTTP\MVC\ServicePipelineControllerBase.cs" />
+    <Compile Include="HTTP\MVC\WindsorControllerFactory.cs" />
     <Compile Include="HTTP\ProcessingPipeline\HttpEventBus.cs" />
     <Compile Include="HTTP\ProcessingPipeline\HttpProcessingPipelineContext.cs" />
     <Compile Include="HTTP\ProcessingPipeline\IHandleHttpProcessingEvents.cs" />

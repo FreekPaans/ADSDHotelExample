@@ -4,11 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace CustomerWebsite.WebInterface{
-	class WindsorControllerFactory : DefaultControllerFactory{
-		private  IWindsorContainer _container;
+namespace Infrastructure.HTTP.MVC {
+	class WindsorControllerFactory:DefaultControllerFactory {
+		private IWindsorContainer _container;
 		public WindsorControllerFactory(IWindsorContainer container) {
 			_container = container;
 		}

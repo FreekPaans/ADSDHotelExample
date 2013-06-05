@@ -69,8 +69,8 @@ WriteLiteral(" to ");
             
             #line default
             #line hidden
-WriteLiteral("\r\n</p>\r\n<p>\r\nIf you have any questions, don\'t hesitate to contact us. Your reserv" +
-"ation number is ");
+WriteLiteral(".\r\n</p>\r\n<p>\r\nIf you have any questions, don\'t hesitate to contact us. Your reser" +
+"vation number is ");
 
 
             

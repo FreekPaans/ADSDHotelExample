@@ -116,3 +116,7 @@
 /ITOps.ReservationCustomerEmails/bin
 /Infrastructure.Emails.NetSmtpClient/obj
 /Infrastructure.Emails.NetSmtpClient/bin
+/Frontdesk.WebInterface/Frontdesk.WebInterface.csproj.user
+/Frontdesk.WebInterface/obj
+/Frontdesk.WebInterface/bin
+/Frontdesk.WebInterface/Scripts/Services

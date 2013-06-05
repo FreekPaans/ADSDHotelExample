@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+	<script type="text/javascript" src="/Scripts/jquery-2.0.1.js"></script>
+	<script type="text/javascript" src="/Scripts/jquery-ui-1.10.3.js"></script>
+
+	<script type="text/javascript" src="/Scripts/main.js"></script>
+	
+	<link rel="stylesheet" href="/Content/themes/base/jquery-ui.css" />
+	<link rel="stylesheet" href="/Content/Site.css" />
+</head>
+<body>
+	<div class="select_active_date">
+		Set current date: <input type="text" class="current_date_selector" data-cookiename="@DateContextHelper.CookieName"  value="@DateContextHelper.Now().ToString("d")" />
+	</div>
+    <div class="centerer">
+        @RenderBody()
+    </div>
+	@foreach(var sect in ViewBag.HttpProcessingPipelineContext.RenderSections()) {
+		@Html.Raw(sect.Value)
+	}
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿$(function () {
+	$('.current_date_selector').datepicker({
+		dateFormat: 'd/m/yy',
+		onSelect: function () {
+			var $this = $(this);
+			document.cookie = $this.data('cookiename') + '=' + escape($this.val()) + ';path=/';
+			window.location = window.location;
+		}
+	});
+
+	var showReservationDetails = function (reservationId) {
+		console.log('showing %s', reservationId);
+	}
+
+	$('.search_by_reservation_number').submit(function (ev) {
+		ev.preventDefault();
+
+		var reservationId = $(this).find('input[type=text]').val();
+
+		ReservationService.Exists(reservationId, function (exists) {
+			if (!exists) {
+				alert("Reservation not found");
+				return;
+			}
+			showReservationDetails(reservationId);
+		});
+	});
+
+	$('.search_by_guest_name').submit(function (ev) {
+		ev.preventDefault();
+		var reservationId = GuestService.GetReservationIdByGuestName($(this).find('input[type=text]').val());
+
+		if (reservationId == null) {
+			alert("Reservation not found");
+			return;
+		}
+
+		showReservationDetails(reservationId);
+	});
+});

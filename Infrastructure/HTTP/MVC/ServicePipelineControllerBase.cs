@@ -2,14 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace CustomerWebsite.WebInterface.Controllers {
-	public abstract class ADSDControllerBase:Controller {
-		public IHttpProcessingPipeline ProcessingPipeline{get;set;}
+namespace Infrastructure.HTTP.MVC {
+	public class ServicePipelineControllerBase : Controller{
+		public IHttpProcessingPipeline ProcessingPipeline { get; set; }
 
-		protected HttpProcessingPipelineContext ProcessingContext{get;set;}
+		protected HttpProcessingPipelineContext ProcessingContext { get; set; }
 
 		protected override void OnActionExecuting(ActionExecutingContext filterContext) {
 			base.OnActionExecuting(filterContext);
@@ -21,7 +22,7 @@ namespace CustomerWebsite.WebInterface.Controllers {
 			ProcessingContext = ctx;
 			ViewBag.HttpProcessingPipelineContext = ctx;
 
-			ViewBag.RenderSection = new Func<string,MvcHtmlString>(s=>ctx.RenderSection(s));
+			ViewBag.RenderSection = new Func<string,MvcHtmlString>(s => ctx.RenderSection(s));
 		}
 
 		protected override void OnResultExecuted(ResultExecutedContext filterContext) {

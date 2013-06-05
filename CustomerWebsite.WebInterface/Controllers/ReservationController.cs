@@ -1,5 +1,6 @@
 ﻿using CustomerWebsite.Contracts.Events;
 using CustomerWebsite.WebInterface.ViewModels;
+using Infrastructure.HTTP.MVC;
 using ReservationService.Contracts.Events.UI;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 
 namespace CustomerWebsite.WebInterface.Controllers {
-	public class ReservationController:ADSDControllerBase{
+	public class ReservationController:ServicePipelineControllerBase {
 		readonly ReservationSummaryViewModel.Provider _summaryProvider;
 
 		public ReservationController(ReservationSummaryViewModel.Provider summaryProvider) {

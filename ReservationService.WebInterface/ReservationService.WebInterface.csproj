@@ -129,6 +129,7 @@
     <Compile Include="Configuration\Configure.cs" />
     <Compile Include="Configuration\ReservationDetailsProvider.cs" />
     <Compile Include="Controllers\CommitController.cs" />
+    <Compile Include="Controllers\ReservationExistsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -156,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Scripts\Facade.js" />
     <Content Include="Scripts\ReservationDetailsForm.js" />
     <Content Include="Scripts\SearchBox.js" />
     <Content Include="Views\Web.config" />

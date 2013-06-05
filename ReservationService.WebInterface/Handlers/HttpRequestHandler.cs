@@ -35,6 +35,7 @@ namespace ReservationService.WebInterface.Handlers {
 		}
 
 		public void HandleHttpRequest(HttpProcessingPipelineContext context) {
+			context.WriteView("ReservationService_JSFacade", @"<script src=""/Scripts/Services/ReservationService/Facade.js"" type=""text/javascript""></script>");
 		}
 
 		const string SearchBoxViewName = "Reservations_Searchbox";
