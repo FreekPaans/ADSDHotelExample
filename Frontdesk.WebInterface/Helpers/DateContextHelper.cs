@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infrastructure.Dates;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,18 +7,29 @@ using System.Web.Mvc;
 
 namespace Frontdesk.WebInterface.Helpers {
 	public static class DateContextHelper {
-		const string DateContextCookieName = "DateContext";
+		
 		public static DateTime Now() {
-			var cookie = HttpContext.Current.Request.Cookies[DateContextCookieName];
-			if(cookie!= null) {
-				return DateTime.Parse(cookie.Value).Date;
-			}
-			return DateTime.Now.Date;
+			return DateProvider.Now;
 		}
 
-		public static string CookieName {
+		public static string DateCookieName {
 			get {
-				return DateContextCookieName;
+				return DateProvider.DateContextCookieName;
+			}
+		}
+
+		public static string TimeCookieName {
+			get {
+				return DateProvider.TimeContextCookieName;
+			}
+		}
+
+		public static string TimeOverride {
+			get {
+				if(DateProvider.HasOverriddenTime) {
+					return DateProvider.Now.TimeOfDay.ToString();
+				}
+				return "";
 			}
 		}
 	}

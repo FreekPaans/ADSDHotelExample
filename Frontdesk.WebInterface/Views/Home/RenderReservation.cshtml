@@ -1,0 +1,56 @@
+﻿@{
+	Layout = null;
+}
+
+@model CheckinReservationViewModel
+
+<table>
+<tr>
+<td>
+	Name
+</td>
+<td>
+	@Model.GuestDetails.Name
+</td>
+</tr>
+<tr>
+<td>
+	Checkin date
+</td>
+<td>
+	@Model.ReservationDetails.CheckinDate.ToString("d MMMM yyyy")
+</td>
+</tr>
+<tr>
+<td>
+	Checkout date
+</td>
+<td>
+	@Model.ReservationDetails.CheckoutDate.ToString("d MMMM yyyy")
+</td>
+</tr>
+<tr>
+<td>
+	RoomType
+</td>
+<td>
+	@Model.ReservationDetails.RoomTypeId
+</td>
+</tr>
+<tr>
+<td>
+	Can checkin
+</td>
+<td>
+	@Model.ReservationDetails.CanCheckin
+</td>
+</tr>
+<tr>
+<td>
+	Status
+</td>
+<td>
+	@Model.ReservationDetails.Status
+</td>
+</tr>
+</table>

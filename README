@@ -20,3 +20,7 @@ TODO:
 * find way to inject javascript without wrapping div
 * be able to run services' webinterface standalone
 * manage room types
+* create solutions for services
+* in frontdesk filter on reservations which can actually be checked in
+* force reservation checkout>checkin
+* reservation service record must be aggregate

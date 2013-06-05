@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dates\DateProvider.cs" />
     <Compile Include="Emails\ISmtpClient.cs" />
     <Compile Include="HTTP\Helpers\HttpProcessingPipelineContextHelpers.cs" />
     <Compile Include="HTTP\MVC\ServicePipelineControllerBase.cs" />

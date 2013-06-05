@@ -14,7 +14,9 @@
 </head>
 <body>
 	<div class="select_active_date">
-		Set current date: <input type="text" class="current_date_selector" data-cookiename="@DateContextHelper.CookieName"  value="@DateContextHelper.Now().ToString("d")" />
+		Now: @DateContextHelper.Now()<br />
+		Set current date: <input type="text" class="current_date_selector" data-datecookiename="@DateContextHelper.DateCookieName"  value="@DateContextHelper.Now().ToString("d")" /><br />
+		Set current time: <input type="text" class="current_time_selector" data-timecookiename="@DateContextHelper.TimeCookieName"  value="@DateContextHelper.TimeOverride" />
 	</div>
     <div class="centerer">
         @RenderBody()

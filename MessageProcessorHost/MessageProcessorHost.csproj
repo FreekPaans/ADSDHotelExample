@@ -89,6 +89,10 @@
       <Project>{318c44a2-9a2e-4a2a-b527-d43cb6c49c90}</Project>
       <Name>GuestService.Backend</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GuestService.DataProviders\GuestService.DataProviders.csproj">
+      <Project>{f3ba58e0-1e7b-480e-80f6-15b93f5479cf}</Project>
+      <Name>GuestService.DataProviders</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrastructure.Emails.NetSmtpClient\Infrastructure.Emails.NetSmtpClient.csproj">
       <Project>{0f30f1b3-4cfd-40ab-af26-be4d483f25e4}</Project>
       <Name>Infrastructure.Emails.NetSmtpClient</Name>
@@ -124,6 +128,10 @@
     <ProjectReference Include="..\ReservationService.Backend\ReservationService.Backend.csproj">
       <Project>{c866a299-7017-411d-b3c1-e9d847e78a41}</Project>
       <Name>ReservationService.Backend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReservationService.DataProviders\ReservationService.DataProviders.csproj">
+      <Project>{871682c5-56d6-410a-846c-7dd791c1fcc5}</Project>
+      <Name>ReservationService.DataProviders</Name>
     </ProjectReference>
     <ProjectReference Include="..\ReservationService.MessageHandlers\ReservationService.MessageHandlers.csproj">
       <Project>{a55b0f18-3fe2-4d51-878f-8a99ee93477e}</Project>

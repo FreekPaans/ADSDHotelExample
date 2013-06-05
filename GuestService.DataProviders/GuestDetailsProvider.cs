@@ -1,15 +1,15 @@
-﻿
-using GuestService.Backend.DAL;
+﻿using GuestService.Backend.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
 
-namespace GuestService.Backend.DataProviders{
+namespace GuestService.DataProviders{
 	class GuestDetailsProvider:
 			CustomerWebsite.Contracts.ReservationSummary.IProvideGuestDetails,
-			ITOps.ReservationCustomerEmails.Contracts.IProvideRecipientDetails 
+			ITOps.ReservationCustomerEmails.Contracts.IProvideRecipientDetails,
+			Frontdesk.Contracts.ReservationCheckin.IProvideGuestDetails
 		{
 		readonly GuestDataContext _context;
 		public GuestDetailsProvider(GuestDataContext context) {
@@ -19,7 +19,7 @@ namespace GuestService.Backend.DataProviders{
 			var guest= _context.Guests.Find(reservationId);
 			return new CustomerWebsite.Contracts.ReservationSummary.GuestDetails { 
 				Email = guest.Email, 
-				Name = string.Format("{0} {1}", guest.Firstname,guest.Lastname), 
+				Name = FormatName(guest),
 				Phonenumber = guest.Phonenumber
 			};
 		}
@@ -27,11 +27,23 @@ namespace GuestService.Backend.DataProviders{
 		public ITOps.ReservationCustomerEmails.Contracts.RecipientDetails GetDetails(Guid reservationId) {
 			var guest = _context.Guests.Find(reservationId);
 
-			var name = string.Format("{0} {1}", guest.Firstname, guest.Lastname);
+			var name = FormatName(guest);
 
 			return new ITOps.ReservationCustomerEmails.Contracts.RecipientDetails {
 				MailAddress = new MailAddress(guest.Email,name),
 				Name = name
+			};
+		}
+
+		private static string FormatName(Backend.DAL.Models.Guest guest) {
+			return string.Format("{0} {1}",guest.Firstname,guest.Lastname);
+		}
+
+		Frontdesk.Contracts.ReservationCheckin.GuestDetails Frontdesk.Contracts.ReservationCheckin.IProvideGuestDetails.GetGuestDetails(Guid reservationId) {
+			var guest = _context.Guests.Find(reservationId);
+
+			return new Frontdesk.Contracts.ReservationCheckin.GuestDetails{
+				Name = FormatName(guest)
 			};
 		}
 	}

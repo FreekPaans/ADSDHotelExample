@@ -120,3 +120,9 @@
 /Frontdesk.WebInterface/obj
 /Frontdesk.WebInterface/bin
 /Frontdesk.WebInterface/Scripts/Services
+/GuestService.DataProviders/obj
+/GuestService.DataProviders/bin
+/ReservationService.DataProviders/bin
+/ReservationService.DataProviders/obj
+/Frontdesk.Contracts/obj
+/Frontdesk.Contracts/bin

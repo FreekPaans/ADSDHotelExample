@@ -1,11 +1,17 @@
 ﻿$(function () {
 	$('.current_date_selector').datepicker({
-		dateFormat: 'd/m/yy',
+		dateFormat: 'm/d/yy',
 		onSelect: function () {
 			var $this = $(this);
-			document.cookie = $this.data('cookiename') + '=' + escape($this.val()) + ';path=/';
+			document.cookie = $this.data('datecookiename') + '=' + escape($this.val()) + ';path=/';
 			window.location = window.location;
 		}
+	});
+
+	$('.current_time_selector').change(function () {
+		var $this = $(this);
+		document.cookie = $this.data('timecookiename') + '=' + $this.val() + ';path=/';
+		window.location = window.location;
 	});
 
 	var showReservationDetails = function (reservationId) {

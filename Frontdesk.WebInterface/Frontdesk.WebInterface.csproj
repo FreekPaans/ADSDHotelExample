@@ -134,6 +134,7 @@
     </Compile>
     <Compile Include="Helpers\DateContextHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CheckinReservationViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -216,8 +217,11 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\jquery-2.0.1.min.map" />
+    <Content Include="Views\Home\RenderReservation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -236,6 +240,14 @@
     <Content Include="Views\Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Frontdesk.Contracts\Frontdesk.Contracts.csproj">
+      <Project>{9b96279d-f965-4468-a007-7b0ce1fd415f}</Project>
+      <Name>Frontdesk.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GuestService.DataProviders\GuestService.DataProviders.csproj">
+      <Project>{f3ba58e0-1e7b-480e-80f6-15b93f5479cf}</Project>
+      <Name>GuestService.DataProviders</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrastructure.HTTP.Session.AspNet\Infrastructure.HTTP.Session.AspNet.csproj">
       <Project>{ff856df7-1bdd-49a6-934f-9ac18a7b4e12}</Project>
       <Name>Infrastructure.HTTP.Session.AspNet</Name>
@@ -247,6 +259,10 @@
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{d1f66d87-0b1a-4992-afe4-0c2abbbe2676}</Project>
       <Name>Infrastructure %28Infrastructure\Infrastructure%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReservationService.DataProviders\ReservationService.DataProviders.csproj">
+      <Project>{871682c5-56d6-410a-846c-7dd791c1fcc5}</Project>
+      <Name>ReservationService.DataProviders</Name>
     </ProjectReference>
     <ProjectReference Include="..\ReservationService.WebInterface\ReservationService.WebInterface.csproj">
       <Project>{88851ced-e9e2-47dd-84bd-fb4f89ffa961}</Project>

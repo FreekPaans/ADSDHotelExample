@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReservationService.Backend.Providers {
+namespace ReservationService.DataProviders {
 	public class AcquireHoldDataProvider : IProvideReservationData{
 		readonly ReservationDataContext _context;
 		public AcquireHoldDataProvider(ReservationDataContext context) {

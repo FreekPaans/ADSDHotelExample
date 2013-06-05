@@ -274,6 +274,10 @@
       <Project>{0559319b-c14e-4012-9f14-6cb351e31605}</Project>
       <Name>CustomerWebsite.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GuestService.DataProviders\GuestService.DataProviders.csproj">
+      <Project>{f3ba58e0-1e7b-480e-80f6-15b93f5479cf}</Project>
+      <Name>GuestService.DataProviders</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GuestService.WebInterface\GuestService.WebInterface.csproj">
       <Project>{f6c71fb3-5f27-49a9-b763-e8b17c664f53}</Project>
       <Name>GuestService.WebInterface</Name>
