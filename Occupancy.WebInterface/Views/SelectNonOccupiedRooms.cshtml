@@ -1,0 +1,19 @@
+﻿@*Generator:Template*@
+
+@functions {
+	public ICollection<Occupancy.WebInterface.ViewModels.RoomViewModel> AvailableRooms{get;set;}
+}
+
+<script src="/Scripts/Services/OccupancyService/SelectRoom.js" type="text/javascript"></script>
+
+<input type="hidden" name="SelectedRoomNumber" value="@AvailableRooms.First(r=>r.Selected).RoomNumber" />
+
+@foreach(var roomType in AvailableRooms.GroupBy(a=>a.RoomType)) {
+<h4>@roomType.Key</h4>
+	@foreach(var room in roomType) {
+		<div class="selectable_room@(room.Selected?" selected":"")" data-roomnumber="@room.RoomNumber">
+			<a href="#" class="select_room">@room.RoomNumber</a>
+		</div>
+	}
+	<div class="fix"></div>
+}

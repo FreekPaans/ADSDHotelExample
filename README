@@ -12,7 +12,7 @@ To think about:
 - If site owns urls, how to communicate with service (now done via events)
 
 TODO:
-* move all to/till date fields to checkout date
+* rename all to/till date fields to checkout date
 * interpret denied reason in e-mails
 * implement pricing service
 * implement room details service
@@ -23,5 +23,9 @@ TODO:
 * create solutions for services
 * in frontdesk filter on reservations which can actually be checked in
 * force reservation checkout>checkin
-* reservation service record must be aggregate
 * directly write reservation info to db instead of session since roomreserver is now only concurrency point
+* handle rooms not available exception when making reservation
+* handle/implement timeouts on acquiring payment data
+* handle rooms not available when checking in
+* implement search by last name
+* get rid of NSB abstractions and just use it directly

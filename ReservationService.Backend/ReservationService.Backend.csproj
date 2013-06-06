@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\CommitReservation.cs" />
+    <Compile Include="Commands\StartCheckIn.cs" />
     <Compile Include="Commands\StartReservation.cs" />
     <Compile Include="Configuration\Configure.cs" />
     <Compile Include="DAL\Models\Reservation.cs" />

@@ -12,7 +12,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ITOps.PaymentProvider {
-	public class Handlers : IHandleMessages<AcquireHoldForReservationCancellationFee>{
+	public class Handlers : 
+			IHandleMessages<AcquireHoldForReservationCancellationFee>,
+			IHandleMessages<ReleaseHoldForReservationCancellationFee>
+		{
 		readonly IProvideBillingData _billingDataProvider;
 		readonly IProvideReservationData _reservationDataProvider;
 		readonly IProvidePricingData _pricingDataProvider;
@@ -29,7 +32,7 @@ namespace ITOps.PaymentProvider {
 			var pricingInfo = _pricingDataProvider.GetPricingData(reservationData.RoomTypeId,reservationData.ReservedAt, reservationData.Arrival,reservationData.Checkout);
 			var billingData= _billingDataProvider.GetBillingData(cmd.ReservationId);
 
-			var result = MessageBox.Show(FormatDetails(pricingInfo,billingData), "Acquire hold?", MessageBoxButtons.YesNo);
+			var result = MessageBox.Show(FormatDetails(pricingInfo,billingData), "Acquire hold?", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
 			if(result == DialogResult.Yes) {
 				_eventBus.Publish(new CancellationFeeHoldAcquiredFromCreditCard { ReservationId = cmd.ReservationId });
@@ -41,6 +44,10 @@ namespace ITOps.PaymentProvider {
 
 		private string FormatDetails(PricingData pricingInfo,BillingData billingData) {
 			return string.Format("Name: {0}\nAmount:{1}\nCredit card nr: {2}\nCredit card expiration: {3}", billingData.Name, pricingInfo.Amount,billingData.CreditCardNumber, billingData.CreditCardExpiration);
-		} 
+		}
+
+		public void Handle(ReleaseHoldForReservationCancellationFee cmd) {
+			MessageBox.Show(string.Format("Hold for {0} released", cmd.ReservationId),"Info", MessageBoxButtons.OK,MessageBoxIcon.Information);
+		}
 	}
 }

@@ -173,6 +173,10 @@
       <Project>{0559319b-c14e-4012-9f14-6cb351e31605}</Project>
       <Name>CustomerWebsite.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Frontdesk.Contracts\Frontdesk.Contracts.csproj">
+      <Project>{9b96279d-f965-4468-a007-7b0ce1fd415f}</Project>
+      <Name>Frontdesk.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{d1f66d87-0b1a-4992-afe4-0c2abbbe2676}</Project>
       <Name>Infrastructure %28Infrastructure\Infrastructure%29</Name>

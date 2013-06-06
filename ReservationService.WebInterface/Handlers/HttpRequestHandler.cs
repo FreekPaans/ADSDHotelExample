@@ -16,15 +16,20 @@ using CustomerWebsite.Contracts.Events;
 using Infrastructure.HTTP.Session;
 using ReservationService.Backend.Commands;
 using ReservationService.Backend;
+using Frontdesk.Contracts.Events;
+using ReservationService.Contracts.Events.Business;
 
 namespace ReservationService.WebInterface.Handlers {
 	public class HttpRequestHandler  : IHandleHttpRequests, OnDemandViewRenderer,
 			IHandleHttpProcessingEvents<SearchingForRooms>, 
 			IHandleHttpProcessingEvents<StartingNewReservation>,
-			IHandleHttpProcessingEvents<ObtainingReservationDetails> {
+			IHandleHttpProcessingEvents<ObtainingReservationDetails>,
+			IHandleHttpProcessingEvents<StartingCheckIn>
+			 {
 		readonly ICommandBus _commandBus;
 		readonly ISessionStorage _sessionStorage;
 		readonly ReservationFacade _facade;
+		readonly IEventBus _eventBus;
 
 		private SearchParameters _searchParams;
 		
@@ -39,6 +44,7 @@ namespace ReservationService.WebInterface.Handlers {
 		}
 
 		const string SearchBoxViewName = "Reservations_Searchbox";
+		
 		
 
 		public void DrawViewOnDemand(HttpProcessingPipelineContext context, string viewName) {
@@ -90,6 +96,10 @@ namespace ReservationService.WebInterface.Handlers {
 
 		public void Handle(HttpProcessingPipelineContext context,ObtainingReservationDetails @event) {
 			context.WriteView("Reservations_DetailsForm",() => new ReservationDetailsForm { ReservationId = @event.ReservationId }.TransformText());
+		}
+
+		public void Handle(HttpProcessingPipelineContext context,StartingCheckIn @event) {
+			_commandBus.Send(new StartCheckIn {ReservationId = @event.ReservationId });
 		}
 	}
 }

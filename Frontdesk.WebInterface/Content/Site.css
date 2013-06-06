@@ -35,3 +35,31 @@
 
 .reservation_details {
 }
+
+.fix {
+	clear: both;
+}
+
+#OccupancyService_NonOccupiedRoomsSelector h4 {
+	margin:0;
+	clear:both;
+}
+
+#OccupancyService_NonOccupiedRoomsSelector div {
+	float: left;
+	margin-right: 5px;
+}
+
+#OccupancyService_NonOccupiedRoomsSelector div.selectable_room.selected,#OccupancyService_NonOccupiedRoomsSelector div.selectable_room:hover {
+	background-color: blue;
+	
+}
+
+#OccupancyService_NonOccupiedRoomsSelector div.selectable_room.selected a, #OccupancyService_NonOccupiedRoomsSelector div.selectable_room a {
+	color:blue;
+}
+
+#OccupancyService_NonOccupiedRoomsSelector div.selectable_room.selected a,#OccupancyService_NonOccupiedRoomsSelector div.selectable_room:hover  a{
+	color: white;
+}
+

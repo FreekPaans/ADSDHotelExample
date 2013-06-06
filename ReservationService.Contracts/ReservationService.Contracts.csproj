@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\Business\GuestArrived.cs" />
     <Compile Include="Events\Business\ReservationAccepted.cs" />
     <Compile Include="Events\Business\ReservationCommitted.cs" />
     <Compile Include="Events\Business\RoomsForReservationAcquired.cs" />

@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\StartingCheckIn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReservationCheckin\IProvideGuestDetails.cs" />
     <Compile Include="ReservationCheckin\IProvideReservationDetails.cs" />

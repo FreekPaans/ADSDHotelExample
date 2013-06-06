@@ -18,7 +18,8 @@ namespace ReservationService.MessageHandlers {
 			IHandleMessages<CommitReservation>, 
 			IHandleMessages<CancellationFeeHoldAcquired>, 
 			IHandleMessages<CancellationFeeHoldDenied>,
-			IHandleMessages<AcquiringHoldForReservationCancellationFee>
+			IHandleMessages<AcquiringHoldForReservationCancellationFee>,
+			IHandleMessages<StartCheckIn>
 			 {
 		readonly ReservationDataContext _context;
 		readonly IEventBus _eventBus;
@@ -72,6 +73,10 @@ namespace ReservationService.MessageHandlers {
 			var reservation = _context.Reservations.Find(reservationId);
 			update(reservation);
 			_context.SaveChanges();
+		}
+
+		public void Handle(StartCheckIn cmd) {
+			_eventBus.Publish(new GuestArrived { ReservationId = cmd.ReservationId });
 		}
 	}
 }

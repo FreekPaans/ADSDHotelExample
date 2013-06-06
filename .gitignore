@@ -126,3 +126,7 @@
 /ReservationService.DataProviders/obj
 /Frontdesk.Contracts/obj
 /Frontdesk.Contracts/bin
+/Occupancy.WebInterface/obj
+/Occupancy.WebInterface/bin
+/Occupancy.Backend/bin
+/Occupancy.Backend/obj

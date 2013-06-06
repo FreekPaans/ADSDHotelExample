@@ -1,4 +1,5 @@
-﻿using ITOps.PaymentProvider.Contracts.Events;
+﻿using ITOps.PaymentProvider.Commands;
+using ITOps.PaymentProvider.Contracts.Events;
 using PaymentService.Backend.DAL;
 using PaymentService.Backend.DAL.Models;
 using PaymentService.Contracts.Events;
@@ -54,6 +55,10 @@ namespace PaymentService.Backend {
 
 		public void Handle(ITOps.PaymentProvider.Contracts.Events.CancellationFeeHoldDeniedFromCreditCard @event) {
 			_eventBus.Publish(new CancellationFeeHoldDenied { ReservationId = @event.ReservationId });
+		}
+
+		public void Handle(ReservationService.Contracts.Events.Business.GuestArrived @event) {
+			_commandBus.Send(new ReleaseHoldForReservationCancellationFee { ReservationId = @event.ReservationId });
 		}
 	}
 }

@@ -129,17 +129,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DateContextHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\CheckinReservationViewModel.cs" />
+    <Compile Include="ViewModels\CheckInReservationViewModel.cs" />
+    <Compile Include="ViewModels\ReservationSearchSummaryViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\Reservation\checkin.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -210,7 +213,10 @@
     <Content Include="Scripts\jquery-ui-1.10.3.js" />
     <Content Include="Scripts\jquery-ui-1.10.3.min.js" />
     <Content Include="Scripts\main.js" />
-    <Content Include="Web.config" />
+    <Content Include="Scripts\Reservation\Checkin.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -221,7 +227,8 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Scripts\jquery-2.0.1.min.map" />
-    <Content Include="Views\Home\RenderReservation.cshtml" />
+    <Content Include="Views\Reservation\RenderSearchSummary.cshtml" />
+    <Content Include="Views\Reservation\Checkin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -259,6 +266,14 @@
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{d1f66d87-0b1a-4992-afe4-0c2abbbe2676}</Project>
       <Name>Infrastructure %28Infrastructure\Infrastructure%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Occupancy.Backend\Occupancy.Backend.csproj">
+      <Project>{3cd3e637-ba6a-4de0-8ce4-6f74c5ecd94c}</Project>
+      <Name>Occupancy.Backend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Occupancy.WebInterface\Occupancy.WebInterface.csproj">
+      <Project>{b03e2bc2-f6fb-47c2-a5c0-bf0331b0f0b0}</Project>
+      <Name>Occupancy.WebInterface</Name>
     </ProjectReference>
     <ProjectReference Include="..\ReservationService.DataProviders\ReservationService.DataProviders.csproj">
       <Project>{871682c5-56d6-410a-846c-7dd791c1fcc5}</Project>
@@ -301,9 +316,11 @@
     <ItemGroup>
       <ReservationJSFiles Include="$(MSBuildProjectDirectory)\..\ReservationService.WebInterface\Scripts\**\*.js" />
       <GuestServiceJSFiles Include="$(MSBuildProjectDirectory)\..\GuestService.WebInterface\Scripts\**\*.js" />
+      <OccupancyServiceJSFiles Include="$(MSBuildProjectDirectory)\..\Occupancy.WebInterface\Scripts\**\*.js" />
     </ItemGroup>
     <Copy SourceFiles="@(ReservationJSFiles)" DestinationFiles="@(ReservationJSFiles->'$(MSBuildProjectDirectory)\Scripts\Services\ReservationService\%(RecursiveDir)%(Filename)%(Extension)')" />
     <Copy SourceFiles="@(GuestServiceJSFiles)" DestinationFiles="@(GuestServiceJSFiles->'$(MSBuildProjectDirectory)\Scripts\Services\GuestService\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(OccupancyServiceJSFiles)" DestinationFiles="@(OccupancyServiceJSFiles->'$(MSBuildProjectDirectory)\Scripts\Services\OccupancyService\%(RecursiveDir)%(Filename)%(Extension)')" />
     <ItemGroup>
       <Content Include="Scripts\Services\**\*.js" />
     </ItemGroup>

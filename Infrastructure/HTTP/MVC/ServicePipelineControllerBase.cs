@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace Infrastructure.HTTP.MVC {
 	public class ServicePipelineControllerBase : Controller{
+		//this is public for DI
 		public IHttpProcessingPipeline ProcessingPipeline { get; set; }
 
 		protected HttpProcessingPipelineContext ProcessingContext { get; set; }

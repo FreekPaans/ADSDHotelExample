@@ -33,8 +33,6 @@ namespace ReservationService.MessageHandlers {
 			_commandBus = commandBus;
 		}
 	
-
-
 		public void Handle(CancellationFeeHoldDenied @event) {
 			_roomReserver.CancellationFeeHoldDenied(@event.ReservationId);
 		}

@@ -2,7 +2,7 @@
 	Layout = null;
 }
 
-@model CheckinReservationViewModel
+@model ReservationSearchSummaryViewModel
 
 <table>
 <tr>
@@ -39,18 +39,18 @@
 </tr>
 <tr>
 <td>
-	Can checkin
-</td>
-<td>
-	@Model.ReservationDetails.CanCheckin
-</td>
-</tr>
-<tr>
-<td>
 	Status
 </td>
 <td>
 	@Model.ReservationDetails.Status
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<form action="/Reservation/Checkin">
+	<input type="hidden" name="ReservationId" value="@Model.ReservationId" />
+	<input type="submit" value="Check in" @Html.Raw(Model.ReservationDetails.CanCheckin?"":"disabled='disabled'") />
+</form>
 </td>
 </tr>
 </table>

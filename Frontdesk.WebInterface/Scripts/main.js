@@ -17,7 +17,7 @@
 	var showReservationDetails = function (reservationId) {
 		$.ajax({
 			type: 'get',
-			url: '/Home/RenderReservation',
+			url: '/Reservation/RenderSearchSummary',
 			data: {
 				reservationId: reservationId
 			},
