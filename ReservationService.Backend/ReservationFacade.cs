@@ -12,7 +12,6 @@ namespace ReservationService.Backend {
 		readonly RoomReserver _calculator;
 		readonly ReservationDataContext _context;
 		
-
 		public ReservationFacade(RoomReserver calculator, ReservationDataContext context) {
 			_calculator = calculator;
 			_context = context;

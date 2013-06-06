@@ -24,3 +24,4 @@ TODO:
 * in frontdesk filter on reservations which can actually be checked in
 * force reservation checkout>checkin
 * reservation service record must be aggregate
+* directly write reservation info to db instead of session since roomreserver is now only concurrency point

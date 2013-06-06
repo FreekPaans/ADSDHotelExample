@@ -56,13 +56,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Handlers.cs" />
+    <Compile Include="ReservationHandlers.cs" />
+    <Compile Include="RoomReserverHandlers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{d1f66d87-0b1a-4992-afe4-0c2abbbe2676}</Project>
       <Name>Infrastructure %28Infrastructure\Infrastructure%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ITOps.PaymentProvider.Contracts\ITOps.PaymentProvider.Contracts.csproj">
+      <Project>{ccc8c80d-7df4-4246-bbc4-5e82a662a5e9}</Project>
+      <Name>ITOps.PaymentProvider.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\ITOps.ReservationCustomerEmails.Commands\ITOps.ReservationCustomerEmails.Commands.csproj">
       <Project>{0811f2b2-df62-4a9a-8785-feac54ca30bc}</Project>

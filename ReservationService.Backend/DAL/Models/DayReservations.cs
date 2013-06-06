@@ -12,6 +12,7 @@ namespace ReservationService.Backend.DAL.Models {
 		[Key]
 		public Guid RoomTypeId{get;set;}
 		public int AvailableRooms{get;set;}
+		
 		//public string ReservationData{get;set;}
 		//TODO:Test
 		public byte[] Version{get;set;}

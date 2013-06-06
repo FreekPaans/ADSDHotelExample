@@ -67,6 +67,7 @@
     <Compile Include="Messaging\ICommandBus.cs" />
     <Compile Include="Messaging\IEvent.cs" />
     <Compile Include="Messaging\IEventBus.cs" />
+    <Compile Include="Messaging\NullEventBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

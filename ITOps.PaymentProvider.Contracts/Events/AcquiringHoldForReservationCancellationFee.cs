@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReservationService.Contracts.Events.Business {
-	public class ReservationPlaced : IEvent {
-		public Guid ReservationId{get;set;}
+namespace ITOps.PaymentProvider.Contracts.Events {
+	public class AcquiringHoldForReservationCancellationFee : IEvent{
+		public Guid ReservationId { get; set; }
 	}
 }

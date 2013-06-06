@@ -66,12 +66,17 @@
     <Compile Include="Configuration\Configure.cs" />
     <Compile Include="DAL\Models\Reservation.cs" />
     <Compile Include="DAL\Models\DayReservations.cs" />
+    <Compile Include="DAL\Models\ReservationWithAcquiredRoom.cs" />
     <Compile Include="DAL\ReservationDataContext.cs" />
     <Compile Include="Logic\RoomReserver.cs" />
     <Compile Include="Logic\RoomNotAvailableException.cs" />
     <Compile Include="Migrations\201306051342215_ef 6.0.0.cs" />
     <Compile Include="Migrations\201306051342215_ef 6.0.0.Designer.cs">
       <DependentUpon>201306051342215_ef 6.0.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306061213456_2 reservation entities.cs" />
+    <Compile Include="Migrations\201306061213456_2 reservation entities.Designer.cs">
+      <DependentUpon>201306061213456_2 reservation entities.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +91,10 @@
       <Project>{0b26a4a8-d668-4cd6-bdc7-32931397d984}</Project>
       <Name>PaymentService.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ReservationService.Contracts\ReservationService.Contracts.csproj">
+      <Project>{411bedb9-6b9c-4fda-b67d-01a5d205894b}</Project>
+      <Name>ReservationService.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -94,6 +103,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201306051342215_ef 6.0.0.resx">
       <DependentUpon>201306051342215_ef 6.0.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306061213456_2 reservation entities.resx">
+      <DependentUpon>201306061213456_2 reservation entities.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

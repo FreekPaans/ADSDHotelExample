@@ -42,6 +42,7 @@
     <Compile Include="AcquireHoldForReservationCancellationFeeContracts\IProvideBillingData.cs" />
     <Compile Include="AcquireHoldForReservationCancellationFeeContracts\IProvidePricingData.cs" />
     <Compile Include="AcquireHoldForReservationCancellationFeeContracts\IProvideReservationData.cs" />
+    <Compile Include="Events\AcquiringHoldForReservationCancellationFee.cs" />
     <Compile Include="Events\CancellationFeeHoldAcquiredFromCreditCard.cs" />
     <Compile Include="Events\CancellationFeeHoldDeniedFromCreditCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

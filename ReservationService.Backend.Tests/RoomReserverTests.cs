@@ -10,6 +10,7 @@ using System.Data.Entity.Infrastructure;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Transactions;
+using Infrastructure.Messaging;
 
 namespace ReservationService.Backend.Tests {
 	[TestClass]
@@ -18,9 +19,9 @@ namespace ReservationService.Backend.Tests {
 
 		[TestMethod]
 		public void when_booking_a_fully_booked_room_an_exception_is_thrown() {
-			var reserver = new RoomReserver(GetContext(), new Dictionary<Guid,int> { {RoomTypeId, 0 }});
+			var reserver = new RoomReserver(GetContext(), GetEventBus(), new Dictionary<Guid,int> { {RoomTypeId, 0 }});
 			try {
-				reserver.ReserveRoom(RoomTypeId, DateTime.Today,DateTime.Today.AddDays(1));
+				reserver.ReserveRoom(Guid.NewGuid(),RoomTypeId, DateTime.Today,DateTime.Today.AddDays(1));
 			}
 			catch(RoomTypeNotAvailableException) {
 				return;
@@ -28,12 +29,16 @@ namespace ReservationService.Backend.Tests {
 			Assert.Fail("Exception not thrown");
 		}
 
+		private Infrastructure.Messaging.IEventBus GetEventBus() {
+			return new NullEventBus();
+		}
+
 		[TestMethod]
 		public void when_a_room_is_booked_it_cant_be_reserved_again() {
-			var reserver = new RoomReserver(GetContext(),new Dictionary<Guid,int> {{ RoomTypeId, 1}});
-			reserver.ReserveRoom(RoomTypeId,DateTime.Today,DateTime.Today.AddDays(1));
+			var reserver = new RoomReserver(GetContext(),GetEventBus(), new Dictionary<Guid,int> {{ RoomTypeId, 1}});
+			reserver.ReserveRoom(Guid.NewGuid(),RoomTypeId,DateTime.Today,DateTime.Today.AddDays(1));
 			try {
-				reserver.ReserveRoom(RoomTypeId,DateTime.Today,DateTime.Today.AddDays(1));
+				reserver.ReserveRoom(Guid.NewGuid(),RoomTypeId,DateTime.Today,DateTime.Today.AddDays(1));
 			}
 			catch(RoomTypeNotAvailableException) {
 				return;
@@ -42,8 +47,8 @@ namespace ReservationService.Backend.Tests {
 		}
 
 		void ReserveARoom(Dictionary<Guid,int> config) {
-			var reserver = new RoomReserver(GetContext(),config);
-			reserver.ReserveRoom(RoomTypeId,DateTime.Today,DateTime.Today.AddDays(1));
+			var reserver = new RoomReserver(GetContext(),GetEventBus(),config);
+			reserver.ReserveRoom(Guid.NewGuid(),RoomTypeId,DateTime.Today,DateTime.Today.AddDays(1));
 		}
 
 		[TestMethod]

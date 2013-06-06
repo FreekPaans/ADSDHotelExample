@@ -11,14 +11,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PaymentService.MessageHandlers {
-	public class Handlers : IHandleMessages<ReservationPlaced>,IHandleMessages<CancellationFeeHoldAcquiredFromCreditCard>, IHandleMessages<CancellationFeeHoldDeniedFromCreditCard> {
+	public class Handlers : IHandleMessages<RoomsForReservationAcquired>,IHandleMessages<CancellationFeeHoldAcquiredFromCreditCard>, IHandleMessages<CancellationFeeHoldDeniedFromCreditCard> {
 		readonly PaymentFacade _facade;
 		//readonly PaymentFacade _facade;
 
 		public Handlers(PaymentFacade facade) {
 			_facade = facade;
 		}
-		public void Handle(ReservationPlaced @event) {
+		public void Handle(RoomsForReservationAcquired @event) {
 			_facade.Handle(@event);
 		}
 
