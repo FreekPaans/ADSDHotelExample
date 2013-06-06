@@ -94,6 +94,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Occupancy.WebInterface", "O
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Occupancy.Backend", "Occupancy.Backend\Occupancy.Backend.csproj", "{3CD3E637-BA6A-4DE0-8CE4-6F74C5ECD94C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Occupancy.Contracts", "Occupancy.Contracts\Occupancy.Contracts.csproj", "{66A9686C-A0E5-47FB-995A-7914A5E21589}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -232,6 +234,10 @@ Global
 		{3CD3E637-BA6A-4DE0-8CE4-6F74C5ECD94C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CD3E637-BA6A-4DE0-8CE4-6F74C5ECD94C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CD3E637-BA6A-4DE0-8CE4-6F74C5ECD94C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66A9686C-A0E5-47FB-995A-7914A5E21589}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66A9686C-A0E5-47FB-995A-7914A5E21589}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66A9686C-A0E5-47FB-995A-7914A5E21589}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66A9686C-A0E5-47FB-995A-7914A5E21589}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -269,5 +275,6 @@ Global
 		{9B96279D-F965-4468-A007-7B0CE1FD415F} = {83D65581-636D-4EFC-8A11-ADCCD9E8FEB8}
 		{B03E2BC2-F6FB-47C2-A5C0-BF0331B0F0B0} = {54AAB3E7-479F-43D3-851F-7AE7349DA965}
 		{3CD3E637-BA6A-4DE0-8CE4-6F74C5ECD94C} = {54AAB3E7-479F-43D3-851F-7AE7349DA965}
+		{66A9686C-A0E5-47FB-995A-7914A5E21589} = {54AAB3E7-479F-43D3-851F-7AE7349DA965}
 	EndGlobalSection
 EndGlobal

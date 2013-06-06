@@ -86,7 +86,13 @@ namespace ReservationService.Backend.Logic {
 		}
 
 		public void CancellationFeeHoldAcquired(Guid reservationId) {
-			_eventBus.Publish(new ReservationAccepted { ReservationId = reservationId });
+			var reservation = _context.ReservationsWithAcquiredRoom.Find(reservationId);
+			_eventBus.Publish(new ReservationAccepted { 
+				ReservationId = reservationId ,
+				Arrival = reservation.Arrival,
+				Checkout= reservation.Checkout,
+				RoomTypeid = reservation.RoomTypeId
+			});
 		}
 
 		public void CancellationFeeHoldDenied(Guid reservationId) {
@@ -141,6 +147,13 @@ namespace ReservationService.Backend.Logic {
 		public bool CanCheckin(Guid reservationId) {
 			CannotCheckinReason reason;
 			return CanCheckin(reservationId,out reason);
+		}
+
+		public void StartCheckIn(Guid reservationId) {
+			if(!CanCheckin(reservationId)) {
+				throw new InvalidOperationException("Cannot checkin yet");
+			}
+			_eventBus.Publish(new GuestArrived { ReservationId = reservationId});
 		}
 	}
 }

@@ -73,6 +73,10 @@
       <Project>{0811f2b2-df62-4a9a-8785-feac54ca30bc}</Project>
       <Name>ITOps.ReservationCustomerEmails.Commands</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Occupancy.Contracts\Occupancy.Contracts.csproj">
+      <Project>{66a9686c-a0e5-47fb-995a-7914a5e21589}</Project>
+      <Name>Occupancy.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PaymentService.Contracts\PaymentService.Contracts.csproj">
       <Project>{0b26a4a8-d668-4cd6-bdc7-32931397d984}</Project>
       <Name>PaymentService.Contracts</Name>

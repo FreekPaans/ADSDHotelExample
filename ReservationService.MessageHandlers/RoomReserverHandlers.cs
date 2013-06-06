@@ -1,4 +1,5 @@
-﻿using Infrastructure.Messaging;
+﻿using Infrastructure.Dates;
+using Infrastructure.Messaging;
 using ITOps.ReservationCustomerEmails.Commands;
 using NServiceBus;
 using PaymentService.Contracts.Events;
@@ -19,7 +20,8 @@ namespace ReservationService.MessageHandlers {
 		IHandleMessages<CancellationFeeHoldDenied>,
 		IHandleMessages<ReservationAccepted>,
 		IHandleMessages<ReservationRejected>,
-		IHandleMessages<ReservationCommitted>
+		IHandleMessages<ReservationCommitted>,
+		IHandleMessages<StartCheckIn>
 	{
 		readonly ReservationDataContext _context;
 		readonly RoomReserver _roomReserver;
@@ -53,6 +55,12 @@ namespace ReservationService.MessageHandlers {
 			var reservation = _context.Reservations.Find(message.ReservationId);
 
 			_roomReserver.ReserveRoom(reservation.ReservationId,reservation.RoomTypeId,reservation.From,reservation.To);
+		}
+
+		public void Handle(StartCheckIn cmd) {
+			using(DateProvider.OverrideDateTime(cmd.DateContext)) {
+				_roomReserver.StartCheckIn(cmd.ReservationId);
+			}
 		}
 	}
 }

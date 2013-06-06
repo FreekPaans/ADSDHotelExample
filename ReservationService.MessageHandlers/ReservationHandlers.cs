@@ -1,6 +1,7 @@
 ﻿using Infrastructure.Messaging;
 using ITOps.PaymentProvider.Contracts.Events;
 using NServiceBus;
+using Occupancy.Contracts.Events;
 using PaymentService.Contracts.Events;
 using ReservationService.Backend.Commands;
 using ReservationService.Backend.DAL;
@@ -19,7 +20,8 @@ namespace ReservationService.MessageHandlers {
 			IHandleMessages<CancellationFeeHoldAcquired>, 
 			IHandleMessages<CancellationFeeHoldDenied>,
 			IHandleMessages<AcquiringHoldForReservationCancellationFee>,
-			IHandleMessages<StartCheckIn>
+			IHandleMessages<ReservationRoomOccupied>,
+			IHandleMessages<ReservationRoomReleased>
 			 {
 		readonly ReservationDataContext _context;
 		readonly IEventBus _eventBus;
@@ -33,12 +35,12 @@ namespace ReservationService.MessageHandlers {
 				//be idempotent
 				return;
 			}
-			_context.Reservations.Add(new Reservation {
+			_context.Reservations.Add(new ReservationStatus {
 				ReservationId = message.ReservationId,
 				From = message.From,
 				To  = message.Till,
 				RoomTypeId = message.RoomTypeId,
-				FlowStatus = Reservation.FlowStarted,
+				FlowStatus = ReservationStatus.FlowStarted,
 				ReservedAt = message.DateReserved,
 				CancellationFeeStatus = ReservationCancellationFeeStatus.NotApplicable
 			});
@@ -52,7 +54,7 @@ namespace ReservationService.MessageHandlers {
 		}
 
 		public void Handle(CommitReservation cmd) {
-			UpdateReservation(cmd.ReservationId,r=>r.FlowStatus = Reservation.Committed);
+			UpdateReservation(cmd.ReservationId,r=>r.FlowStatus = ReservationStatus.Committed);
 
 			_eventBus.Publish(new ReservationCommitted { ReservationId = cmd.ReservationId });
 		}
@@ -69,14 +71,41 @@ namespace ReservationService.MessageHandlers {
 			});
 		}
 
-		void UpdateReservation(Guid reservationId, Action<Reservation> update) {
+		void UpdateReservation(Guid reservationId, Action<ReservationStatus> update) {
 			var reservation = _context.Reservations.Find(reservationId);
 			update(reservation);
 			_context.SaveChanges();
 		}
 
-		public void Handle(StartCheckIn cmd) {
-			_eventBus.Publish(new GuestArrived { ReservationId = cmd.ReservationId });
+
+
+		public void Handle(ReservationRoomReleased @event) {
+			//UpdateReservation(
+			UpdateReservation(@event.ReservationId, r=> {
+				r.IsCheckingIn = false;
+				r.CheckInFailed = true;
+				r.FailedReason = @event.Reason;
+			});
+		}
+
+		public void Handle(ReservationRoomOccupied @event) {
+			if(@event.Tentative) {
+				UpdateReservation(@event.ReservationId, r=>{
+					if(r.IsCheckingIn) {
+						//idempotent
+						return;
+					}
+					r.IsCheckingIn = true;
+					r.CheckInFailed = false;
+					r.FailedReason = null;
+				});
+			}
+			else {
+				UpdateReservation(@event.ReservationId,r => {
+					r.IsCheckingIn = false;
+					r.IsCheckedIn = true;
+				});
+			}
 		}
 	}
 }

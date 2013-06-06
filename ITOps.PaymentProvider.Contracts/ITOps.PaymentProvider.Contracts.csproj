@@ -45,6 +45,8 @@
     <Compile Include="Events\AcquiringHoldForReservationCancellationFee.cs" />
     <Compile Include="Events\CancellationFeeHoldAcquiredFromCreditCard.cs" />
     <Compile Include="Events\CancellationFeeHoldDeniedFromCreditCard.cs" />
+    <Compile Include="Events\FullAmountHoldAcquiredFromCreditCard.cs" />
+    <Compile Include="Events\FullAmountHoldDeniedFromCreditCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

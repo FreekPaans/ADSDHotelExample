@@ -19,7 +19,11 @@ namespace Frontdesk.WebInterface.Controllers {
 		readonly IProvideGuestDetails _guestDetailsProvider;
 		readonly ICommandBus _commandBus;
 		
-		public ReservationController(IProvideReservationDetails reservationDetailsProvider,IProvideGuestDetails guestDetailsProvider, ICommandBus commandBus) {
+		public ReservationController(
+				IProvideReservationDetails reservationDetailsProvider,
+				IProvideGuestDetails guestDetailsProvider, 
+				ICommandBus commandBus
+			) {
 			_reservationDetailsProvider = reservationDetailsProvider;	
 			_guestDetailsProvider = guestDetailsProvider;
 			_commandBus = commandBus;
@@ -43,8 +47,20 @@ namespace Frontdesk.WebInterface.Controllers {
 		}
 
 		public ActionResult CheckinStatus(Guid reservationId) {
-			throw new HttpException(404, "Not checked in");
-			return Json(false,JsonRequestBehavior.AllowGet);
+			var details = _reservationDetailsProvider.GetReservationDetails(reservationId);
+
+			if(!details.FinishedCheckInProcess) {
+				throw new HttpException(404,"Not started check in");
+			}
+			
+			if(!details.CheckedInSuccesfully) {
+				return Json(new {
+					Sucess = false,
+					FailReason = details.CheckInFailedReason
+				}, JsonRequestBehavior.AllowGet);
+			}			
+			
+			return Json(new { Success=true},JsonRequestBehavior.AllowGet);
 		}
 
 		public ActionResult RenderSearchSummary(Guid reservationId) {

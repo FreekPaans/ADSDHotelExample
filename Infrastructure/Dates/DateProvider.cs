@@ -25,6 +25,10 @@ namespace Infrastructure.Dates {
 						return date;
 					}
 				}
+				if(_overrideDateTime!=null) {
+					return _overrideDateTime.Value;
+				}
+
 				return DateTime.Now;
 			}
 		}
@@ -36,6 +40,23 @@ namespace Infrastructure.Dates {
 		public static bool HasOverriddenTime {
 			get {
 				return HttpContext.Current!=null && HttpContext.Current.Request.Cookies[TimeContextCookieName]!=null;
+			}
+		}
+
+		[ThreadStatic]
+		static DateTime? _overrideDateTime;
+
+		public static IDisposable OverrideDateTime(DateTime? dt) {
+			return new Override(dt);
+			
+		}
+
+		class Override : IDisposable {
+			public Override(DateTime? dt) {
+				_overrideDateTime = dt;
+			}
+			public void Dispose() {
+				_overrideDateTime = null;
 			}
 		}
 	}

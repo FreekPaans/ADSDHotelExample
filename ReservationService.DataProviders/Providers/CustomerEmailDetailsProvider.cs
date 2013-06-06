@@ -28,11 +28,14 @@ namespace ReservationService.DataProviders {
 				CheckinDate = reservation.From,
 				CheckoutDate = reservation.To,
 				RoomTypeId =reservation.RoomTypeId,
-				Status = GetFriendlyStatus(reservation)
+				Status = GetFriendlyStatus(reservation),
+				FinishedCheckInProcess = reservation.IsCheckedIn || reservation.CheckInFailed,
+				CheckInFailedReason = reservation.FailedReason,
+				CheckedInSuccesfully = reservation.IsCheckedIn
 			};
 		}
 
-		private string GetFriendlyStatus(Backend.DAL.Models.Reservation reservation) {
+		private string GetFriendlyStatus(Backend.DAL.Models.ReservationStatus reservation) {
 			RoomReserver.CannotCheckinReason reason;
 			if(_roomReserver.CanCheckin(reservation.ReservationId, out reason)) {
 				return "Reservation ready for checkin";
@@ -47,7 +50,7 @@ namespace ReservationService.DataProviders {
 					return "Cancellation fee was denied";
 				}
 
-				if(reservation.FlowStatus!=Reservation.Committed) {
+				if(reservation.FlowStatus!=ReservationStatus.Committed) {
 					return "Reservation was never finalized";
 				}
 

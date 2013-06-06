@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ReservationService.Backend.DAL.Models {
-	public class Reservation {
+	public class ReservationStatus {
 		[Key]
 		public Guid ReservationId{get;set;}
 		public Guid RoomTypeId{get;set;}
@@ -24,10 +24,10 @@ namespace ReservationService.Backend.DAL.Models {
 		public string CancellationFeeStatus {get;set;}
 
 		
-
-	
-
-		
+		public bool IsCheckingIn { get; set; }
+		public bool IsCheckedIn { get; set; }
+		public bool CheckInFailed { get; set; }
+		public string FailedReason { get; set; }
 	}
 
 	public class ReservationCancellationFeeStatus {

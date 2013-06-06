@@ -17,15 +17,15 @@ namespace ReservationService.Backend.DAL {
 			modelBuilder.Entity<DayReservations>().ToTable("DayReservations", "ReservationService");
 			modelBuilder.Entity<DayReservations>().HasKey(dr=>new  { dr.Day, dr.RoomTypeId });
 
-			modelBuilder.Entity<Reservation>().ToTable("Reservation","ReservationService");
-			modelBuilder.Entity<Reservation>().Property(p=>p.FlowStatus).IsRequired();
+			modelBuilder.Entity<ReservationStatus>().ToTable("ReservationStatus","ReservationService");
+			modelBuilder.Entity<ReservationStatus>().Property(p=>p.FlowStatus).IsRequired();
 
 			modelBuilder.Entity<ReservationWithAcquiredRoom>().ToTable("ReservationsWithAcquiredRoom","ReservationService");
 
 			//modelBuilder.Entity<Reservation>().Property(p => p.CancellationFeeStatus).IsRequired();
 		}
 
-		public DbSet<Reservation> Reservations{get;set;}
+		public DbSet<ReservationStatus> Reservations{get;set;}
 		public DbSet<DayReservations> DayReservations{get;set;}
 		public DbSet<ReservationWithAcquiredRoom> ReservationsWithAcquiredRoom{ get; set; }
 	}

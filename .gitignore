@@ -130,3 +130,5 @@
 /Occupancy.WebInterface/bin
 /Occupancy.Backend/bin
 /Occupancy.Backend/obj
+/Occupancy.Contracts/bin
+/Occupancy.Contracts/obj

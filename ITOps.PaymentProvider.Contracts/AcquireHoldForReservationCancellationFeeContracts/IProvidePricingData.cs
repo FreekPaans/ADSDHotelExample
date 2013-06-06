@@ -9,6 +9,8 @@ namespace ITOps.PaymentProvider.Contracts.AcquireHoldForReservationCancellationF
 		PricingData GetPricingData(Guid roomTypeId, DateTime bookedAt, DateTime arrival, DateTime checkout);
 	}
 	public class PricingData{
-		public decimal Amount{get;set;}
+		public decimal CancellationFee{get;set;}
+
+		public decimal FullAmount { get; set; }
 	}
 }

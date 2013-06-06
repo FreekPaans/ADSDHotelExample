@@ -18,6 +18,7 @@ using ReservationService.Backend.Commands;
 using ReservationService.Backend;
 using Frontdesk.Contracts.Events;
 using ReservationService.Contracts.Events.Business;
+using Infrastructure.Dates;
 
 namespace ReservationService.WebInterface.Handlers {
 	public class HttpRequestHandler  : IHandleHttpRequests, OnDemandViewRenderer,
@@ -99,7 +100,7 @@ namespace ReservationService.WebInterface.Handlers {
 		}
 
 		public void Handle(HttpProcessingPipelineContext context,StartingCheckIn @event) {
-			_commandBus.Send(new StartCheckIn {ReservationId = @event.ReservationId });
+			_commandBus.Send(new StartCheckIn {ReservationId = @event.ReservationId, DateContext = DateProvider.Now });
 		}
 	}
 }

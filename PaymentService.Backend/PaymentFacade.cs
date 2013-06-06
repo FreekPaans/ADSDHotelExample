@@ -60,5 +60,19 @@ namespace PaymentService.Backend {
 		public void Handle(ReservationService.Contracts.Events.Business.GuestArrived @event) {
 			_commandBus.Send(new ReleaseHoldForReservationCancellationFee { ReservationId = @event.ReservationId });
 		}
+
+		public void Handle(Occupancy.Contracts.Events.ReservationRoomOccupied @event) {
+			if(@event.Tentative) {
+				_commandBus.Send(new AcquireHoldForFullAmount { ReservationId = @event.ReservationId });
+			}
+		}
+
+		public void Handle(FullAmountHoldDeniedFromCreditCard @event) {
+			_eventBus.Publish(new FullAmountHoldDenied { ReservationId = @event.ReservationId });
+		}
+
+		public void Handle(FullAmountHoldAcquiredFromCreditCard @event) {
+			_eventBus.Publish(new FullAmountHoldAcquired { ReservationId = @event.ReservationId });
+		}
 	}
 }

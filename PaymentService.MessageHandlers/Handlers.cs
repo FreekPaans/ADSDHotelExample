@@ -2,6 +2,7 @@
 using ITOps.PaymentProvider.Commands;
 using ITOps.PaymentProvider.Contracts.Events;
 using NServiceBus;
+using Occupancy.Contracts.Events;
 using PaymentService.Backend;
 using ReservationService.Contracts.Events.Business;
 using System;
@@ -15,7 +16,10 @@ namespace PaymentService.MessageHandlers {
 			IHandleMessages<RoomsForReservationAcquired>,
 			IHandleMessages<CancellationFeeHoldAcquiredFromCreditCard>, 
 			IHandleMessages<CancellationFeeHoldDeniedFromCreditCard>,
-			IHandleMessages<GuestArrived>
+			IHandleMessages<GuestArrived>,
+			IHandleMessages<ReservationRoomOccupied>,
+			IHandleMessages<FullAmountHoldAcquiredFromCreditCard>,
+			IHandleMessages<FullAmountHoldDeniedFromCreditCard>
 	{
 		readonly PaymentFacade _facade;
 		//readonly PaymentFacade _facade;
@@ -36,6 +40,18 @@ namespace PaymentService.MessageHandlers {
 		}
 
 		public void Handle(GuestArrived @event) {
+			_facade.Handle(@event);
+		}
+
+		public void Handle(ReservationRoomOccupied @event) {
+			_facade.Handle(@event);
+		}
+
+		public void Handle(FullAmountHoldDeniedFromCreditCard @event) {
+			_facade.Handle(@event);
+		}
+
+		public void Handle(FullAmountHoldAcquiredFromCreditCard @event) {
 			_facade.Handle(@event);
 		}
 	}

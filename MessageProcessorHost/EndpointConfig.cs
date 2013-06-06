@@ -16,7 +16,7 @@ namespace MessageProcessorHost {
 			Configure.With().
 				DefiningCommandsAs(m=>m.GetInterfaces().Contains(typeof(Infrastructure.Messaging.ICommand))).
 				DefiningEventsAs(m=>m.GetInterfaces().Contains(typeof(Infrastructure.Messaging.IEvent))).
-				CastleWindsorBuilder(container).
+				CastleWindsorBuilder(container).PurgeOnStartup(true).
 				IsolationLevel(IsolationLevel.ReadCommitted);
 
 		

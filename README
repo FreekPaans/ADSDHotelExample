@@ -12,20 +12,34 @@ To think about:
 - If site owns urls, how to communicate with service (now done via events)
 
 TODO:
-* rename all to/till date fields to checkout date
-* interpret denied reason in e-mails
+Features:
 * implement pricing service
 * implement room details service
-* distinguish between services' webinterface per endpoint (frontdesk/customer)
-* find way to inject javascript without wrapping div
-* be able to run services' webinterface standalone
 * manage room types
-* create solutions for services
+* show current occupancy
 * in frontdesk filter on reservations which can actually be checked in
 * force reservation checkout>checkin
-* directly write reservation info to db instead of session since roomreserver is now only concurrency point
 * handle rooms not available exception when making reservation
 * handle/implement timeouts on acquiring payment data
 * handle rooms not available when checking in
 * implement search by last name
+* handle already checked in
+* handle failed checkins
+
+Refactors:
+* rename all to/till date fields to checkout date
+* interpret denied reason in e-mails
+* distinguish between services' webinterface per endpoint (frontdesk/customer)
+* find way to inject javascript without wrapping div
+* be able to run services' webinterface standalone
+* create solutions for services
+* directly write reservation info to db instead of session since roomreserver is now only concurrency point
 * get rid of NSB abstractions and just use it directly
+* give checkin process its own ID
+* integrate IO ops via replies instead of commands 
+* remove purge
+
+Extra features:
+* upgrade your room
+* extend your stay
+* switch credit card at checkin

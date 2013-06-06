@@ -113,6 +113,10 @@
       <Project>{4a381a30-2bcc-473a-9a40-1304842c7783}</Project>
       <Name>ITOps.ReservationCustomerEmails</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Occupancy.Backend\Occupancy.Backend.csproj">
+      <Project>{3cd3e637-ba6a-4de0-8ce4-6f74c5ecd94c}</Project>
+      <Name>Occupancy.Backend</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PaymentService.Backend\PaymentService.Backend.csproj">
       <Project>{cf87e2d8-e751-471b-a1a5-f0ffcf3ef4d5}</Project>
       <Name>PaymentService.Backend</Name>

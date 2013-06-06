@@ -14,5 +14,9 @@ namespace Frontdesk.Contracts.ReservationCheckin {
 		public bool CanCheckin{get;set;}
 		public string Status{get;set;}
 		public Guid RoomTypeId{get;set;}
+
+		public bool FinishedCheckInProcess{ get; set; }
+		public bool CheckedInSuccesfully { get; set; }
+		public string CheckInFailedReason { get; set; }
 	}
 }

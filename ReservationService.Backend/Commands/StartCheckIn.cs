@@ -8,5 +8,8 @@ using System.Threading.Tasks;
 namespace ReservationService.Backend.Commands {
 	public class StartCheckIn : ICommand{
 		public Guid ReservationId { get; set; }
+
+		//this field allows us to test checkin time specific issues better
+		public DateTime? DateContext { get; set; }
 	}
 }

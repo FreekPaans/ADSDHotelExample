@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="Events\CancellationFeeHoldAcquired.cs" />
     <Compile Include="Events\CancellationFeeHoldDenied.cs" />
+    <Compile Include="Events\FullAmountHoldAcquired.cs" />
+    <Compile Include="Events\FullAmountHoldDenied.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

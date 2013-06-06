@@ -79,6 +79,14 @@
     <Compile Include="Migrations\201306061213456_2 reservation entities.Designer.cs">
       <DependentUpon>201306061213456_2 reservation entities.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201306061654304_status.cs" />
+    <Compile Include="Migrations\201306061654304_status.Designer.cs">
+      <DependentUpon>201306061654304_status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306061656567_checkin status.cs" />
+    <Compile Include="Migrations\201306061656567_checkin status.Designer.cs">
+      <DependentUpon>201306061656567_checkin status.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReservationFacade.cs" />
@@ -107,6 +115,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201306061213456_2 reservation entities.resx">
       <DependentUpon>201306061213456_2 reservation entities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306061654304_status.resx">
+      <DependentUpon>201306061654304_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306061656567_checkin status.resx">
+      <DependentUpon>201306061656567_checkin status.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -6,8 +6,14 @@
 		$.ajax({
 			url: url,
 			type: 'get',
-			success: function () {
-				console.log('processed');
+			success: function (data) {
+				if (data.Success) {
+					alert("Successfully checked in");
+					window.location = "/";
+				}
+				else {
+					alert("Failed checking in: " + data.FailReason);
+				}
 				$overlay.remove();
 			},
 			error: function (xhr, textStatus, errorThrown) {
