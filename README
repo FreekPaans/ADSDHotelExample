@@ -22,11 +22,11 @@ Features:
 * handle rooms not available exception when making reservation
 * handle/implement timeouts on acquiring payment data
 * handle rooms not available when checking in
-* implement search by last name
 * handle already checked in
 * handle failed checkins
 * no double checkin
 * make checkin idempotent
+* retry checkin
 
 Refactors:
 * rename all to/till date fields to checkout date
@@ -44,4 +44,4 @@ Refactors:
 Extra features:
 * upgrade your room
 * extend your stay
-* switch credit card at checkin
+* switch credit card/payment method at checkin
