@@ -1,0 +1,30 @@
+﻿@model ReservationsOverviewViewModel
+
+@{
+    Layout = null;
+}
+
+<table class="reservations_overview search_guest_result">
+<thead>
+<tr>
+<th>
+Name
+</th>
+<th>
+Arrival date
+</th>
+<th>
+Check out date
+</th>
+</tr>
+</thead>
+<tbody>
+@foreach(var overview in Model.Reservations.OrderBy(r=>r.Arrival)) {
+	<tr data-reservationid="@overview.ReservationId">
+		<td>@overview.Name</td>
+		<td>@overview.Arrival.ToString("D")
+		<td>@overview.Checkout.ToString("D")</td>
+	</tr>
+}
+</tbody>
+</table>

@@ -40,11 +40,17 @@ namespace GuestService.DataProviders{
 		}
 
 		Frontdesk.Contracts.ReservationCheckin.GuestDetails Frontdesk.Contracts.ReservationCheckin.IProvideGuestDetails.GetGuestDetails(Guid reservationId) {
-			var guest = _context.Guests.Find(reservationId);
+			return ((Frontdesk.Contracts.ReservationCheckin.IProvideGuestDetails)this).GetGuestsDetails(new Guid[] { reservationId}).First();
+		}
 
-			return new Frontdesk.Contracts.ReservationCheckin.GuestDetails{
-				Name = FormatName(guest)
-			};
+
+		ICollection<Frontdesk.Contracts.ReservationCheckin.GuestDetails> Frontdesk.Contracts.ReservationCheckin.IProvideGuestDetails.GetGuestsDetails(ICollection<Guid> reservationIds) {
+			var guests = _context.Guests.Where(g=>reservationIds.Contains(g.ReservationId)).ToArray();
+
+			return guests.Select(guest=>new Frontdesk.Contracts.ReservationCheckin.GuestDetails {
+				Name = FormatName(guest),
+				ReservationId = guest.ReservationId
+			}).ToArray();
 		}
 	}
 }

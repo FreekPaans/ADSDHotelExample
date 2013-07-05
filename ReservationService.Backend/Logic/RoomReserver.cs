@@ -99,22 +99,32 @@ namespace ReservationService.Backend.Logic {
 			ReleaseRooms(reservationId);
 		}
 
-		public bool CanCheckin(Guid reservationId, out CannotCheckinReason reason) {
-			reason = CannotCheckinReason.NotApplicable;
-
-			var reservation = _context.ReservationsWithAcquiredRoom.Find(reservationId);
-
-			if(reservation==null) {
-				return CheckinFailed(reservation, out reason);
-			}
-
-			if(!IsInCheckinPeriod(reservation)) {
-				return CheckinFailed(reservation, out reason);
-			}
-
-			return true;
-
+		public ICollection<CanCheckInInfo> CanCheckin(ICollection<Guid> reservationIds) {
 			
+			//reason = CannotCheckinReason.NotApplicable;
+
+			var reservations = _context.ReservationsWithAcquiredRoom.Where(r=>reservationIds.Contains(r.ReservationId)).ToDictionary(r=>r.ReservationId,r=>r);
+			
+			var res = new List<CanCheckInInfo>();
+
+			foreach(var reservationId in reservationIds) {	
+				CannotCheckinReason reason = CannotCheckinReason.NotApplicable;
+				if(!reservations.ContainsKey(reservationId)) {
+					var result = CheckinFailed(null,out reason);
+					res.Add(new CanCheckInInfo { ReservationId = reservationId, CanCheckIn = result, CannotCheckInReason = reason});
+					continue;
+				}
+				var reservation = reservations[reservationId];
+				if(!IsInCheckinPeriod(reservation)) {
+					var result = CheckinFailed(reservation,out reason);
+					res.Add(new CanCheckInInfo { ReservationId = reservationId, CannotCheckInReason = reason, CanCheckIn = result});
+					continue;
+				}	
+				res.Add(new CanCheckInInfo { CanCheckIn = true, ReservationId = reservationId, CannotCheckInReason = CannotCheckinReason.NotApplicable});
+			}
+			
+			return res;
+			//return true;
 		}
 
 		private bool CheckinFailed(ReservationWithAcquiredRoom reservation,out CannotCheckinReason reason) {
@@ -149,11 +159,25 @@ namespace ReservationService.Backend.Logic {
 			return CanCheckin(reservationId,out reason);
 		}
 
+		public bool CanCheckin(Guid reservationId, out CannotCheckinReason reason) {
+			var checkin = CanCheckin(new [] { reservationId}).First();
+
+			reason = checkin.CannotCheckInReason;
+			return checkin.CanCheckIn;
+			//return CanCheckin(reservationId,out reason);
+		}
+
 		public void StartCheckIn(Guid reservationId) {
 			if(!CanCheckin(reservationId)) {
 				throw new InvalidOperationException("Cannot checkin yet");
 			}
 			_eventBus.Publish(new GuestArrived { ReservationId = reservationId});
+		}
+
+		public class CanCheckInInfo {
+			public Guid ReservationId{get;set;}
+			public bool CanCheckIn{get;set;}
+			public CannotCheckinReason CannotCheckInReason{get;set;}
 		}
 	}
 }

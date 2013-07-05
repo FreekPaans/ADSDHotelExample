@@ -21,25 +21,34 @@ namespace ReservationService.DataProviders {
 		
 
 		Frontdesk.Contracts.ReservationCheckin.ReservationDetails Frontdesk.Contracts.ReservationCheckin.IProvideReservationDetails.GetReservationDetails(Guid reservationId) {
-			var reservation = _context.Reservations.Find(reservationId);
-			
-			return new Frontdesk.Contracts.ReservationCheckin.ReservationDetails {
-				CanCheckin = _roomReserver.CanCheckin(reservationId),
-				CheckinDate = reservation.From,
-				CheckoutDate = reservation.To,
-				RoomTypeId =reservation.RoomTypeId,
-				Status = GetFriendlyStatus(reservation),
-				FinishedCheckInProcess = reservation.IsCheckedIn || reservation.CheckInFailed,
-				CheckInFailedReason = reservation.FailedReason,
-				CheckedInSuccesfully = reservation.IsCheckedIn
-			};
+			return  ((Frontdesk.Contracts.ReservationCheckin.IProvideReservationDetails)this).GetReservationsDetails(new [] {reservationId}).First();
 		}
 
-		private string GetFriendlyStatus(Backend.DAL.Models.ReservationStatus reservation) {
-			RoomReserver.CannotCheckinReason reason;
-			if(_roomReserver.CanCheckin(reservation.ReservationId, out reason)) {
+		ICollection<Frontdesk.Contracts.ReservationCheckin.ReservationDetails> Frontdesk.Contracts.ReservationCheckin.IProvideReservationDetails.GetReservationsDetails(ICollection<Guid> reservationIds) {
+			var reservations = _context.Reservations.Where(r=>reservationIds.Contains(r.ReservationId)).ToArray();
+
+			var checkins = _roomReserver.CanCheckin(reservationIds).ToDictionary(r=>r.ReservationId, r=>r);
+
+			return reservations.Select(r=>new Frontdesk.Contracts.ReservationCheckin.ReservationDetails {
+				ReservationId = r.ReservationId,
+				CanCheckin = checkins[r.ReservationId].CanCheckIn,
+				CheckinDate = r.From,
+				CheckoutDate = r.To,
+				RoomTypeId =r.RoomTypeId,
+				Status = GetFriendlyStatus(r, checkins[r.ReservationId]),
+				FinishedCheckInProcess = r.IsCheckedIn || r.CheckInFailed,
+				CheckInFailedReason = r.FailedReason,
+				CheckedInSuccesfully = r.IsCheckedIn
+			}).ToArray();
+		}
+
+		private string GetFriendlyStatus(Backend.DAL.Models.ReservationStatus reservation, ReservationService.Backend.Logic.RoomReserver.CanCheckInInfo canCheckIn) {
+			
+			if(canCheckIn.CanCheckIn) {
 				return "Reservation ready for checkin";
 			}
+
+			var reason = canCheckIn.CannotCheckInReason;
 
 			if(reason == RoomReserver.CannotCheckinReason.ReservationNotFound) {
 				if(reservation.CancellationFeeStatus == ReservationCancellationFeeStatus.TimedOut) {
@@ -77,5 +86,8 @@ namespace ReservationService.DataProviders {
 				CheckoutDate = reservation.To
 			};
 		}
+
+
+		
 	}
 }

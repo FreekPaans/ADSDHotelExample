@@ -25,6 +25,8 @@ Features:
 * implement search by last name
 * handle already checked in
 * handle failed checkins
+* no double checkin
+* make checkin idempotent
 
 Refactors:
 * rename all to/till date fields to checkout date

@@ -14,10 +14,13 @@ namespace GuestService.WebInterface.Handlers {
 		IHandleHttpProcessingEvents<ObtainingReservationDetails> {
 
 		public void HandleHttpRequest(HttpProcessingPipelineContext httpContext) {
+			httpContext.WriteView("Guest_JSFacade",@"<script src=""/Scripts/Services/GuestService/GuestFacade.js"" type=""text/javascript""></script>");
 		}
 
 		public void Handle(HttpProcessingPipelineContext context, ObtainingReservationDetails @event) {
 			context.WriteView("Guest_ObtainReservationDetails", ()=>new GuestDetailsForm  {ReservationId = @event.ReservationId}.TransformText());
+
+			
 		}
 	}
 }

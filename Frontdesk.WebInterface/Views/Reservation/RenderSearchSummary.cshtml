@@ -4,13 +4,22 @@
 
 @model ReservationSearchSummaryViewModel
 
-<table>
+<h2>Guest details</h2>
+<table class="search_guest_result">
 <tr>
 <td>
 	Name
 </td>
 <td>
 	@Model.GuestDetails.Name
+</td>
+</tr>
+<tr>
+<td>
+	Reservation number
+</td>
+<td>
+	@Model.ReservationId
 </td>
 </tr>
 <tr>

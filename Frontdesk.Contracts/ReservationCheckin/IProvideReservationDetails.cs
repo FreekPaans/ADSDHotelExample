@@ -6,6 +6,7 @@ using System.Text;
 namespace Frontdesk.Contracts.ReservationCheckin {
 	public interface IProvideReservationDetails {
 		ReservationDetails GetReservationDetails(Guid reservationId);
+		ICollection<ReservationDetails> GetReservationsDetails(ICollection<Guid> reservationId);
 	}
 
 	public class ReservationDetails {
@@ -18,5 +19,7 @@ namespace Frontdesk.Contracts.ReservationCheckin {
 		public bool FinishedCheckInProcess{ get; set; }
 		public bool CheckedInSuccesfully { get; set; }
 		public string CheckInFailedReason { get; set; }
+
+		public Guid ReservationId { get; set; }
 	}
 }

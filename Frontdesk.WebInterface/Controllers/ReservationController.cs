@@ -75,6 +75,23 @@ namespace Frontdesk.WebInterface.Controllers {
 			};
 			return model;
 		}
+		
 
+		public ActionResult RenderReservationsOverview(Guid[] reservationIds) {
+			//var dict = reservationIds.Select(
+			var reservationDetails = _reservationDetailsProvider.GetReservationsDetails(reservationIds).ToDictionary(r=>r.ReservationId,r=>r);
+			var guestDetails = _guestDetailsProvider.GetGuestsDetails(reservationIds).ToDictionary(g=>g.ReservationId,g=>g);
+
+			var ids = reservationIds.Intersect(guestDetails.Select(g=>g.Key)).Intersect(reservationDetails.Select(r=>r.Key));
+
+			return View(new ReservationsOverviewViewModel {
+				Reservations=  ids.Select(r=>new ReservationsOverviewViewModel.ReservationOverviewViewModel { 
+					ReservationId = r,
+					Name = guestDetails[r].Name,
+					Arrival= reservationDetails[r].CheckinDate,
+					Checkout= reservationDetails[r].CheckoutDate,
+				}).ToArray()
+			});
+		}
 	}
 }

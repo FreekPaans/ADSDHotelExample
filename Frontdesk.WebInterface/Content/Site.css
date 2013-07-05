@@ -63,3 +63,21 @@
 	color: white;
 }
 
+
+.reservations_overview {
+	width: 100%;
+}
+
+.reservations_overview th {
+	text-align:left;
+}
+
+table.reservations_overview {
+	border-spacing: 0;
+}
+
+.reservations_overview tbody tr:hover {
+	background-color: blue;
+	color: white;
+	cursor: pointer;
+}

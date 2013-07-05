@@ -1,7 +1,4 @@
 ﻿$(function () {
-	var $overlay = $('<div></div>').css({ position: 'absolute', width: '100%', height: '100%', opacity: 0.5, 'background-color': 'black', top: '0px', left: '0px' });
-	$overlay.append($('<img src="/Content/Images/ajax-loader.gif" />').css({left: '50%', top: '50%', position:'absolute'}));
-
 	var pollCheckInResult = function (url) {
 		$.ajax({
 			url: url,
@@ -14,7 +11,7 @@
 				else {
 					alert("Failed checking in: " + data.FailReason);
 				}
-				$overlay.remove();
+				hideLoader();
 			},
 			error: function (xhr, textStatus, errorThrown) {
 				if (xhr.status == 404) {
@@ -26,7 +23,7 @@
 				}
 
 				alert("Unknown error: " + errorThrown)
-				$overlay.remove();
+				hideLoader();
 			}
 		});
 	}
@@ -35,7 +32,7 @@
 
 		var $form = $(this);
 		
-		$('body').append($overlay);
+		showLoader();
 
 		$.ajax({
 			url: $form[0].action,

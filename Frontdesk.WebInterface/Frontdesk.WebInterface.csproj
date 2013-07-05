@@ -136,6 +136,7 @@
     <Compile Include="Helpers\DateContextHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CheckInReservationViewModel.cs" />
+    <Compile Include="ViewModels\ReservationsOverviewViewModel.cs" />
     <Compile Include="ViewModels\ReservationSearchSummaryViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -213,6 +214,7 @@
     <Content Include="Scripts\jquery-2.0.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.10.3.js" />
     <Content Include="Scripts\jquery-ui-1.10.3.min.js" />
+    <Content Include="Scripts\loader.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\Reservation\Checkin.js" />
     <Content Include="Web.config">
@@ -230,6 +232,7 @@
     <Content Include="Scripts\jquery-2.0.1.min.map" />
     <Content Include="Views\Reservation\RenderSearchSummary.cshtml" />
     <Content Include="Views\Reservation\Checkin.cshtml" />
+    <Content Include="Views\Reservation\RenderReservationsOverview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -255,6 +258,10 @@
     <ProjectReference Include="..\GuestService.DataProviders\GuestService.DataProviders.csproj">
       <Project>{f3ba58e0-1e7b-480e-80f6-15b93f5479cf}</Project>
       <Name>GuestService.DataProviders</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GuestService.WebInterface\GuestService.WebInterface.csproj">
+      <Project>{f6c71fb3-5f27-49a9-b763-e8b17c664f53}</Project>
+      <Name>GuestService.WebInterface</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrastructure.HTTP.Session.AspNet\Infrastructure.HTTP.Session.AspNet.csproj">
       <Project>{ff856df7-1bdd-49a6-934f-9ac18a7b4e12}</Project>
